@@ -42,7 +42,7 @@ Después de seguir estos pasos alguien revisará tu código, si hay cambios se n
 ##  💪 Participantes
 
 - [@lumiguz](https://github.com/lumiguz) - Frontend Developer
-- []() - 
+- [@Leonardo-JK](https://github.com/Leonardo-JK) - Frontend Developer
 - []() - 
 - []() - 
 
