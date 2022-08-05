@@ -4,15 +4,15 @@ import Row from './Row';
 
 function Board(){
 
-    const {validNumbers, newGame, matriz} = useContext(SudokuContext)
+    const {posiblesNumbers} = useContext(SudokuContext)
     
     return(
         <div className="board">
-            {validNumbers.map((row) =>{
+            {posiblesNumbers.map((row) =>{
                 return(
                     <Row 
                         row = {row} 
-                        
+                        r = {posiblesNumbers.indexOf(row)}                        
                     />
                 )
             })}
