@@ -163,7 +163,7 @@ export const SudokuProvider = ({children}) => {
     const newGame = () => {        
         resetGame()
     
-        for(let i = 0; i < 60; i++){
+        for(let i = 0; i < 30; i++){
             let r = Math.floor(Math.random() * 9)
             let c = Math.floor(Math.random() * 9)
                     
@@ -297,10 +297,14 @@ export const SudokuProvider = ({children}) => {
 
     const confModo = (modo) => {
         if(modo === "tinta"){
+            document.getElementById("tinta").style.border = "2px solid blue"
+            document.getElementById("lapiz").style.border = "1px solid black"
             setModo("tinta")
         }
 
         if(modo === "lapiz"){
+            document.getElementById("lapiz").style.border = "2px solid blue"
+            document.getElementById("tinta").style.border = "1px solid black"
             setModo("lapiz")
         }
     }
@@ -496,17 +500,38 @@ export const SudokuProvider = ({children}) => {
                 let y = Math.floor(idPrev / 10)
                 let x = idPrev % 10
                 document.getElementById(idPrev).style.border = "1px solid grey"
+
                 for(let i = 0; i < 9; i++){
                     document.getElementById(y.toString() + i.toString()).style.backgroundColor = "white"
                     document.getElementById(i.toString() + x.toString()).style.backgroundColor = "white"
                 }
+
+                let Ix = Math.ceil((y + 1) / 3) - 1              
+                let Jx = Math.ceil((x + 1) / 3) - 1
+
+                for(let i = 0; i < 3; i++){
+                    for(let j = 0; j < 3; j++){
+                        document.getElementById(((Ix * 3) + i).toString() + ((Jx * 3) + j).toString()).style.backgroundColor = "white"
+                    }
+                }
             }
         
             document.getElementById(id).style.border = "2px solid gold"
+
             for(let i = 0; i < 9; i++){
                 document.getElementById(r.toString() + i.toString()).style.backgroundColor = "lightyellow"
                 document.getElementById(i.toString() + c.toString()).style.backgroundColor = "lightyellow"
             }
+
+            let I = Math.ceil((r + 1) / 3) - 1              
+            let J = Math.ceil((c + 1) / 3) - 1
+
+            for(let i = 0; i < 3; i++){
+                for(let j = 0; j < 3; j++){
+                    document.getElementById(((I * 3) + i).toString() + ((J * 3) + j).toString()).style.backgroundColor = "lightyellow"
+                }
+            }
+
         }
         setIdPrev(id)
         setSelected(id)
@@ -522,9 +547,17 @@ export const SudokuProvider = ({children}) => {
         auxPosNum = posiblesNumbers
         auxVerMat = verifyValues
         
-        if(blockValues[r][c] === false){
-            auxMat[r][c] = ""
+        if(modo === "tinta"){
+            if(blockValues[r][c] === false){
+                auxMat[r][c] = ""
+            }
         }
+
+        if(modo === "lapiz"){
+            if(blockValues[r][c] === false){
+                auxPosNum[r][c] = []
+            }
+        }        
         
         update()
     }
@@ -534,6 +567,7 @@ export const SudokuProvider = ({children}) => {
             posiblesNumbers,
             matriz, 
             verifyValues,
+            blockValues,
             selected,
             modo,
             newGame,

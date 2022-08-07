@@ -3,9 +3,8 @@ import Board from './components/Board'
 import NewGame from './components/NewGame';
 import {SudokuProvider} from './contexts/SudokuContext';
 import BotonNum from './components/BotonNum'
-import BotonLapiz from './components/BotonLapiz';
-import BotonTinta from './components/BotonTinta';
 import Borrar from './components/Borrar';
+import BotonModo from './components/BotonModo';
 
 function App() {
     const numeros = [1,2,3,4,5,6,7,8,9]
@@ -14,6 +13,7 @@ function App() {
         <SudokuProvider>
             <div className="app">
                 <NewGame />
+                <Board />  
                 <div className='btnNumList'>
                     {numeros.map((n) => {
                         return(
@@ -25,11 +25,17 @@ function App() {
                 </div>
 
                 <div className='btnModoList'>
-                    <BotonLapiz />
-                    <BotonTinta />
+                    <BotonModo
+                        modo = "lapiz"
+                        img = "pencil.png"
+                    />
+                    <BotonModo
+                        modo = "tinta"
+                        img = "pen.png"
+                    />
                     <Borrar />
                 </div>
-                <Board />                
+                
             </div>
         </SudokuProvider>
         

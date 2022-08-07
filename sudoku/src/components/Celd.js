@@ -2,9 +2,11 @@ import React, {useContext, useEffect} from "react";
 import { SudokuContext } from "../contexts/SudokuContext";
 import NumList from './NumList';
 
+const imagen = require.context("./../img", true); 
+
 function Celd(props){
 
-    const {matriz, resaltar} = useContext(SudokuContext)
+    const {matriz, resaltar, blockValues} = useContext(SudokuContext)
 
     let id = props.r.toString() + props.c.toString()
 
@@ -32,7 +34,14 @@ function Celd(props){
                 :
 
                 <div className="checkNumber" onClick={() => resaltar(props.r.toString() + props.c.toString())}>
-                    <p>{matriz[props.r][props.c]}</p>
+                    <img src={blockValues[props.r][props.c]
+                                ?
+                                imagen('./' + matriz[props.r][props.c].toString() + 'B.png')
+                                :
+                                imagen('./' + matriz[props.r][props.c].toString() + 'G.png')
+                                } 
+                        alt={matriz[props.r][props.c]}
+                    />
                 </div>
             }
             </div>
