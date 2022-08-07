@@ -119,7 +119,8 @@ export const SudokuProvider = ({children}) => {
         //             [[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9]],
         //             [[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9]],
         //             [[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9]]]
-        
+
+
         blockMat = [[false,false,false,false,false,false,false,false,false,],
                     [false,false,false,false,false,false,false,false,false,],
                     [false,false,false,false,false,false,false,false,false,],
@@ -129,6 +130,15 @@ export const SudokuProvider = ({children}) => {
                     [false,false,false,false,false,false,false,false,false,],
                     [false,false,false,false,false,false,false,false,false,],
                     [false,false,false,false,false,false,false,false,false,]]
+
+        for(let i = 0; i < 9; i++){ 
+            for(let j = 0; j < 9; j++){
+                let celda = document.getElementById(i.toString() + j.toString())       
+                celda.style.border = "1px solid grey"
+                celda.style.backgroundColor = "white"
+                celda.style.fontWeight = ""
+            }
+        }
     }
 
     const removeValue = (arr, value) => {
@@ -153,12 +163,13 @@ export const SudokuProvider = ({children}) => {
     const newGame = () => {        
         resetGame()
     
-        for(let i = 0; i < 40; i++){
+        for(let i = 0; i < 60; i++){
             let r = Math.floor(Math.random() * 9)
             let c = Math.floor(Math.random() * 9)
                     
             if(auxMat[r][c] === ""){
                 ponerNum(r.toString() + c.toString(), base[r][c], true)
+                document.getElementById(r.toString() + c.toString()).style.fontWeight = "bolder"
             } else {
                 i--
             }
@@ -166,7 +177,7 @@ export const SudokuProvider = ({children}) => {
         console.log(auxMat);
         console.log(auxPosNum);
         console.log(auxVerMat);
-
+        
         update()
     }
 
@@ -263,6 +274,25 @@ export const SudokuProvider = ({children}) => {
         if(!carga){
             update()
         }
+
+        check()
+    }
+
+    const check = () =>{
+        for(let i = 0; i < 9; i++){
+            for(let j = 0; j < 9; j++){
+                if(verifyValues[i][j] === false){
+                    return
+                }
+            }
+        }
+
+        console.log("checked");
+        if(JSON.stringify(matriz) === JSON.stringify(base)){
+            console.log("Felicitaciones");
+        } else {
+            console.log("El tablero esta mal.");
+        }
     }
 
     const confModo = (modo) => {
@@ -275,7 +305,7 @@ export const SudokuProvider = ({children}) => {
         }
     }
 
-    let sol = 0
+    // let sol = 0
     // const solucion = () => {
     //     sol++
     //     if(sol === 10){
@@ -454,22 +484,49 @@ export const SudokuProvider = ({children}) => {
     //     return true
     // }  
     
-    const [idPrev, setIIdPrev] = useState("")
-    const [borderPrev, setBorderPrev] = useState("")
+    const [idPrev, setIdPrev] = useState("")
     
     const resaltar = (id) => {
+
+        let r = Math.floor(id / 10)
+        let c = id % 10
+
         if(id !== idPrev){
             if(idPrev !== ""){
-                document.getElementById(idPrev).style.border = borderPrev
+                let y = Math.floor(idPrev / 10)
+                let x = idPrev % 10
+                document.getElementById(idPrev).style.border = "1px solid grey"
+                for(let i = 0; i < 9; i++){
+                    document.getElementById(y.toString() + i.toString()).style.backgroundColor = "white"
+                    document.getElementById(i.toString() + x.toString()).style.backgroundColor = "white"
+                }
             }
-            
-            setBorderPrev(document.getElementById(id).style.border)
         
             document.getElementById(id).style.border = "2px solid gold"
+            for(let i = 0; i < 9; i++){
+                document.getElementById(r.toString() + i.toString()).style.backgroundColor = "lightyellow"
+                document.getElementById(i.toString() + c.toString()).style.backgroundColor = "lightyellow"
+            }
         }
-        setIIdPrev(id)
+        setIdPrev(id)
         setSelected(id)
         console.log(idPrev);
+    }
+
+    const borrar = (id) => {
+        let r = Math.floor(id / 10)
+        let c = id % 10
+
+        auxMat = matriz
+        blockMat = blockValues
+        auxPosNum = posiblesNumbers
+        auxVerMat = verifyValues
+        
+        if(blockValues[r][c] === false){
+            auxMat[r][c] = ""
+        }
+        
+        update()
     }
 
     return (
@@ -482,7 +539,8 @@ export const SudokuProvider = ({children}) => {
             newGame,
             resaltar,
             ponerNum,
-            confModo
+            confModo,
+            borrar
         }}>
             {children}
         </SudokuContext.Provider>                                            

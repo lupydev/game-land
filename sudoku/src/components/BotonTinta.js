@@ -6,7 +6,7 @@ function BotonTinta() {
     const {confModo} = useContext(SudokuContext)
 
     return(
-        <button className="btnTinta" onClick={() => confModo("tinta")}>Tin</button>
+        <button className="btnModo" onClick={() => confModo("tinta")}>Tinta</button>
     )
 }
 

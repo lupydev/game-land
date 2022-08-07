@@ -29,10 +29,18 @@ $celdaDim: 2.5rem;
     }
 }
 
-.btnModo{
+.btnModoList{
     display: flex;
     justify-content: space-evenly;
-    width: 5rem;
+    width: 20rem;
+    margin-bottom: 1rem;
+
+    .btnModo{
+        font-size: 1.5rem;
+        width: 5rem;
+        height: 2rem;
+        border-radius: 0.5rem;
+    }
 }
 
 .numList{

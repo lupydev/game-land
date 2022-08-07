@@ -6,7 +6,7 @@ function BotonLapiz() {
     const {confModo} = useContext(SudokuContext)
 
     return(
-        <button className="btnLapiz" onClick={() => confModo("lapiz")}>Lap</button>
+        <button className="btnModo" onClick={() => confModo("lapiz")}>Lapiz</button>
     )
 }
 

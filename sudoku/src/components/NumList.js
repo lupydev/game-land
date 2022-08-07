@@ -4,10 +4,8 @@ import { SudokuContext } from "../contexts/SudokuContext";
 
 function NumList(props){
 
-    const {resaltar} = useContext(SudokuContext)
-
     return(        
-        <div className="numList" onClick={() => resaltar(props.id)}>
+        <div className="numList" >
             <p className="posibleNum">{props.num}</p>           
         </div>
     )
