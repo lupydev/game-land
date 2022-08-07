@@ -5,13 +5,34 @@ $celdaDim: 2.5rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 35%;
     height: 100vh;
+    margin-left: 30%;
     border: 1px solid black;
 }
 
 .newGame{
     margin-bottom: 2rem;
+}
+
+.btnNumList{
+    display: flex;
+    width: 85%;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+
+    .btnNum{
+        font-size: 1.5rem;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 0.5rem;
+    }
+}
+
+.btnModo{
+    display: flex;
+    justify-content: space-evenly;
+    width: 5rem;
 }
 
 .numList{

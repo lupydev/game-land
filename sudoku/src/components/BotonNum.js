@@ -1,0 +1,18 @@
+import React, { useContext, useState } from "react";
+import { SudokuContext } from "../contexts/SudokuContext";
+
+function BotonNum(props){
+
+    const {modo, ponerNum, selected} = useContext(SudokuContext)
+    
+    const poner = (num) => {
+
+        ponerNum(selected, num, false, modo)
+    }
+
+    return( 
+        <button className="btnNum" onClick={() => poner(props.n)}>{props.n}</button>
+    )
+}
+
+export default  BotonNum;

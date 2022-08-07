@@ -2,15 +2,31 @@ import React from 'react';
 import Board from './components/Board'
 import NewGame from './components/NewGame';
 import {SudokuProvider} from './contexts/SudokuContext';
-import Poner from './components/Poner'
+import BotonNum from './components/BotonNum'
+import BotonLapiz from './components/BotonLapiz';
+import BotonTinta from './components/BotonTinta';
 
 function App() {
-    
+    const numeros = [1,2,3,4,5,6,7,8,9]
+
     return (
         <SudokuProvider>
             <div className="app">
                 <NewGame />
-                <Poner />
+                <div className='btnNumList'>
+                    {numeros.map((n) => {
+                        return(
+                            <BotonNum
+                                n = {n}
+                            />
+                        )
+                    })}
+                </div>
+
+                <div className='btnModo'>
+                    <BotonLapiz />
+                    <BotonTinta />
+                </div>
                 <Board />                
             </div>
         </SudokuProvider>

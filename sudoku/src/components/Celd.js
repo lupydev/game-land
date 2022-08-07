@@ -6,6 +6,8 @@ function Celd(props){
 
     const {matriz, resaltar} = useContext(SudokuContext)
 
+    let id = props.r.toString() + props.c.toString()
+
     return(
         <div className="celd">
             {props.c === 3 || props.c === 6
@@ -15,14 +17,14 @@ function Celd(props){
             null
             }
             
-            <div className="celdSection" id={props.r.toString() + props.c.toString()}>
+            <div className="celdSection" id={id} onClick={() => resaltar(id)}>
             {matriz[props.r][props.c] === "" 
                 ?            
                 props.celd.map((num) => {
                     return(
                         <NumList 
                             num = {num}
-                            id = {props.r.toString() + props.c.toString()}
+                            id = {id}
                         />
                     )                
                 })
