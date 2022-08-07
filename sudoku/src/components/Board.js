@@ -4,8 +4,8 @@ import Row from './Row';
 
 function Board(){
 
-    const {posiblesNumbers} = useContext(SudokuContext)
-    
+    const {posiblesNumbers, matriz} = useContext(SudokuContext)
+
     return(
         <div className="board">
             {posiblesNumbers.map((row) =>{

@@ -1,10 +1,15 @@
 .app {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100vh;
   border: 1px solid black;
+}
+
+.newGame {
+  margin-bottom: 2rem;
 }
 
 .numList {
@@ -27,52 +32,64 @@
 .celd {
   margin: 0;
   display: flex;
-  flex-wrap: wrap;
-  width: 11.333333%;
+  min-width: auto;
   height: 100%;
-  border: 1px solid black;
+  z-index: 3;
 }
-.celd .checkNumber {
+.celd .celdSection {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 2.5rem;
+  border: 1px solid grey;
+}
+.celd .celdSection .checkNumber {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.celd .checkNumber p {
+.celd .celdSection .checkNumber p {
   font-size: 2rem;
   margin: 0;
   padding: 0;
 }
 
+.celd:hover {
+  border: 1px sold gold;
+}
+
 .row {
   display: flex;
+  flex-direction: column;
+  width: auto;
+  height: ato;
+}
+.row .rowSection {
+  display: flex;
+  height: 2.5rem;
+}
+
+.lineHor {
+  height: 2px;
   width: 100%;
-  height: 33%;
-  border: 0.1px solid black;
+  background-color: black;
+  display: inline-flex;
 }
 
-.subLine {
-  border-bottom: 3px solid black;
-}
-
-.supLine {
-  border-top: 3px solid black;
-}
-
-.leftLine {
-  border-left: 4px solid black;
-}
-
-.rightLine {
-  border-right: 4px solid black;
+.lineVer {
+  height: 100%;
+  width: 2.5px;
+  background-color: black;
 }
 
 .board {
   display: flex;
   flex-direction: column;
-  width: 400px;
-  height: 400px;
+  width: auto;
+  height: auto;
+  border: 4px solid black;
 }
 
 * {
