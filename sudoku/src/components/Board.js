@@ -1,23 +1,31 @@
 import React, {useContext, useEffect} from "react";
 import {SudokuContext} from '../contexts/SudokuContext'
 import Row from './Row';
+import Win from "./Win";
 
 function Board(){
 
-    const {posiblesNumbers, matriz} = useContext(SudokuContext)
+    const {posiblesNumbers, winner} = useContext(SudokuContext)
 
     return(
         <div className="board">
-            {posiblesNumbers.map((row) =>{
-                return(
-                    <Row 
-                        row = {row} 
-                        r = {posiblesNumbers.indexOf(row)}                        
-                    />
-                )
-            })}
-            
+            {winner
+            ?
+                <Win />
+            :
+                <div>    
+                    {posiblesNumbers.map((row) =>{
+                        return(
+                            <Row 
+                                row = {row} 
+                                r = {posiblesNumbers.indexOf(row)}                        
+                            />
+                        )
+                    })}
+                </div>
+            }
         </div>
+        
     )
 }
 

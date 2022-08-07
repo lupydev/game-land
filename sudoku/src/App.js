@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Board from './components/Board'
 import NewGame from './components/NewGame';
 import {SudokuProvider} from './contexts/SudokuContext';
-import BotonNum from './components/BotonNum'
+import BotonNum from './components/BotonNum';
 import Borrar from './components/Borrar';
 import BotonModo from './components/BotonModo';
 
@@ -14,6 +14,7 @@ function App() {
             <div className="app">
                 <NewGame />
                 <Board />  
+
                 <div className='btnNumList'>
                     {numeros.map((n) => {
                         return(

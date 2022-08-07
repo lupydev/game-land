@@ -66,6 +66,8 @@ export const SudokuProvider = ({children}) => {
                     [false,false,false,false,false,false,false,false,false,],
                     [false,false,false,false,false,false,false,false,false,]]
     
+    let time = 0
+
     const [selected, setSelected] = useState("")
 
     const [posiblesNumbers, setPosNum] = useState(auxPosNum)
@@ -77,6 +79,10 @@ export const SudokuProvider = ({children}) => {
     const [blockValues, setBlocVal] = useState(blockMat)
 
     const [modo, setModo] = useState("Tinta")
+
+    const [winner, setWinner] = useState(false)
+
+    const [tiempo, setTiempo] = useState(Date.now())
 
     const resetGame = () => {
         console.log("reset");
@@ -131,14 +137,22 @@ export const SudokuProvider = ({children}) => {
                     [false,false,false,false,false,false,false,false,false,],
                     [false,false,false,false,false,false,false,false,false,]]
 
-        for(let i = 0; i < 9; i++){ 
-            for(let j = 0; j < 9; j++){
-                let celda = document.getElementById(i.toString() + j.toString())       
-                celda.style.border = "1px solid grey"
-                celda.style.backgroundColor = "white"
-                celda.style.fontWeight = ""
+        if(winner === false){
+            for(let i = 0; i < 9; i++){ 
+                for(let j = 0; j < 9; j++){
+                    let celda = document.getElementById(i.toString() + j.toString())       
+                    celda.style.border = "1px solid grey"
+                    celda.style.backgroundColor = "white"
+                    celda.style.fontWeight = ""
+                }
             }
-        }
+        }        
+
+        time = 0
+
+        setWinner(false)
+
+        update()
     }
 
     const removeValue = (arr, value) => {
@@ -162,8 +176,8 @@ export const SudokuProvider = ({children}) => {
 
     const newGame = () => {        
         resetGame()
-    
-        for(let i = 0; i < 30; i++){
+        
+        for(let i = 0; i < 70; i++){
             let r = Math.floor(Math.random() * 9)
             let c = Math.floor(Math.random() * 9)
                     
@@ -177,11 +191,13 @@ export const SudokuProvider = ({children}) => {
         console.log(auxMat);
         console.log(auxPosNum);
         console.log(auxVerMat);
-        
+
+        time = Date.now()
+
         update()
     }
 
-    const ponerNum = (id, num, carga, modo) => {
+    const ponerNum = (id, num, carga, m) => {
 
         if(id === ""){
             console.log("No se ha selecionado ninguna celda");
@@ -203,7 +219,7 @@ export const SudokuProvider = ({children}) => {
                 console.log("No se puede modificar esa celda");
             }else{
 
-                if(modo === "lapiz"){
+                if(m === "lapiz"){
                     if(!auxPosNum[r][c].includes(num)){
                         auxPosNum[r][c].push(num)
                     }
@@ -290,6 +306,9 @@ export const SudokuProvider = ({children}) => {
         console.log("checked");
         if(JSON.stringify(matriz) === JSON.stringify(base)){
             console.log("Felicitaciones");
+            setWinner(true)
+            time = Date.now()
+            setTiempo(time)
         } else {
             console.log("El tablero esta mal.");
         }
@@ -570,11 +589,14 @@ export const SudokuProvider = ({children}) => {
             blockValues,
             selected,
             modo,
+            winner,
+            tiempo,
             newGame,
             resaltar,
             ponerNum,
             confModo,
-            borrar
+            borrar,
+            resetGame
         }}>
             {children}
         </SudokuContext.Provider>                                            
