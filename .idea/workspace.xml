@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b155912-2b0f-4ae5-a4c4-dee816d7f454" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/backend/prueba.txt" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/src/main/java/com/nocountry/backend/dto/SudokuDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/src/main/java/com/nocountry/backend/entity/Games.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/src/main/java/com/nocountry/backend/mapper/SudokuMapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
