@@ -5,8 +5,9 @@ export const NavBar = () => {
 
   return (
     <div className='navBar'>
-        NavBar
-        <Link to="/wordle">wordle</Link>
+        
+        <Link to="/">Home</Link>
+        <Link to="/ranking">Ranking</Link>
     </div>
   )
 }
