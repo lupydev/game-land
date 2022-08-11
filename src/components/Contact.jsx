@@ -12,9 +12,12 @@ export const Contact = () => {
             <img src="" alt="" />
           </div>
           <div className="contactContainer-card--contact">
-
-          <p>GameLand</p>
-          <div className="contactContainer-card--socials"></div>
+            <p>GameLand</p>
+            <div
+              className="cont
+            
+            actContainer-card--socials"
+            ></div>
           </div>
         </div>
       </div>
