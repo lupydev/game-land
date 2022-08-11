@@ -6,10 +6,99 @@
   width: 100%;
   height: 100vh;
   border: 1px solid black;
+  position: relative;
 }
 
-.newGame {
+.headSudoku {
+  display: flex;
+  justify-content: space-between;
+  height: 3rem;
+  width: 100%;
   margin-bottom: 2rem;
+  margin-top: calc(61px + 2rem);
+}
+.headSudoku .newGame {
+  margin-left: 3rem;
+}
+.headSudoku .help {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 1rem;
+  margin-right: 2rem;
+}
+.headSudoku .help img {
+  height: 90%;
+}
+
+.mainSudoku {
+  width: 100%;
+  height: 78vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 3;
+  border: 1px solid;
+}
+
+.instructionDiv {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 70px;
+  background-color: white;
+  width: 100%;
+  height: 90%;
+  z-index: 5;
+  scroll-behavior: smooth;
+  overflow: scroll;
+  border: 2px solid grey;
+}
+
+.ocultar {
+  display: none;
+}
+
+.instruction {
+  background-color: white;
+  width: 90%;
+  height: 100vh;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 0px;
+}
+.instruction .closeInst {
+  text-align: center;
+  background-color: red;
+  color: white;
+  position: sticky;
+  left: 90%;
+  top: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 0.75rem;
+}
+.instruction h3 {
+  margin: 0.5rem 0 0.5rem 0;
+}
+.instruction p {
+  text-align: justify;
+  text-indent: 2rem;
+}
+.instruction ul {
+  padding-left: 4rem;
+}
+.instruction ul li {
+  padding-bottom: 0.25rem;
+}
+
+.btn {
+  width: 8rem;
+  height: 2rem;
+  border-radius: 1rem;
 }
 
 .btnNumList {
@@ -29,7 +118,7 @@
 .btnModoList {
   display: flex;
   justify-content: space-evenly;
-  width: 20rem;
+  width: 100%;
   margin-bottom: 1rem;
 }
 .btnModoList .btnModo {
@@ -91,10 +180,6 @@
   height: 1.5rem;
   margin: 0;
   padding: 0;
-}
-
-.celd:hover {
-  border: 1px sold gold;
 }
 
 .row {

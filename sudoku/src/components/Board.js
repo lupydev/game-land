@@ -5,14 +5,10 @@ import Win from "./Win";
 
 function Board(){
 
-    const {posiblesNumbers, winner} = useContext(SudokuContext)
+    const {posiblesNumbers} = useContext(SudokuContext)
 
     return(
         <div className="board">
-            {winner
-            ?
-                <Win />
-            :
                 <div>    
                     {posiblesNumbers.map((row) =>{
                         return(
@@ -23,9 +19,7 @@ function Board(){
                         )
                     })}
                 </div>
-            }
-        </div>
-        
+        </div>        
     )
 }
 
