@@ -1,0 +1,16 @@
+.navBar{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: $main-color;
+    a{
+        padding: 0.6rem 0;
+        font-size: 1.6rem;
+        line-height: 1.94rem;
+        font-weight: 700;
+        color: $third-color;
+        text-decoration: none;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}
