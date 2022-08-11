@@ -1,3 +1,19 @@
-@import 'Footer';
-@import 'Wordle';
-@import 'NavBar';
+/*----UI---- */
+@import "./base/normalize";
+@import "./base/settings";
+
+/*----COMPONENTS---- */
+@import "./components/About";
+@import "./components/Contact";
+@import "./components/Footer";
+@import "./components/Header";
+@import "./components/Home";
+@import "./components/LandingPage";
+@import "./components/Login";
+@import "./components/MemoryInstructions";
+@import "./components/NavBar";
+@import "./components/Ranking";
+@import "./components/Registration";
+@import "./components/SudokuInstructions";
+@import "./components/Wordle";
+@import "./components/WordleInstructions";
