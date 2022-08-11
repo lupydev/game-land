@@ -1,5 +1,15 @@
 # GAME LAND
 
+## Dependencias
+
+- React router Dom
+### `npm install react-router-dom`
+para poder trabajar con `Link`
+
+- Nomrlize.scss
+### `npm i normalize-scss`
+para poder resetear los estilos de todos los browsers (navegadores) y asi van ser compactos los estilos 
+
 ## Descripción
 
 Game Land es un repositorio de mini juegos que estamos desarrollando.
