@@ -1,5 +1,6 @@
 @charset "UTF-8";
 /*----UI---- */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 article,
 aside,
 details,
@@ -25,7 +26,8 @@ audio:not([controls]) {
   height: 0;
 }
 
-[hidden], template {
+[hidden],
+template {
   display: none;
 }
 
@@ -186,7 +188,8 @@ textarea {
   vertical-align: baseline;
 }
 
-button, input {
+button,
+input {
   line-height: normal;
 }
 
@@ -208,7 +211,8 @@ input[disabled] {
   cursor: default;
 }
 
-button::-moz-focus-inner, input::-moz-focus-inner {
+button::-moz-focus-inner,
+input::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
@@ -242,22 +246,120 @@ input[type=checkbox], input[type=radio] {
 4. Visuals
 5. Miscelaneos
 */
+/*--VARIABLES UI*/
+/*--VARIBLES-WORDLE--*/
 /*----COMPONENTS---- */
-.landingPage {
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Inter", sans-serif;
   background-color: #191d2b;
+  color: #27ae60;
+}
+.headerContainer .headerContainer-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 6rem;
+  height: 6rem;
+}
+.headerContainer .headerContainer-logo p {
+  font-size: 3.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+.headerContainer .headerContainer-player--name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.headerContainer .headerContainer-player--name p {
+  justify-content: center;
+  font-size: 2rem;
+  line-height: 2.478rem;
+  font-weight: 700;
+  text-align: center;
+  color: #d5edff;
+}
+.headerContainer .headerContainer-player--points {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  height: 5rem;
+  margin: 0.5rem 1rem 0.5rem 0;
+  border-radius: 50px;
+  border: 2px solid #d5edff;
+}
+.headerContainer .headerContainer-player--points p {
+  margin: 0 auto;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.landingPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Inter", sans-serif;
+}
+.landingPage .landingPage-title {
+  width: 100%;
+  margin-top: 10rem;
+  padding: 5rem 0;
+  background-color: #191d2b;
+}
+.landingPage .landingPage-title h1 {
+  font-size: 5.6rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: #27ae60;
+}
+.landingPage .landingPage-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+}
+.landingPage .landingPage-login .btn {
+  margin-top: 2.6rem;
+  padding: 0.8rem 2.1rem;
+  border-radius: 5px;
+  font-size: 1.6rem;
+  line-height: 1.94rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+.landingPage .landingPage-login .btn:hover {
+  text-decoration: none;
+}
+.landingPage .landingPage-login a {
+  font-size: 1.4rem;
+  line-height: 1.74rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.landingPage .landingPage-login a:hover {
+  text-decoration: underline;
 }
 
 .navBar {
   display: flex;
   justify-content: space-evenly;
-  background-color: #191d2b;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  background-color: rgb(29, 37, 50);
 }
 .navBar a {
   padding: 0.6rem 0;
   font-size: 1.6rem;
   line-height: 1.94rem;
   font-weight: 700;
-  color: #f7931a;
+  color: #d5edff;
   text-decoration: none;
 }
 .navBar a:hover {
