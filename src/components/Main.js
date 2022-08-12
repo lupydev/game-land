@@ -3,7 +3,7 @@ import Board from './Board'
 import BotonNum from './BotonNum';
 import Borrar from './Borrar';
 import BotonModo from './BotonModo';
-import { SudokuContext } from "../contexts/SudokuContext";
+import { SudokuContext } from "../Contexts/SudokuContext";
 import Win from "./Win";
 
 

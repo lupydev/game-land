@@ -1,7 +1,6 @@
 import React, {useContext, useEffect} from "react";
-import {SudokuContext} from '../contexts/SudokuContext'
+import {SudokuContext} from '../Contexts/SudokuContext'
 import Row from './Row';
-import Win from "./Win";
 
 function Board(){
 

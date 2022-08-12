@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Main from './components/Main';
 import NewGame from './components/NewGame';
-import {SudokuProvider} from './contexts/SudokuContext';
+import {SudokuProvider} from './Contexts/SudokuContext';
 import Instruction from "./components/Instruction";
 import Help from './components/Help';
 

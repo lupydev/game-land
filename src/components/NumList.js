@@ -1,6 +1,4 @@
 import React, { useContext } from "react";
-import { SudokuContext } from "../contexts/SudokuContext";
-
 
 function NumList(props){
 

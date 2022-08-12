@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import { SudokuContext } from "../contexts/SudokuContext";
+import React, { useContext } from "react";
+import { SudokuContext } from "../Contexts/SudokuContext";
 
 function BotonNum(props){
 
