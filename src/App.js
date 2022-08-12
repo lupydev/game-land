@@ -6,7 +6,6 @@ import { Home } from "./components/Home";
 import { Contact } from "./components/Contact";
 import { About } from "./components/About";
 import { Ranking } from "./components/Ranking";
-import { Wordle } from "./components/Wordle";
 import { WordleInstructions } from "./components/WordleInstructions";
 import { MemoryInstructions } from "./components/MemoryInstructions";
 
@@ -24,7 +23,6 @@ function App() {
           <Route path="/ranking" element={<Ranking />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
-          <Route path="/wordle" element={<Wordle />} />
           <Route path="/wordleInstructions" element={<WordleInstructions />} />
           <Route path="/memoryInstructions" element={<MemoryInstructions />} />
         </Routes>
