@@ -21,7 +21,7 @@
   padding: 5px;
   margin: 5px;
 }
-.tablero-container .tablero .fila .letra {
+.tablero-container .tablero .fila .casilla {
   font-weight: bolder;
   display: flex;
   justify-content: center;
@@ -36,6 +36,15 @@
   font-size: larger;
   font-size: 36px;
   box-shadow: 2px 1px 2px 2px rgba(0, 0, 0, 0.35);
+}
+.tablero-container .tablero .fila #exacto {
+  background-color: green;
+}
+.tablero-container .tablero .fila #existe {
+  background-color: yellow;
+}
+.tablero-container .tablero .fila #inexistente {
+  background-color: grey;
 }
 .tablero-container .teclado {
   margin: 20px;

@@ -1,4 +1,4 @@
-import { Teclas } from './Teclas'
+import { Teclas } from './TeclasTeclado'
 import { useEffect, useContext, useCallback } from 'react';
 import { Context } from '../../Context/Context';
 
@@ -10,8 +10,7 @@ export const Teclado = () => {
     const parte2 = ["A", "S", "D", "F", "G", "H", "J", "K", "L", "Ñ"];
     const parte3 = ["Z", "X", "C", "V", "B", "N", "M"];
 
-    const handleTeclado = useCallback(
-      (e) => {
+    const handleTeclado = useCallback((e) => {
         if (e.key === "Enter") {
             onEnter();
         } else if (e.key === "Backspace") {
