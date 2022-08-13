@@ -16,5 +16,12 @@
 @import "./components/Registration";
 @import "./components/Wordle";
 @import "./components/WordleInstructions";
-@import './components/sudoku.scss';
+@import './components/Sudoku.scss';
 
+.gameLand {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

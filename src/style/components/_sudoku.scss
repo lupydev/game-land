@@ -1,68 +1,115 @@
-$celdaDim: 2.5rem;
+@import "../base/settings";
 
-.app{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-    border: 1px solid black;
-    position: relative;
-}
+$celdaDim: 3.5rem;
 
-.headSudoku {
-    display: flex;
-    justify-content: space-between;
-    height: 3rem;
-    width: 100%;
-    margin-bottom: 2rem;
-    margin-top: calc(61px + 2rem);
-
-    .newGame{
-        margin-left: 3rem;        
-    }
-
-    .help {
-        height: 2rem;
-        width: 2rem;
-        border-radius: 1rem;
-        margin-right: 2rem;
-    
-        img {
-            height: 90%;
-        }
-    }
-}
-
-.mainSudoku{
-    width: 100%;
-    height: 78vh;
+.sudoku{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
-    z-index: 3;
-    border: 1px solid;
+
+    &-head {
+        display: flex;
+        justify-content: space-between;
+        height: 3rem;
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    &-instructionDiv {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        top: 0px;
+        background-color: rgba(256,256,256,1);
+        max-height: 100%;
+        z-index: 5;
+        scroll-behavior: smooth;    
+        overflow: scroll;   
+        border: 2px solid grey; 
+    }
+
+    &-aceptar {
+        width: 10rem;
+        height: 3rem;
+        margin: 7rem 0 2rem 0;
+        background-color: $white;
+        box-shadow: $box-shadow;
+        border: none;
+        border-radius: 1.5rem;
+    }
 }
 
-.instructionDiv {
+.dificult{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: absolute;
+    background-color: white;
+    width: 317px;
+    height: 321px;
+    border: 1px solid black;
+    top: 7.63rem;
+    left: 2.75rem;
+    z-index: 5;
+}
+
+.choice {
+    display: flex;
+    width: 20rem;
+    height: 4rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: $soft-orange;
+    background-color: $third-color;
+    margin: 2rem 0 0 0;
+    border-radius: 2rem;
+    border: none;
+
+}
+
+.newGame{
+    margin: 2rem 0 0 3rem;    
+    
+    &-btn {
+        background-color: $white;
+        color: #191d2b;
+        min-width: 40px;
+        height: 40px;
+        font-size: 19px;
+        border: 1px solid $white;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: $box-shadow;
+    }
+}
+
+.help {
+    background-color: $white;
+    height: 40px;
+    width: 40px;
+    font-size: 19px;
+    border: 1px solid $white;
+    border-radius: 20px;
+    margin: 2rem 4rem 0 0 ;
     display: flex;
     justify-content: center;
-    top: 70px;
-    background-color: rgba(256,256,256,1);
-    width: 100%;
-    height: 90%;
-    z-index: 5;
-    scroll-behavior: smooth;    
-    overflow: scroll;   
-    border: 2px solid grey; 
+    align-items: center;
+    box-shadow: $box-shadow;
 }
 
 .ocultar {
     display: none;
+}
+
+.mostrar {
+    display: flex;
 }
 
 .instruction{  
@@ -74,55 +121,185 @@ $celdaDim: 2.5rem;
     flex-direction: column;
     position: relative;
     top: 0px;
+    
 
-    .closeInst {
+    &-closeInst {   
+        font-size: 3rem;
+        padding: 5px;
         text-align: center;
-        background-color: red;
-        color: white;
+        color: $sudoku-wrong-number;     
+        background-color: $soft-orange;
         position: sticky;
         left: 90%;
-        top: 1rem;
-        width: 1.5rem;
-        height: 1.5rem;
-        border-radius: 0.75rem;
+        top: 3rem;
+        width: calc(3rem + 4px);
+        border-radius: calc((3rem + 10px) / 2);
+
+        &:hover{
+            background-color: $sudoku-wrong-number;
+            color: $soft-orange;
+        }
     }
 
     h3{
-        margin: 0.5rem 0 0.5rem 0;
+        font-size: 2.5rem;
+        margin: 1.5rem 0 0.5rem 0;
+        text-align: center;
     }
 
     p {
+        font-size: 1.25rem;
         text-align: justify;
-        text-indent: 2rem;
     }
 
     ul {
         padding-left: 4rem;
 
         li {
-            padding-bottom: 0.25rem;
+            font-size: 1.25rem;
+            padding-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            span{
+                font-weight: bolder;
+                margin: 0 0 0.5rem 0;
+            }
+
+            button {
+                background-color: $white;
+                box-shadow: $box-shadow;
+                width: 50px;
+                height: 50px;
+                border: 3px solid $secundary-color;
+                border-radius: 25px;
+                margin: 1rem;
+
+                img {
+                    width: 2.5rem;
+                    height: 2.5rem;
+                }
+            }
         }
     }
 }
 
-.btn {
-    width: 8rem;
-    height: 2rem;
-    border-radius: 1rem;
+.mainSudoku{
+    width: 100%;
+    height: calc(100vh - 15rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 3;
+}
+
+.board{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;    
+    box-sizing: border-box;
+    border: 2px solid #191d2b;
+}
+
+.win{
+    width: 337px;
+    height: 339px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid;
+    
+    .congrats{
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .time{
+        font-size: 14px;
+    }
+}
+
+.row{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+
+    .rowSection{
+        display: flex;
+        height: $celdaDim;
+    }
+}
+
+.lineHor{
+    height: 2px;
+    width: 100%;
+    background-color: #191d2b;
+    display: inline-flex;
+}
+
+.lineVer{
+    height: 100%;
+    width: 2px;
+    background-color: #191d2b;
+}
+
+.celd{
+    margin: 0;
+    display:flex;
+    background-color: #d5edff;
+    width: $celdaDim;
+    height: $celdaDim;
+    box-sizing: border-box;;
+    z-index: 3;
+
+    .celdSection{
+        display: flex;
+        flex-wrap:wrap; 
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        border: 1px solid #faf8f7;
+
+        .checkNumber{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: content-box;
+    
+            img{
+                width: 1.5rem;
+                height: 1.5rem;
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }   
 }
 
 .btnNumList{
     display: flex;
     width: 100%;
     justify-content: space-around;
-    margin-bottom: 1rem;
+    margin: 3rem 0 1rem 0;
 
     .btnNum{
-        font-size: 1.5rem;
-        width: 2.25rem;
-        height: 2.25rem;
-        border-radius: 0.5rem;
-        box-shadow: 2px 2px grey;
+        font-size: 14px;
+        color: white;
+        background-color: #191d2b;
+        width: 32px;
+        height: 32px;
+        border: 1px solid #191d2b;
+        border-radius: 5px;
+        box-shadow: $box-shadow;
     }
 }
 
@@ -130,22 +307,23 @@ $celdaDim: 2.5rem;
     display: flex;
     justify-content: space-evenly;
     width: 100%;
-    margin-bottom: 1rem;
+    margin: 2rem 0 0 0;
 
     .btnModo{
-        font-size: 1.5rem;
-        width: 3.25rem;
-        height: 3.25rem;
-        border: 1px solid black;
-        box-shadow: 2px 2px grey;
-        border-radius: 1.65rem;
+        background-color: $white;
+        height: 50px;
+        width: 50px;
+        font-size: 19px;
+        border: 1px solid $white;
+        border-radius: 25px;
         display: flex;
         align-items: center;
         justify-content: center;
+        box-shadow: $box-shadow;
 
         .img{
-            width: 2rem;
-            height: 2rem;
+            width: 2.5rem;
+            height: 2.5rem;
         }
     }
 }
@@ -168,87 +346,8 @@ $celdaDim: 2.5rem;
     }
 }
 
-.celd{
-    margin: 0;
-    display:flex;       
-    min-width: auto;
-    height: 100%;
-    z-index: 3;
 
-    .celdSection{
-        display: flex;
-        flex-wrap:wrap; 
-        height: 100%;
-        width: $celdaDim;
-        border: 1px solid grey;
 
-        .checkNumber{
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-    
-            img{
-                width: 1.5rem;
-                height: 1.5rem;
-                margin: 0;
-                padding: 0;
-            }
-        }
-    }   
-}
 
-.row{
-    display: flex;
-    flex-direction: column;
-    width: auto;
-    height: ato;
 
-    .rowSection{
-        display: flex;
-        height: $celdaDim;
-    }
-}
-
-.lineHor{
-    height: 2px;
-    width: 100%;
-    background-color: black;
-    display: inline-flex;
-}
-
-.lineVer{
-    height: 100%;
-    width: 2.5px;
-    background-color: black;
-}
-
-.board{
-    display: flex;
-    flex-direction: column;
-    width: auto;
-    height: auto;
-    border: 4px solid black;
-    margin-bottom: 1rem;
-
-    .win{
-        width: 23rem;
-        height: 23rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        
-        .congrats{
-            text-align: center;
-            font-size: 3rem;
-            margin-top: 3rem;
-        }
-
-        .time{
-            font-size: 1.25rem;
-            margin-top: 3rem;
-        }
-    }
-}
 

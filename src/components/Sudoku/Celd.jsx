@@ -1,8 +1,8 @@
 import React, {useContext, useEffect} from "react";
-import { SudokuContext } from "../Contexts/SudokuContext";
+import { SudokuContext } from "../../Contexts/SudokuContext";
 import NumList from './NumList';
 
-const imagen = require.context("./../img", true); 
+const imagen = require.context("./../../img", true); 
 
 function Celd(props){
 

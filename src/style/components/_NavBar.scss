@@ -1,10 +1,9 @@
 .navBar{
     display: flex;
     justify-content: space-evenly;
-    box-shadow: $box-shadow
-    
-    ;
+    box-shadow: $box-shadow;
     background-color: $soft-blue1;
+    
     a{
         padding: 0.6rem 0;
         font-size: 1.6rem;

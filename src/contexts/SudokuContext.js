@@ -73,6 +73,9 @@ export const SudokuProvider = ({children}) => {
 
     const [tiempo, setTiempo] = useState(Date.now())
 
+    const [dificultad, setDificultad] = useState("");
+    const [preDif, setPreDif] = useState("")
+
     const resetGame = () => {
         console.log("reset");
         auxMat = [["","","","","","","","",""],
@@ -119,8 +122,8 @@ export const SudokuProvider = ({children}) => {
             for(let i = 0; i < 9; i++){ 
                 for(let j = 0; j < 9; j++){
                     let celda = document.getElementById(i.toString() + j.toString())       
-                    celda.style.border = "1px solid grey"
-                    celda.style.backgroundColor = "white"
+                    celda.style.border = "1px solid #faf8f7"
+                    celda.style.backgroundColor = "#d5edff"
                     celda.style.fontWeight = ""
                 }
             }
@@ -129,7 +132,6 @@ export const SudokuProvider = ({children}) => {
         time = 0
 
         setWinner(false)
-
         update()
     }
 
@@ -152,10 +154,59 @@ export const SudokuProvider = ({children}) => {
         setBlocVal([...blockMat])
     }
 
-    const newGame = () => {        
-        resetGame()
+    const selectDif = (dif) => {
+        const choice = document.getElementsByClassName("choice")
+        for(let i = 0; i < choice.length; i++){
+            choice[i].style.backgroundColor = "#f7931a"
+            choice[i].style.color = "#ffe9d4"
+        }
         
-        for(let i = 0; i < 20; i++){
+        console.log(dif);
+        const selec = document.getElementById(dif);
+        console.log(selec);
+        selec.style.backgroundColor = "#ffe9d4"
+        selec.style.color = "#f7931a"
+
+        setDificultad(dif)
+    }
+
+    const newGToggle = () =>{
+        document.getElementById("sudoku-dificult").classList.toggle("mostrar")
+    }
+
+    const startGame = (dif) => {
+        if(dif !== preDif){
+            setPreDif(dif)
+            newGame()
+        } else {
+            newGToggle()
+        }
+
+    }
+
+    const newGame = () => {
+                
+        resetGame()
+        let n;
+
+        switch (dificultad) {
+            case "facil":
+                n = 40
+                break;
+            
+            case "medio":
+                n = 30
+                break;
+
+            case "dificil":
+                n = 20
+                break;
+        
+            default:
+                break;
+        }
+        
+        for(let i = 0; i < n; i++){
             let r = Math.floor(Math.random() * 9)
             let c = Math.floor(Math.random() * 9)
                     
@@ -174,6 +225,7 @@ export const SudokuProvider = ({children}) => {
 
         confModo("tinta")
         update()
+        document.getElementById("sudoku-dificult").classList.remove("mostrar")
     }
 
     const ponerNum = (id, num, carga, m) => {
@@ -277,16 +329,16 @@ export const SudokuProvider = ({children}) => {
         }
     }
 
-    const confModo = (modo) => {
-        if(modo === "tinta"){
-            document.getElementById("tinta").style.border = "2px solid blue"
-            document.getElementById("lapiz").style.border = "1px solid black"
+    const confModo = (m) => {
+        if(m === "tinta"){
+            document.getElementById("tinta").style.border = "3px solid #27ae60"
+            document.getElementById("lapiz").style.border = "1px solid #D9D9D9"
             setModo("tinta")
         }
 
-        if(modo === "lapiz"){
-            document.getElementById("lapiz").style.border = "2px solid blue"
-            document.getElementById("tinta").style.border = "1px solid black"
+        if(m === "lapiz"){
+            document.getElementById("lapiz").style.border = "3px solid #27ae60"
+            document.getElementById("tinta").style.border = "1px solid #D9D9D9"
             setModo("lapiz")
         }
     }
@@ -302,11 +354,11 @@ export const SudokuProvider = ({children}) => {
             if(idPrev !== ""){
                 let y = Math.floor(idPrev / 10)
                 let x = idPrev % 10
-                document.getElementById(idPrev).style.border = "1px solid grey"
+                document.getElementById(idPrev).style.border = "1px solid #faf8f7"
 
                 for(let i = 0; i < 9; i++){
-                    document.getElementById(y.toString() + i.toString()).style.backgroundColor = "white"
-                    document.getElementById(i.toString() + x.toString()).style.backgroundColor = "white"
+                    document.getElementById(y.toString() + i.toString()).style.backgroundColor = "#d5edff"
+                    document.getElementById(i.toString() + x.toString()).style.backgroundColor = "#d5edff"
                 }
 
                 let Ix = Math.ceil((y + 1) / 3) - 1              
@@ -314,16 +366,16 @@ export const SudokuProvider = ({children}) => {
 
                 for(let i = 0; i < 3; i++){
                     for(let j = 0; j < 3; j++){
-                        document.getElementById(((Ix * 3) + i).toString() + ((Jx * 3) + j).toString()).style.backgroundColor = "white"
+                        document.getElementById(((Ix * 3) + i).toString() + ((Jx * 3) + j).toString()).style.backgroundColor = "#d5edff"
                     }
                 }
             }
         
-            document.getElementById(id).style.border = "2px solid gold"
+            document.getElementById(id).style.border = "2px solid #FCE5AA"
 
             for(let i = 0; i < 9; i++){
-                document.getElementById(r.toString() + i.toString()).style.backgroundColor = "lightyellow"
-                document.getElementById(i.toString() + c.toString()).style.backgroundColor = "lightyellow"
+                document.getElementById(r.toString() + i.toString()).style.backgroundColor = "#b7d3ea"
+                document.getElementById(i.toString() + c.toString()).style.backgroundColor = "#b7d3ea"
             }
 
             let I = Math.ceil((r + 1) / 3) - 1              
@@ -331,7 +383,7 @@ export const SudokuProvider = ({children}) => {
 
             for(let i = 0; i < 3; i++){
                 for(let j = 0; j < 3; j++){
-                    document.getElementById(((I * 3) + i).toString() + ((J * 3) + j).toString()).style.backgroundColor = "lightyellow"
+                    document.getElementById(((I * 3) + i).toString() + ((J * 3) + j).toString()).style.backgroundColor = "#b7d3ea"
                 }
             }
 
@@ -384,6 +436,7 @@ export const SudokuProvider = ({children}) => {
             modo,
             winner,
             tiempo,
+            dificultad,
             newGame,
             resaltar,
             ponerNum,
@@ -391,7 +444,10 @@ export const SudokuProvider = ({children}) => {
             borrar,
             cerrar,
             mostrar,
-            resetGame
+            resetGame,
+            selectDif,
+            newGToggle,
+            startGame
         }}>
             {children}
         </SudokuContext.Provider>                                            
