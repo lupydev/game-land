@@ -3,13 +3,15 @@ import { SudokuContext } from "../../Contexts/SudokuContext";
 
 function Win(){
 
-    const {tiempo} = useContext(SudokuContext)
+    const {tiempo,formatTime} = useContext(SudokuContext)
+
+    const time = formatTime(tiempo)
 
     return(
         <div className="win">
-            <p className="congrats">!Felicitacione</p>
+            <p className="congrats">!Felicitaciones</p>
             <p className="congrats">Ganaste!</p>
-            <p className="time">⏱️Tu tiempo fue: {tiempo}</p>
+            <p className="time">⏱️Tu tiempo fue: {time[0]}:{time[1]}:{time[2]}.{time[3]}</p>
         </div>
     )
 }

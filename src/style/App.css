@@ -346,9 +346,9 @@ input[type=checkbox], input[type=radio] {
 .sudoku-head {
   display: flex;
   justify-content: space-between;
-  height: 3rem;
+  align-items: center;
+  height: 8rem;
   width: 100%;
-  margin-bottom: 2rem;
 }
 .sudoku-instructionDiv {
   position: absolute;
@@ -379,11 +379,11 @@ input[type=checkbox], input[type=radio] {
   align-items: center;
   position: absolute;
   background-color: white;
-  width: 317px;
-  height: 321px;
+  width: 344px;
+  height: 348px;
   border: 1px solid black;
-  top: 7.63rem;
-  left: 2.75rem;
+  top: 8rem;
+  left: 1.5rem;
   z-index: 5;
 }
 
@@ -403,7 +403,7 @@ input[type=checkbox], input[type=radio] {
 }
 
 .newGame {
-  margin: 2rem 0 0 3rem;
+  margin: 0 0 0 3rem;
 }
 .newGame-btn {
   background-color: #fff;
@@ -411,6 +411,7 @@ input[type=checkbox], input[type=radio] {
   min-width: 40px;
   height: 40px;
   font-size: 19px;
+  font-weight: bold;
   border: 1px solid #fff;
   border-radius: 20px;
   display: flex;
@@ -428,7 +429,7 @@ input[type=checkbox], input[type=radio] {
   color: #191d2b;
   border: 1px solid #fff;
   border-radius: 20px;
-  margin: 2rem 0 0 0;
+  margin: 0 0 0 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -442,7 +443,7 @@ input[type=checkbox], input[type=radio] {
   font-size: 19px;
   border: 1px solid #fff;
   border-radius: 20px;
-  margin: 2rem 3rem 0 0;
+  margin: 0 3rem 0 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -522,10 +523,9 @@ input[type=checkbox], input[type=radio] {
 
 .mainSudoku {
   width: 100%;
-  height: calc(100vh - 15rem);
+  height: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   position: relative;
   z-index: 3;
@@ -566,7 +566,7 @@ input[type=checkbox], input[type=radio] {
 }
 .row .rowSection {
   display: flex;
-  height: 3.5rem;
+  height: 3.8rem;
 }
 
 .lineHor {
@@ -586,8 +586,8 @@ input[type=checkbox], input[type=radio] {
   margin: 0;
   display: flex;
   background-color: #d5edff;
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 3.8rem;
+  height: 3.8rem;
   box-sizing: border-box;
   z-index: 3;
 }
@@ -618,7 +618,7 @@ input[type=checkbox], input[type=radio] {
   display: flex;
   width: 100%;
   justify-content: space-around;
-  margin: 3rem 0 1rem 0;
+  margin: 2rem 0 1rem 0;
 }
 .btnNumList .btnNum {
   font-size: 14px;

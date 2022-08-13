@@ -14,6 +14,16 @@ function Main(){
             <div>
                 <Board />
 
+                <div className='btnNumList'>
+                    {numeros.map((n) => {
+                        return(
+                            <BotonNum
+                                n = {n}
+                            />
+                        )
+                    })}
+                </div>
+
                 <div className='btnModoList'>
                     <BotonModo
                         modo = "lapiz"
@@ -28,16 +38,6 @@ function Main(){
                     <Borrar 
                         disable = {false}
                     />
-                </div>
-
-                <div className='btnNumList'>
-                    {numeros.map((n) => {
-                        return(
-                            <BotonNum
-                                n = {n}
-                            />
-                        )
-                    })}
                 </div>
             </div>
         </div>

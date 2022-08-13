@@ -221,7 +221,7 @@ export const SudokuProvider = ({children}) => {
         console.log(auxPosNum);
         console.log(auxVerMat);
 
-        time = Date.now()
+        setTiempo(new Date())
 
         confModo("tinta")
         update()
@@ -322,11 +322,39 @@ export const SudokuProvider = ({children}) => {
         if(JSON.stringify(matriz) === JSON.stringify(base)){
             console.log("Felicitaciones");
             setWinner(true)
-            time = Date.now()
+            time = new Date() - tiempo
             setTiempo(time)
         } else {
             console.log("El tablero esta mal.");
         }
+    }
+
+    const formatTime = (time) => {
+        let timeArray = ["","","",""]
+
+        timeArray[3] = (time % 1000).toString().padStart(3, "0")
+        console.log(time)
+
+        let s = time/1000
+
+        if(s < 60){
+            timeArray[2] = Math.floor(s).toString().padStart(2,"0")
+        } else {
+            timeArray[2] = Math.floor(s % 60).toString().padStart(2,"0")
+        }
+
+        let m = s / 60
+
+        if(m < 60){
+            timeArray[1] = Math.floor(m).toString().padStart(2,"0")
+        } else {
+            timeArray[1] = Math.floor(m % 60).toString().padStart(2,"0")
+        }
+
+        let h = m / 60
+        timeArray[0] = Math.floor(h / 60).toString().padStart(2,"0")
+
+        return timeArray
     }
 
     const confModo = (m) => {
@@ -447,7 +475,8 @@ export const SudokuProvider = ({children}) => {
             resetGame,
             selectDif,
             newGToggle,
-            startGame
+            startGame,
+            formatTime
         }}>
             {children}
         </SudokuContext.Provider>                                            
