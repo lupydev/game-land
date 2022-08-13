@@ -90,6 +90,22 @@ $celdaDim: 3.5rem;
     }
 }
 
+.reset {
+    background-color: $white;
+    height: 40px;
+    width: 40px;
+    font-size: 19px;
+    font-weight: bold;
+    color: #191d2b;
+    border: 1px solid $white;
+    border-radius: 20px;
+    margin: 2rem 0 0 0 ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: $box-shadow;
+}
+
 .help {
     background-color: $white;
     height: 40px;
@@ -97,7 +113,7 @@ $celdaDim: 3.5rem;
     font-size: 19px;
     border: 1px solid $white;
     border-radius: 20px;
-    margin: 2rem 4rem 0 0 ;
+    margin: 2rem 3rem 0 0 ;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -419,6 +419,22 @@ input[type=checkbox], input[type=radio] {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
 }
 
+.reset {
+  background-color: #fff;
+  height: 40px;
+  width: 40px;
+  font-size: 19px;
+  font-weight: bold;
+  color: #191d2b;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  margin: 2rem 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
 .help {
   background-color: #fff;
   height: 40px;
@@ -426,7 +442,7 @@ input[type=checkbox], input[type=radio] {
   font-size: 19px;
   border: 1px solid #fff;
   border-radius: 20px;
-  margin: 2rem 4rem 0 0;
+  margin: 2rem 3rem 0 0;
   display: flex;
   justify-content: center;
   align-items: center;

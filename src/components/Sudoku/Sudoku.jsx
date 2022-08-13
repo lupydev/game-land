@@ -5,6 +5,7 @@ import Main from "./Main";
 import NewGame from "./NewGame";
 import Instruction from "./Instruction";
 import Dificult from "./Dificult";
+import Reset from "./Reset";
 
 function Sudoku(){
 
@@ -17,7 +18,7 @@ function Sudoku(){
 
                 <div className='sudoku-head'>
                     <NewGame />
-                    
+                    <Reset />
                     <Help />
                     <Dificult />
                 </div>
