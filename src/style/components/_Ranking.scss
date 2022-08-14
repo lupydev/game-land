@@ -1,0 +1,41 @@
+.rankingContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 10rem;
+//   height: 100vh;
+  text-align: center;
+  .rankingContainer-global,
+  .rankingContainer-games {
+    h2 {
+      font-size: 2rem;
+      text-transform: uppercase;
+      color: $secundary-color;
+    }
+    table {
+      margin: 0 auto;
+      width: 23.5rem;
+      font-size: 1.6rem;
+      border-radius: 1rem;
+      box-shadow: $box-shadow;
+      text-align: center;
+      scroll-snap-align: center;
+
+      th,
+      td {
+        padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+        border-bottom: 1px solid $soft-blue;
+      }
+    }
+  }
+  .rankingContainer-games {
+    display: flex;
+    gap: 3rem;
+    height: 26rem;
+    padding: 0 3rem;
+    overflow-x: scroll;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+  }
+}
