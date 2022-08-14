@@ -1,0 +1,25 @@
+.footerContainer {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  padding: 1rem 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: $soft-blue;
+
+  a {
+    font-size: 1rem;
+    line-height: 1.21rem;
+    font-weight: 700;
+    text-align: center;
+    color: $main-color;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
