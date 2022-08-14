@@ -76,6 +76,23 @@ export const SudokuProvider = ({children}) => {
     const [dificultad, setDificultad] = useState("");
     const [preDif, setPreDif] = useState("")
 
+    const setearBase = (str) => {
+        let mb = []
+        let index = 0
+
+        for(let i = 0; i < 9; i++){
+            let row = []
+            for(let j = 0; j < 9; j++){
+                row.push(parseInt(str[index]))
+                index++
+            }
+            
+            mb.push(row)
+        }
+
+        return mb
+    }
+
     const resetGame = () => {
         console.log("reset");
         auxMat = [["","","","","","","","",""],
@@ -157,15 +174,15 @@ export const SudokuProvider = ({children}) => {
     const selectDif = (dif) => {
         const choice = document.getElementsByClassName("choice")
         for(let i = 0; i < choice.length; i++){
-            choice[i].style.backgroundColor = "#f7931a"
-            choice[i].style.color = "#ffe9d4"
+            choice[i].style.backgroundColor = "#ffe9d4"
+            choice[i].style.color = "#f7931a"
         }
         
         console.log(dif);
         const selec = document.getElementById(dif);
         console.log(selec);
-        selec.style.backgroundColor = "#ffe9d4"
-        selec.style.color = "#f7931a"
+        selec.style.backgroundColor = "#f7931a"
+        selec.style.color = "#ffe9d4"
 
         setDificultad(dif)
     }
@@ -439,7 +456,7 @@ export const SudokuProvider = ({children}) => {
 
         if(modo === "lapiz"){
             if(blockValues[r][c] === false){
-                auxPosNum[r][c] = []
+                auxPosNum[r][c] = ["","","","","","","","",""]
             }
         }        
         

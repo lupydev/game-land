@@ -35,14 +35,12 @@ function Celd(props){
                 :
 
                 <div className="checkNumber" onClick={() => resaltar(props.r.toString() + props.c.toString())}>
-                    <img src={blockValues[props.r][props.c]
-                                ?
-                                imagen('./' + matriz[props.r][props.c].toString() + 'B.png')
-                                :
-                                imagen('./' + matriz[props.r][props.c].toString() + 'G.png')
-                                } 
-                        alt={matriz[props.r][props.c]}
-                    />
+                    {blockValues[props.r][props.c]
+                    ?
+                        <p className="blockValue">{matriz[props.r][props.c]}</p>
+                    :
+                        <p className="unBlockValue">{matriz[props.r][props.c]}</p>
+                    } 
                 </div>
             }
             </div>

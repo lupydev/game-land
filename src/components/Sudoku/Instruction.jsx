@@ -25,25 +25,28 @@ function Instruction() {
             
             <ul>
                 <li>
-                    <span>Lapiz: </span>Te permite anotar posibles numeros sin que se tengan 
-                en cuenta ni se computen.<br></br>
                     <BotonModo
                         img = {"pencil.png"}
                         disable = {true}
                     />
+                    <p><span>Lapiz: </span>Te permite anotar posibles numeros sin que se tengan 
+                en cuenta ni se computen.</p><br></br>
+                    
                 </li>
 
                 <li>
-                    <span>Tinta: </span> Si tienes seleccionado este modo, el numero que introduzcas es el numero que crees que va de forma definitiva en esa posicion.
                     <BotonModo
                         img = {"pen.png"}
                         disable = {true}
                     />
+                    <p><span>Tinta: </span> Si tienes seleccionado este modo, el numero que introduzcas es el numero que crees que va de forma definitiva en esa posicion.</p>
+                    
                 </li>
-                <li><span>Goma: </span> Con este boton puedes borrar lo que hayas escrito en la celda, recuerda que borrara segun el modo que tengas seleccionado ("Tinta" o "Lapiz").
+                <li>
                     <Borrar
                         disable = {true}
                     />
+                    <p><span>Goma: </span> Con este boton puedes borrar lo que hayas escrito en la celda, recuerda que borrara segun el modo que tengas seleccionado ("Tinta" o "Lapiz").</p>
                 </li>
             </ul>
 
