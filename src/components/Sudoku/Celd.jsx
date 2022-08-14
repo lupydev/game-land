@@ -9,6 +9,7 @@ function Celd(props){
     const {matriz, resaltar, blockValues} = useContext(SudokuContext)
 
     let id = props.r.toString() + props.c.toString()
+    let number = ["","","","","","","","",""]
 
     return(
         <div className="celd">

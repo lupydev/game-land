@@ -13,7 +13,7 @@ function Sudoku(){
         <SudokuProvider>
             <div className="sudoku">
                 <div className="sudoku-instructionDiv" id="instDiv">
-                        <Instruction />            
+                    <Instruction />            
                 </div> 
 
                 <div className='sudoku-head'>
