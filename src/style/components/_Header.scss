@@ -1,7 +1,10 @@
 .headerContainer {
+  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  top: 0;
+  width: 100%;
   font-family: $normalized_font_family;
   background-color: $main-color;
   color: $secundary-color;
