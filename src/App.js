@@ -12,6 +12,7 @@ import "./style/App.css";
 import Sudoku from "./components/Sudoku/Sudoku";
 import { Header } from "./components/Header";
 import { NavBar } from "./components/NavBar";
+import Buscaminas from "./components/Buscaminas/Buscaminas";
 
 function App() {
     return (
@@ -30,7 +31,8 @@ function App() {
                     <Route path="/about" element={<About />} />
                     <Route path="/wordleInstructions" element={<WordleInstructions />} />
                     <Route path="/memoryInstructions" element={<MemoryInstructions />} />
-                    <Route path="/game/sudoku" element={<Sudoku />} />
+                    <Route path="/games/sudoku" element={<Sudoku />} />
+                    <Route path="/games/buscaminas" element={<Buscaminas />}/>
                 </Routes>
             </div>
         </BrowserRouter>

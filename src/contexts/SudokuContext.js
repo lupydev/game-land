@@ -4,6 +4,19 @@ export const SudokuContext = createContext();
 
 export const SudokuProvider = ({children}) => {
 
+    let users 
+
+    const getUser = async (url = 'https://no-country-app.herokuapp.com/users/all', data = {mode: 'no-cors'}) => {
+        // Example POST method implementation:
+        // Default options are marked with *
+            console.log(await fetch(url))
+    }
+
+
+    getUser()
+        .then((users) => {
+            console.log(users);
+        })
     // La base se traera aleatoriamente entre varias plantillas del servidor.
     let base = [[5,6,3,7,8,1,4,9,2],
                 [8,9,2,3,5,4,6,1,7],
@@ -161,10 +174,6 @@ export const SudokuProvider = ({children}) => {
     }
 
     const update = () => {
-        console.log(auxMat);
-        console.log(auxPosNum);
-        console.log(auxVerMat);
-
         setMatriz([...auxMat])
         setPosNum([...auxPosNum])
         setVerVal([...auxVerMat])
