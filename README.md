@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# GAME LAND
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Dependencias
 
-## Available Scripts
+- React router Dom
+### `npm install react-router-dom`
+para poder trabajar con `Link`
 
-In the project directory, you can run:
+- Nomrlize.scss
+### `npm i normalize-scss`
+para poder resetear los estilos de todos los browsers (navegadores) y asi van ser compactos los estilos 
 
-### `npm start`
+## Descripción
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Game Land es un repositorio de mini juegos que estamos desarrollando.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tecnologías y Herramientas
 
-### `npm test`
+### Comunicación y organización de tareas
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Whatsapp
+- [Trello](https://trello.com/nocountryc6g49)
 
-### `npm run build`
+### Frontend
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React.JS
+- JavaScript
+- Mobile First
+- CSS
+- HTML
+- BEM
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Backend
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Java
+- 
+-
 
-### `npm run eject`
+## 👩🏻‍💻 Cómo empezar colaborar
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+En Trello o en las issues habrán tareas para realizar, comenta en una de ellas que quieres hacerte cargo de hacerla. Un moderador te confirmará que nadie está con esa tarea y se te asignará a ti.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Una vez que sepas qué tienes qué hacer:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1.- Haz un fork de este repositorio.  
+2.- Crea una rama en tu fork.  
+3.- Trabaja en la issue elegida y haz un push del commit con tus cambios.  
+4.- Haz un pull request a este repo con tu commit indicando el número de isuue y explicando lo que has hecho.  
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Después de seguir estos pasos alguien revisará tu código, si hay cambios se notificará, sino se hará merge a la rama main. ¡Felicidades! ya has hecho tu contribución 🚀
 
-## Learn More
+##  💪 Participantes
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [@lumiguz](https://github.com/lumiguz) - Frontend Developer
+- [@Leonardo-JK](https://github.com/Leonardo-JK) - Frontend Developer
+- []() - 
+- []() - 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Cursos que te pueden ayudar
 
-### Code Splitting
+- [GitHub](https://www.youtube.com/watch?v=VdGzPZ31ts8)
+-
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Recursos adicionales
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [Mockup](https://www.figma.com/file/v6zzqIqcwIRCqeOJ5pVB21/No-country-C6-G49-team-library?node-id=0%3A1)
+-

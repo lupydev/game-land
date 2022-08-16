@@ -1,0 +1,20 @@
+.contactContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 11rem 1.8rem 0 1.8rem;
+    gap: 3rem;
+    font-size: 1.6rem;
+    justify-content: center;
+    align-items: center;
+    .contactContainer-card{
+      display: flex;
+      justify-content: center;
+    align-items: center;
+      .contactContainer-card--img{
+          height: 6rem;
+          width: 6rem;
+          border-radius: 50%;
+          background-color: $soft-orange;
+      }
+    }
+  }

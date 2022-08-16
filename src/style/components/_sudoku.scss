@@ -1,0 +1,372 @@
+@import "../base/settings";
+
+$celdaDim: 3.8rem;
+
+.sudoku{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    &-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 8rem;
+        width: 100%;
+    }
+
+    &-instructionDiv {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        top: 0px;
+        background-color: rgba(256,256,256,1);
+        max-height: calc(100vh - 10rem);
+        z-index: 5;
+        scroll-behavior: smooth;    
+        overflow: scroll;   
+    }
+
+    &-aceptar {
+        width: 10rem;
+        height: 3rem;
+        margin: 7rem 0 2rem 0;
+        font-size: 1.7rem;
+        font-weight: bold;
+        background-color: $white;
+        box-shadow: $box-shadow;
+        border: none;
+        border-radius: 1.5rem;
+    }
+}
+
+.dificult{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: white;
+    width: 342px;
+    height: 346px;
+    border: 2px solid black;
+    top: 8rem;
+    left: 1.5rem;
+    z-index: 5;
+}
+
+.choice {
+    display: flex;
+    width: 20rem;
+    height: 4rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: $third-color;
+    background-color: $soft-orange;
+    margin: 2rem 0 0 0;
+    border-radius: 2rem;
+    border: none;
+
+}
+
+.newGame{
+    margin: 0 0 0 3rem;    
+    
+    &-btn {
+        background-color: $white;
+        color: #191d2b;
+        min-width: 40px;
+        height: 40px;
+        font-size: 19px;
+        font-weight: bold;
+        border: 1px solid $white;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: $box-shadow;
+    }
+}
+
+.reset {
+    background-color: $white;
+    height: 40px;
+    width: 40px;
+    font-size: 19px;
+    font-weight: bold;
+    color: #191d2b;
+    border: 1px solid $white;
+    border-radius: 20px;
+    margin: 0 0 0 0 ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: $box-shadow;
+}
+
+.help {
+    background-color: $white;
+    height: 40px;
+    width: 40px;
+    font-size: 19px;
+    border: 1px solid $white;
+    border-radius: 20px;
+    margin: 0 3rem 0 0 ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: $box-shadow;
+}
+
+.ocultar {
+    display: none;
+}
+
+.mostrar {
+    display: flex;
+}
+
+.instruction{  
+    background-color: rgba(256,256,256,1);
+    width: 90%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 0px;
+    overflow: visible;
+
+    &-closeInst {   
+        font-size: 3rem;
+        padding: 5px;
+        text-align: center;
+        color: $sudoku-wrong-number;     
+        background-color: $soft-orange;
+        position: sticky;
+        left: 90%;
+        top: 3rem;
+        width: calc(3rem + 4px);
+        border-radius: calc((3rem + 10px) / 2);
+
+        &:hover{
+            background-color: $sudoku-wrong-number;
+            color: $soft-orange;
+        }
+    }
+
+    h3{
+        font-size: 2.5rem;
+        margin: 1.5rem 0 0.5rem 0;
+        text-align: center;
+    }
+
+    p {
+        font-size: 1.25rem;
+        text-align: justify;
+    }
+
+    ul {
+        padding-left: 1rem;
+
+        li {
+            font-size: 1.25rem;
+            padding-bottom: 2rem;
+            display: flex;
+            align-items: center;
+
+            span{
+                font-weight: bolder;
+                margin: 0 0 0.5rem 0;
+            }
+
+            button {
+                background-color: $white;
+                box-shadow: $box-shadow;
+                width: 40px;
+                height: 40px;
+                border: 3px solid $secundary-color;
+                border-radius: 20px;
+                margin: 1rem;
+
+                img {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+    }
+}
+
+.mainSudoku{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 3;
+}
+
+.board{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;    
+    box-sizing: border-box;
+    border: 2px solid #191d2b;
+}
+
+.win{
+    width: 337px;
+    height: 339px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #191d2b;
+    
+    .congrats{
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .time{
+        font-size: 14px;
+    }
+}
+
+.row{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+
+    .rowSection{
+        display: flex;
+        height: $celdaDim;
+    }
+}
+
+.lineHor{
+    height: 2px;
+    width: 100%;
+    background-color: #191d2b;
+    display: inline-flex;
+}
+
+.lineVer{
+    height: 100%;
+    width: 2px;
+    background-color: #191d2b;
+}
+
+.celd{
+    margin: 0;
+    display:flex;
+    background-color: #d5edff;
+    width: $celdaDim;
+    height: $celdaDim;
+    box-sizing: border-box;;
+    z-index: 3;
+
+    .celdSection{
+        display: flex;
+        flex-wrap:wrap; 
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        border: 1px solid #faf8f7;
+
+        .checkNumber{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: content-box;
+    
+            .blockValue {
+                font-size: 2.5rem;
+                font-weight: bold;
+                color: #191d2b;
+            }
+
+            .unBlockValue {
+                font-size: 2.5rem;
+                color: #191d2b;
+            }
+        }
+    }   
+}
+
+.btnNumList{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin: 2rem 0 1rem 0;
+
+    .btnNum{
+        font-size: 14px;
+        color: white;
+        background-color: #191d2b;
+        width: 32px;
+        height: 32px;
+        border: 1px solid #191d2b;
+        border-radius: 5px;
+        box-shadow: $box-shadow;
+    }
+}
+
+.btnModoList{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin: 2rem 0 0 0;
+
+    .btnModo{
+        background-color: $white;
+        height: 50px;
+        width: 50px;
+        font-size: 19px;
+        border: 1px solid $white;
+        border-radius: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: $box-shadow;
+
+        .img{
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+    }
+}
+
+.numList{
+    margin: 0; 
+    width: 33.333333%;
+    height: 33.33333%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    .posibleNum {
+        font-size: 1rem;
+        color: #191d2b;
+        text-align: center;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+
+
+
+

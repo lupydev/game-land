@@ -1,0 +1,52 @@
+.landingPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: $normalized_font_family;
+  .landingPage-title {
+    width: 100%;
+    margin-top: 13rem;
+    padding: 5rem 0;
+    background-color: $main-color;
+    h1 {
+      font-size: 5.6rem;
+      text-align: center;
+      text-transform: uppercase;
+      color: $secundary-color;
+    }
+  }
+  .landingPage-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+    .btn {
+      margin-top: 2.6rem;
+      padding: 0.8rem 2.1rem;
+      border-radius: 5px;
+      font-size: 1.6rem;
+      line-height: 1.94rem;
+      box-shadow: $box-shadow;
+      color: $soft-blue1;
+      cursor: pointer;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    a {
+      font-size: 1.4rem;
+      line-height: 1.74rem;
+      font-weight: 700;
+      color: $soft-blue1;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    .registration {
+      margin-top: 1rem;
+    }
+  }
+}

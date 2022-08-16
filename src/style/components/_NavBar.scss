@@ -1,0 +1,21 @@
+.navBar {
+  position: fixed;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 64.766px;
+  top: 0;
+  width: 100%;
+  box-shadow: $box-shadow;
+  background-color: $soft-blue1;
+  a {
+    padding: 0.6rem 0;
+    font-size: 1.6rem;
+    line-height: 1.94rem;
+    font-weight: 700;
+    color: $soft-blue;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
