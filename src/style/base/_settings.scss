@@ -7,13 +7,37 @@
 */
 
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+/*--VARIABLES UI*/
+
 $main-color: #191d2b;
 $secundary-color: #27ae60;
 $third-color: #f7931a;
 $soft-orange: #ffe9d4;
 $soft-blue: #d5edff;
-$background: #faf8f7;
+$soft-blue1: #1d2532;
+$font: #faf8f7;
 $white: #fff;
 $box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-$normalized_font_family: 'Poppins', sans-serif;
+$normalized_font_family: 'Inter', sans-serif;
+
+/*--VARIBLES-WORDLE--*/
+
+$wordle-game-background: #d5edff;
+$wordle-game-border: 2px solid #ffe9d4;
+$wordle-correct: #03A300;
+$wordle-incorrect: #FCE5AA;
+$wordle-wrong: #939393;
+
+/*--SUDOKU-VARIABLES--*/
+
+$sudoku-game-background: #d5edff;
+$sudoku-border-strong: 2px solid #191d2b;
+$sudoku-border-soft: 1px solid #faf8f7;
+$sudoku-game-row-column: #b7d3ea;
+$sudoku-wrong-number: #c03030;
+$sudoku-wrong-row-column: #ffc8c8;
+
+
 
