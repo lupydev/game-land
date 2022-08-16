@@ -1,0 +1,1100 @@
+@charset "UTF-8";
+/*----UI---- */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&display=swap");
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+  display: block;
+}
+
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+[hidden],
+template {
+  display: none;
+}
+
+html {
+  background: #fff;
+  color: #000;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  box-sizing: border-box;
+  font-size: 62.5%;
+  font-family: "Inter", sans-serif;
+}
+
+html,
+button,
+input,
+select,
+textarea {
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  background: transparent;
+}
+a:focus {
+  outline: thin dotted;
+}
+a:hover, a:active {
+  outline: 0;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin: 0.83em 0;
+}
+
+h3 {
+  font-size: 1.17em;
+  margin: 1em 0;
+}
+
+h4 {
+  font-size: 1em;
+  margin: 1.33em 0;
+}
+
+h5 {
+  font-size: 0.83em;
+  margin: 1.67em 0;
+}
+
+h6 {
+  font-size: 0.75em;
+  margin: 2.33em 0;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+b,
+strong {
+  font-weight: bold;
+}
+
+dfn {
+  font-style: italic;
+}
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  font-size: 1em;
+}
+
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+q {
+  quotes: "“" "”" "‘" "’";
+}
+
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+img {
+  border: 0;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+figure {
+  margin: 0;
+}
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+legend {
+  border: 0;
+  padding: 0;
+  white-space: normal;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+}
+
+button,
+input {
+  line-height: normal;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+html input[type=button],
+input[type=reset],
+input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+button[disabled],
+input[disabled] {
+  cursor: default;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input[type=search] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+input[type=checkbox], input[type=radio] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/*
+1. Position
+2. Box model
+3. Typographic
+4. Visuals
+5. Miscelaneos
+*/
+/*--MAIN-FONT--*/
+/*--GAME-FONT--*/
+/*--VARIABLES UI*/
+/*--VARIBLES-WORDLE--*/
+/*--SUDOKU-VARIABLES--*/
+/*----COMPONENTS---- */
+.aboutContainer {
+  margin: 13rem 1.8rem 0 1.8rem;
+  font-size: 1.4rem;
+  line-height: 1.7rem;
+  color: #1d2532;
+}
+
+.contactContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 11rem 1.8rem 0 1.8rem;
+  gap: 3rem;
+  font-size: 1.6rem;
+  justify-content: center;
+  align-items: center;
+}
+.contactContainer .contactContainer-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contactContainer .contactContainer-card .contactContainer-card--img {
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  background-color: #ffe9d4;
+}
+
+.footerContainer {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  padding: 1rem 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #d5edff;
+}
+.footerContainer a {
+  font-size: 1rem;
+  line-height: 1.21rem;
+  font-weight: 700;
+  text-align: center;
+  color: #191d2b;
+  text-decoration: none;
+  cursor: pointer;
+}
+.footerContainer a:hover {
+  text-decoration: underline;
+}
+
+.headerContainer {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  width: 100%;
+  font-family: "Inter", sans-serif;
+  background-color: #191d2b;
+  color: #27ae60;
+}
+.headerContainer .headerContainer-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 6rem;
+  height: 6rem;
+}
+.headerContainer .headerContainer-logo p {
+  font-size: 3.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+.headerContainer .headerContainer-player--name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.headerContainer .headerContainer-player--name p {
+  justify-content: center;
+  font-size: 2rem;
+  line-height: 2.478rem;
+  font-weight: 700;
+  text-align: center;
+  color: #d5edff;
+}
+.headerContainer .headerContainer-player--points {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  height: 5rem;
+  margin: 0.5rem 1rem 0.5rem 0;
+  border-radius: 50px;
+  border: 2px solid #d5edff;
+}
+.headerContainer .headerContainer-player--points p {
+  margin: 0 auto;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.7rem;
+  margin-top: 11rem;
+  padding-bottom: 5rem;
+  text-align: center;
+}
+.homeContainer a {
+  color: #27ae60;
+  text-decoration: none;
+}
+.homeContainer a h2 {
+  font-size: 2.2rem;
+  line-height: 1.936;
+  font-weight: 700;
+}
+.homeContainer a img {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 5px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  object-fit: cover;
+}
+.homeContainer .homeContainer-card--ranking {
+  margin-top: 5px;
+  font-size: 1.6rem;
+}
+
+.landingPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Inter", sans-serif;
+}
+.landingPage .landingPage-title {
+  width: 100%;
+  margin-top: 13rem;
+  padding: 5rem 0;
+  background-color: #191d2b;
+}
+.landingPage .landingPage-title h1 {
+  font-size: 5.6rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: #27ae60;
+}
+.landingPage .landingPage-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+}
+.landingPage .landingPage-login .btn {
+  margin-top: 2.6rem;
+  padding: 0.8rem 2.1rem;
+  border-radius: 5px;
+  font-size: 1.6rem;
+  line-height: 1.94rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  color: #1d2532;
+  cursor: pointer;
+}
+.landingPage .landingPage-login .btn:hover {
+  text-decoration: none;
+}
+.landingPage .landingPage-login a {
+  font-size: 1.4rem;
+  line-height: 1.74rem;
+  font-weight: 700;
+  color: #1d2532;
+  text-decoration: none;
+}
+.landingPage .landingPage-login a:hover {
+  text-decoration: underline;
+}
+.landingPage .landingPage-login .registration {
+  margin-top: 1rem;
+}
+
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.loginContainer .loginContainer-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 311.031px;
+  width: 100%;
+  margin-top: 13rem;
+  background-color: #191d2b;
+}
+.loginContainer .loginContainer-form form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  font-size: 1.8rem;
+  line-height: 2.2rem;
+  font-size: "Inter", sans-serif;
+  text-align: center;
+}
+.loginContainer .loginContainer-form form label {
+  display: flex;
+  flex-direction: column;
+}
+.loginContainer .loginContainer-form form label span {
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: #27ae60;
+}
+.loginContainer .loginContainer-form form label input {
+  padding: 0.5rem;
+  font-size: 1.6rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  resize: none;
+  text-align: center;
+  background-color: #d5edff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+.loginContainer .loginContainer-form form .btn {
+  padding: 0.8rem 2.1rem;
+  border-radius: 5px;
+  font-size: 1.6rem;
+  line-height: 1.94rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  font-weight: 700;
+  color: #1d2532;
+  background-color: #fff;
+  cursor: pointer;
+}
+.loginContainer .loginContainer-form form .btn:hover {
+  text-decoration: none;
+}
+.loginContainer .links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6rem;
+  height: 138.172px;
+}
+.loginContainer .links a {
+  font-size: 1.4rem;
+  line-height: 1.74rem;
+  font-weight: 700;
+  color: #1d2532;
+  text-decoration: none;
+}
+.loginContainer .links a:hover {
+  text-decoration: underline;
+}
+
+.navBar {
+  position: fixed;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 64.766px;
+  top: 0;
+  width: 100%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  background-color: #1d2532;
+}
+.navBar a {
+  padding: 0.6rem 0;
+  font-size: 1.6rem;
+  line-height: 1.94rem;
+  font-weight: 700;
+  color: #d5edff;
+  text-decoration: none;
+}
+.navBar a:hover {
+  text-decoration: underline;
+}
+
+.rankingContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 10rem;
+  text-align: center;
+}
+.rankingContainer .rankingContainer-global h2,
+.rankingContainer .rankingContainer-games h2 {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: #27ae60;
+}
+.rankingContainer .rankingContainer-global table,
+.rankingContainer .rankingContainer-games table {
+  margin: 0 auto;
+  width: 23.5rem;
+  font-size: 1.6rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  scroll-snap-align: center;
+}
+.rankingContainer .rankingContainer-global table th,
+.rankingContainer .rankingContainer-global table td,
+.rankingContainer .rankingContainer-games table th,
+.rankingContainer .rankingContainer-games table td {
+  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+  border-bottom: 1px solid #d5edff;
+}
+.rankingContainer .rankingContainer-games {
+  display: flex;
+  gap: 3rem;
+  height: 26rem;
+  padding: 0 3rem;
+  overflow-x: scroll;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+}
+
+.registrationContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6rem;
+}
+.registrationContainer .registration-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 96.157px;
+  text-align: center;
+  background-color: #191d2b;
+}
+.registrationContainer .registration-title a {
+  display: flex;
+  align-items: center;
+  height: 80%;
+  text-transform: uppercase;
+  color: #27ae60;
+  text-decoration: none;
+}
+.registrationContainer .registration-title a h2 {
+  margin: auto 0;
+  font-size: 4.8rem;
+}
+.registrationContainer .registration-title a:hover {
+  text-decoration: none;
+}
+.registrationContainer .registrationContainer-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3rem;
+  width: 29rem;
+  margin-top: 10rem;
+  margin-bottom: 2.6rem;
+}
+.registrationContainer .registrationContainer-form label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.2rem;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  font-weight: 700;
+  color: #27ae60;
+}
+.registrationContainer .registrationContainer-form label input {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 2px solid #1d2532;
+  outline: none;
+  resize: none;
+  background-color: #d5edff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+.registrationContainer .registrationContainer-form .btn {
+  padding: 0.8rem 2.1rem;
+  border-radius: 5px;
+  font-size: 1.6rem;
+  line-height: 1.94rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  font-weight: 700;
+  color: #1d2532;
+  background-color: #fff;
+  cursor: pointer;
+}
+.registrationContainer .registrationContainer-form .btn:hover {
+  text-decoration: none;
+}
+.registrationContainer .registrationContainer-form button {
+  justify-self: center;
+  align-self: center;
+}
+.registrationContainer a {
+  font-size: 1.4rem;
+  line-height: 1.74rem;
+  font-weight: 700;
+  color: #1d2532;
+  text-decoration: none;
+}
+.registrationContainer a:hover {
+  text-decoration: underline;
+}
+
+/*
+1. Position
+2. Box model
+3. Typographic
+4. Visuals
+5. Miscelaneos
+*/
+/*--MAIN-FONT--*/
+/*--GAME-FONT--*/
+/*--VARIABLES UI*/
+/*--VARIBLES-WORDLE--*/
+/*--SUDOKU-VARIABLES--*/
+.sudoku {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.sudoku-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 8rem;
+  width: 100%;
+}
+.sudoku-instructionDiv {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 0px;
+  background-color: white;
+  max-height: calc(100vh - 10rem);
+  z-index: 5;
+  scroll-behavior: smooth;
+  overflow: scroll;
+}
+.sudoku-aceptar {
+  width: 10rem;
+  height: 3rem;
+  margin: 7rem 0 2rem 0;
+  font-size: 1.7rem;
+  font-weight: bold;
+  background-color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  border: none;
+  border-radius: 1.5rem;
+}
+
+.dificult {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background-color: white;
+  width: 342px;
+  height: 346px;
+  border: 2px solid black;
+  top: 8rem;
+  left: 1.5rem;
+  z-index: 5;
+}
+
+.choice {
+  display: flex;
+  width: 20rem;
+  height: 4rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: #f7931a;
+  background-color: #ffe9d4;
+  margin: 2rem 0 0 0;
+  border-radius: 2rem;
+  border: none;
+}
+
+.newGame {
+  margin: 0 0 0 3rem;
+}
+.newGame-btn {
+  background-color: #fff;
+  color: #191d2b;
+  min-width: 40px;
+  height: 40px;
+  font-size: 19px;
+  font-weight: bold;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.reset {
+  background-color: #fff;
+  height: 40px;
+  width: 40px;
+  font-size: 19px;
+  font-weight: bold;
+  color: #191d2b;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  margin: 0 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.help {
+  background-color: #fff;
+  height: 40px;
+  width: 40px;
+  font-size: 19px;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  margin: 0 3rem 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.ocultar {
+  display: none;
+}
+
+.mostrar {
+  display: flex;
+}
+
+.instruction {
+  background-color: white;
+  width: 90%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 0px;
+  overflow: visible;
+}
+.instruction-closeInst {
+  font-size: 3rem;
+  padding: 5px;
+  text-align: center;
+  color: #c03030;
+  background-color: #ffe9d4;
+  position: sticky;
+  left: 90%;
+  top: 3rem;
+  width: calc(3rem + 4px);
+  border-radius: calc((3rem + 10px) / 2);
+}
+.instruction-closeInst:hover {
+  background-color: #c03030;
+  color: #ffe9d4;
+}
+.instruction h3 {
+  font-size: 2.5rem;
+  margin: 1.5rem 0 0.5rem 0;
+  text-align: center;
+}
+.instruction p {
+  font-size: 1.25rem;
+  text-align: justify;
+}
+.instruction ul {
+  padding-left: 1rem;
+}
+.instruction ul li {
+  font-size: 1.25rem;
+  padding-bottom: 2rem;
+  display: flex;
+  align-items: center;
+}
+.instruction ul li span {
+  font-weight: bolder;
+  margin: 0 0 0.5rem 0;
+}
+.instruction ul li button {
+  background-color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  width: 40px;
+  height: 40px;
+  border: 3px solid #27ae60;
+  border-radius: 20px;
+  margin: 1rem;
+}
+.instruction ul li button img {
+  width: 20px;
+  height: 20px;
+}
+
+.mainSudoku {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 3;
+}
+
+.board {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  box-sizing: border-box;
+  border: 2px solid #191d2b;
+}
+
+.win {
+  width: 337px;
+  height: 339px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #191d2b;
+}
+.win .congrats {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+}
+.win .time {
+  font-size: 14px;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+}
+.row .rowSection {
+  display: flex;
+  height: 3.8rem;
+}
+
+.lineHor {
+  height: 2px;
+  width: 100%;
+  background-color: #191d2b;
+  display: inline-flex;
+}
+
+.lineVer {
+  height: 100%;
+  width: 2px;
+  background-color: #191d2b;
+}
+
+.celd {
+  margin: 0;
+  display: flex;
+  background-color: #d5edff;
+  width: 3.8rem;
+  height: 3.8rem;
+  box-sizing: border-box;
+  z-index: 3;
+}
+.celd .celdSection {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: 1px solid #faf8f7;
+}
+.celd .celdSection .checkNumber {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: content-box;
+}
+.celd .celdSection .checkNumber .blockValue {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #191d2b;
+}
+.celd .celdSection .checkNumber .unBlockValue {
+  font-size: 2.5rem;
+  color: #191d2b;
+}
+
+.btnNumList {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin: 2rem 0 1rem 0;
+}
+.btnNumList .btnNum {
+  font-size: 14px;
+  color: white;
+  background-color: #191d2b;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #191d2b;
+  border-radius: 5px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.btnModoList {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin: 2rem 0 0 0;
+}
+.btnModoList .btnModo {
+  background-color: #fff;
+  height: 50px;
+  width: 50px;
+  font-size: 19px;
+  border: 1px solid #fff;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+.btnModoList .btnModo .img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.numList {
+  margin: 0;
+  width: 33.333333%;
+  height: 33.33333%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.numList .posibleNum {
+  font-size: 1rem;
+  color: #191d2b;
+  text-align: center;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/*
+1. Position
+2. Box model
+3. Typographic
+4. Visuals
+5. Miscelaneos
+*/
+/*--MAIN-FONT--*/
+/*--GAME-FONT--*/
+/*--VARIABLES UI*/
+/*--VARIBLES-WORDLE--*/
+/*--SUDOKU-VARIABLES--*/
+.buscaminas {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: 1px solid red;
+}
+.buscaminas-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 8rem;
+  width: 100%;
+}
+
+.mainBuscaminas {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border: 1px solid green;
+}
+
+.boardBuscaminas {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: auto;
+  margin: 2rem 0 0 0;
+}
+
+.rowBuscaminas {
+  width: 100%;
+  height: 1.75rem;
+  display: flex;
+}
+
+.celdBuscaminas {
+  width: 8%;
+  height: 100%;
+  border-radius: 4px;
+  border: 1px solid black;
+}
+
+.gameLand {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*# sourceMappingURL=App.css.map */
