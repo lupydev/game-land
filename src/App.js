@@ -19,8 +19,7 @@ function App() {
         <>
         <BrowserRouter>
             <div className="gameLand">
-                <Header />
-                <NavBar />
+                
                 <Routes>
                     <Route path="/" element={<LandingPage />} />
                     <Route path="/login" element={<Login />} />
