@@ -27,27 +27,44 @@
 .boardBuscaminas {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    align-items: center;
+    justify-content: center;
+    width: auto;
     height: auto;
+    border-top: 4px solid #999999;
+    border-left: 4px solid #999999;
+    border-bottom: 4px solid #FFFFFF;
+    border-right: 4px solid #FFFFFF;
 }
 
 .rowBuscaminas {
-    width: 100%;
+    width: auto;
     height: 2rem;
     display: flex;
-    margin: 0.25px;
 }
 
 .celdBuscaminas {
-    width: 2.25rem;
+    width: 2rem;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    background-color: $third-color;
-    border-radius: 4px;
-    border: 1px solid black;
-    box-shadow: inset 2px 2px 8px grey;
+    background-color: #E5E5E5;
+    box-sizing: border-box;
+    // border-radius: 4px;
+    border-top: 3px solid #FFFFFF;
+    border-left: 3px solid #FFFFFF;
+    border-bottom: 3px solid #999999;
+    border-right: 3px solid #999999;
+    // box-shadow: inset 2px 2px 8px grey;
+}
+
+.ocultar {
+    display: none;
+}
+
+.mostrar {
+    display: flex;
 }
 

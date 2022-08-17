@@ -234,6 +234,8 @@ table {
 
 input[type=search] {
   -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
   box-sizing: content-box;
 }
 input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-search-decoration {
@@ -387,8 +389,7 @@ input[type=checkbox], input[type=radio] {
   height: 20rem;
   border-radius: 5px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .homeContainer .homeContainer-card--ranking {
   margin-top: 5px;
@@ -587,8 +588,7 @@ input[type=checkbox], input[type=radio] {
   padding: 0 3rem;
   overflow-x: scroll;
   overscroll-behavior-x: contain;
-  -ms-scroll-snap-type: x proximity;
-      scroll-snap-type: x proximity;
+  scroll-snap-type: x proximity;
 }
 
 .registrationContainer {
@@ -710,7 +710,7 @@ input[type=checkbox], input[type=radio] {
   display: flex;
   justify-content: center;
   top: 0px;
-  background-color: rgb(255, 255, 255);
+  background-color: white;
   max-height: calc(100vh - 10rem);
   z-index: 5;
   scroll-behavior: smooth;
@@ -815,7 +815,7 @@ input[type=checkbox], input[type=radio] {
 }
 
 .instruction {
-  background-color: rgb(255, 255, 255);
+  background-color: white;
   width: 90%;
   padding: 1rem;
   display: flex;
@@ -830,7 +830,6 @@ input[type=checkbox], input[type=radio] {
   text-align: center;
   color: #c03030;
   background-color: #ffe9d4;
-  position: -webkit-sticky;
   position: sticky;
   left: 90%;
   top: 3rem;
@@ -1068,25 +1067,43 @@ input[type=checkbox], input[type=radio] {
 .boardBuscaminas {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  align-items: center;
+  justify-content: center;
+  width: auto;
   height: auto;
+  border-top: 4px solid #999999;
+  border-left: 4px solid #999999;
+  border-bottom: 4px solid #FFFFFF;
+  border-right: 4px solid #FFFFFF;
 }
 
 .rowBuscaminas {
-  width: 100%;
+  width: auto;
   height: 2rem;
   display: flex;
-  margin: 0.25px;
 }
 
 .celdBuscaminas {
-  width: 2.25rem;
+  width: 2rem;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  background-color: #f7931a;
-  border-radius: 4px;
-  border: 1px solid black;
-}/*# sourceMappingURL=App.css.map */
+  background-color: #E5E5E5;
+  box-sizing: border-box;
+  border-top: 3px solid #FFFFFF;
+  border-left: 3px solid #FFFFFF;
+  border-bottom: 3px solid #999999;
+  border-right: 3px solid #999999;
+}
+
+.ocultar {
+  display: none;
+}
+
+.mostrar {
+  display: flex;
+}
+
+/*# sourceMappingURL=App.css.map */

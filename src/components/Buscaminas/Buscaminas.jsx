@@ -6,24 +6,31 @@ import Dificult from "./Dificult";
 import Reset from "./Reset";
 import Main from "./Main";
 import { BuscaminasProvider } from "../../Contexts/BuscaminasContext";
+import { Header } from "../Header";
+import { NavBar } from "../NavBar";
+import Instruction from "./Instruction";
 
 function Buscaminas() {
     
     return(
         <BuscaminasProvider>
-            <div className="buscaminas">
-                {/* <div className="buscaminas-instructionDiv" id="instDiv">
-                    <Instruction />            
-                </div>  */}
+            <div>
+                <Header />
+                <NavBar />
+                <div className="buscaminas">
+                    <div className="buscaminas-instructionDiv" id="instDiv">
+                        <Instruction />            
+                    </div> 
 
-                <div className='buscaminas-head'>
-                    <NewGame />
-                    <Reset />
-                    <Help />
-                    <Dificult />
+                    <div className='buscaminas-head'>
+                        <NewGame />
+                        <Reset />
+                        <Help />
+                        <Dificult />
+                    </div>
+                    
+                    <Main />              
                 </div>
-                
-                <Main />              
             </div>
         </BuscaminasProvider>
     )

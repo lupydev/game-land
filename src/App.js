@@ -10,8 +10,6 @@ import { WordleInstructions } from "./components/WordleInstructions";
 import { MemoryInstructions } from "./components/MemoryInstructions";
 import "./style/App.css";
 import Sudoku from "./components/Sudoku/Sudoku";
-import { Header } from "./components/Header";
-import { NavBar } from "./components/NavBar";
 import Buscaminas from "./components/Buscaminas/Buscaminas";
 
 function App() {

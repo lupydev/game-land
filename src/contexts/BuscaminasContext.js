@@ -229,7 +229,11 @@ export const BuscaminasProvider = ({children}) => {
         for(let i = 0; i < 20; i++){
             for(let j = 0; j < 14; j++){
                 document.getElementById(i.toString().padStart(2, "0") + j.toString().padStart(2, "0")).style.color = "black"
-                document.getElementById(i.toString().padStart(2, "0") + j.toString().padStart(2, "0")).style.backgroundColor = "#f7931a"
+                document.getElementById(i.toString().padStart(2, "0") + j.toString().padStart(2, "0")).style.backgroundColor = "#E5E5E5"
+                document.getElementById(i.toString().padStart(2, "0") + j.toString().padStart(2, "0")).style.borderTop = "3px solid #FFFFFF"
+                document.getElementById(i.toString().padStart(2, "0") + j.toString().padStart(2, "0")).style.borderLeft = "3px solid #FFFFFF"
+                document.getElementById(i.toString().padStart(2, "0") + j.toString().padStart(2, "0")).style.borderBottom = "3px solid #999999"
+                document.getElementById(i.toString().padStart(2, "0") + j.toString().padStart(2, "0")).style.borderRight = "3px solid #999999"
             }
         }
 
@@ -261,7 +265,12 @@ export const BuscaminasProvider = ({children}) => {
                         }
                     }
 
-                    auxMat[i][j] = totalBombs                    
+                    if(totalBombs > 0){
+                        auxMat[i][j] = totalBombs 
+                    } else {
+                        auxMat[i][j] = ""
+                    }
+                                       
                 }
             }
         }
@@ -280,7 +289,8 @@ export const BuscaminasProvider = ({children}) => {
         
         
         if(modo === "buscar" && auxBlock[row][col] === false){
-            document.getElementById(row.toString().padStart(2, "0") +col.toString().padStart(2, "0")).style.backgroundColor = "#ffe9d4"
+            document.getElementById(row.toString().padStart(2, "0") +col.toString().padStart(2, "0")).style.backgroundColor = "#DADADA"
+            document.getElementById(row.toString().padStart(2, "0") +col.toString().padStart(2, "0")).style.border = "1px solid #C9C9C9"
 
             if(auxMat[row][col] === "💣"){
                 console.log("bomb");
@@ -301,13 +311,14 @@ export const BuscaminasProvider = ({children}) => {
     
             if(auxMat[row][col] > 0){
                 auxShow[row][col] = true
+                color(row.toString().padStart(2, "0") + col.toString().padStart(2, "0"), auxMat[row][col])
                 free--
             }
     
-            if(auxMat[row][col] === 0){
+            if(auxMat[row][col] === ""){
                 auxShow[row][col] = true
                 free--
-                document.getElementById(row.toString().padStart(2, "0") + col.toString().padStart(2, "0")).style.color = "lightgrey"
+                color(row.toString().padStart(2, "0") + col.toString().padStart(2, "0"), auxMat[row][col])
                 clear(row, col)
             }
     
@@ -345,30 +356,68 @@ export const BuscaminasProvider = ({children}) => {
     const clear = (r, c) => {
         console.log("clear");
 
-        if(auxMat[r][c] === 0 && auxShow[r][c] === true) {
+        if(auxMat[r][c] === "" && auxShow[r][c] === true) {
             console.log("start clear");
 
             for(let i = Math.max(0, r - 1); i < Math.min(20, r + 2); i++){
                 for(let j = Math.max(0, c - 1); j < Math.min(14, c + 2); j++){
+                    let id = i.toString().padStart(2, "0") + j.toString().padStart(2, "0")
 
-                    if(auxMat[i][j] !== "💣" && auxMat[i][j] !== 0 && auxShow[i][j] === false){
+                    if(auxMat[i][j] !== "💣" && auxMat[i][j] !== "" && auxShow[i][j] === false){
                         auxShow[i][j] = true
-                        document.getElementById(i.toString().padStart(2, "0") + j.toString().padStart(2, "0")).style.fontWeight = "bold";
-                        document.getElementById(i.toString().padStart(2, "0") + j.toString().padStart(2, "0")).style.backgroundColor = "#ffe9d4"
+                        document.getElementById(id).style.fontWeight = "bold";
+                        document.getElementById(id).style.backgroundColor = "#DADADA"
+                        document.getElementById(id).style.border = "1px solid #C9C9C9"
+                        color(id, auxMat[i][j])
                         free--
+
                         update()
                     }
 
-                    if(auxMat[i][j] === 0 && auxShow[i][j] === false){
+                    if(auxMat[i][j] === "" && auxShow[i][j] === false){
                         auxShow[i][j] = true
-                        document.getElementById(i.toString().padStart(2, "0") + j.toString().padStart(2, "0")).style.color = "lightgrey"
-                        document.getElementById(i.toString().padStart(2, "0") + j.toString().padStart(2, "0")).style.backgroundColor = "#ffe9d4"
+                        document.getElementById(id).style.color = "lightgrey"
+                        document.getElementById(id).style.backgroundColor = "#DADADA"
+                        document.getElementById(id).style.border = "1px solid #C9C9C9"
                         free--
                         update()
                         clear(i,j)
                     }
                 }
             }
+        }
+    }
+
+    const color = (id, num) => {
+
+        switch (num) {
+            case 1:
+                document.getElementById(id).style.color = "blue"
+                break;
+            case 2:
+                document.getElementById(id).style.color = "darkgreen"
+                break;
+            case 3:
+                document.getElementById(id).style.color = "red"
+                break;
+            case 4:
+                document.getElementById(id).style.color = "#191d2b"
+                break;
+            case 5:
+                document.getElementById(id).style.color = "#a1530a"
+                break;
+            case 6:
+                document.getElementById(id).style.color = "#03A300"
+                break;
+            case 7:
+                document.getElementById(id).style.color = "#f7931a"
+                break;
+            case 8:
+                document.getElementById(id).style.color = "#396586"
+                break;
+            
+            default:
+                break;
         }
     }
 
@@ -397,6 +446,14 @@ export const BuscaminasProvider = ({children}) => {
         setModo(m)
     }
 
+    const cerrar = () => {
+        document.getElementById("instDiv").classList.add("ocultar");
+    }
+
+    const mostrar = () => {
+        document.getElementById("instDiv").classList.remove("ocultar");
+    }
+
     return (
         <BuscaminasContext.Provider value={{
             freePosition,
@@ -409,7 +466,9 @@ export const BuscaminasProvider = ({children}) => {
             resetGame,
             newGame,
             digAt,
-            confModo
+            confModo,
+            cerrar,
+            mostrar
         }}>
             {children}
         </BuscaminasContext.Provider>                                            
