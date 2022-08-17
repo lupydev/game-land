@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { BuscaminasContext } from "../../Contexts/BuscaminasContext";
 import Board from './Board'
 import BotonModo from './BotonModo';
 
 
 function Main(){
+    
+    const {gameOn} = useContext(BuscaminasContext)
     
     return(
         <div className="mainBuscaminas">            
@@ -13,17 +16,17 @@ function Main(){
                 <BotonModo
                     modo = "buscar"
                     img = "select.png"
-                    disable = {false}
+                    disable = {!gameOn}
                 />
                 <BotonModo
                     modo = "bandera"
                     img = "flag.png"
-                    disable = {false}
+                    disable = {!gameOn}
                 />
                 <BotonModo
                     modo = "duda"
                     img = "question.png"
-                    disable = {false}
+                    disable = {!gameOn}
                 />                    
             </div>            
         </div>

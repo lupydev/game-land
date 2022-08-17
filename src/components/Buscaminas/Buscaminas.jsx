@@ -1,9 +1,9 @@
 import React from "react";
 // import Instruction from "./Instruction";
-// import Help from "./Help";
+import Help from "./Help";
 import NewGame from "./NewGame";
-// import Dificult from "./Dificult";
-// import Reset from "./Reset";
+import Dificult from "./Dificult";
+import Reset from "./Reset";
 import Main from "./Main";
 import { BuscaminasProvider } from "../../Contexts/BuscaminasContext";
 
@@ -18,9 +18,9 @@ function Buscaminas() {
 
                 <div className='buscaminas-head'>
                     <NewGame />
-                    {/* <Reset />
+                    <Reset />
                     <Help />
-                    <Dificult /> */}
+                    <Dificult />
                 </div>
                 
                 <Main />              
