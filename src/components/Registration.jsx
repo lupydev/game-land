@@ -10,7 +10,7 @@ export const Registration = () => {
           </Link>
       </div>
       <form action="" className="registrationContainer-form">
-        <label htmlFor="name" maxlength="10">
+        <label htmlFor="name" maxlength="12" >
           <span>Nombre de Usuario</span>
           <input
             type="text"
