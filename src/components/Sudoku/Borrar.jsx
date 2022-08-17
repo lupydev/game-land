@@ -3,15 +3,19 @@ import { SudokuContext } from "../../Contexts/SudokuContext";
 
 const imagen = require.context("./../../img", true);
 
-function Borrar(props){
+function Borrar(props) {
+  const { selected, borrar } = useContext(SudokuContext);
 
-    const {selected, borrar} = useContext(SudokuContext)
-
-    return(
-        <button className="btnModo" id="goma" onClick={() => borrar(selected)} disabled={props.disable}>
-            <img src={imagen('./goma.png')} className="img" alt="Lapiz"/>
-        </button>
-    )
+  return (
+    <button
+      className="btnModo"
+      id="goma"
+      onClick={() => borrar(selected)}
+      disabled={props.disable}
+    >
+      <img src={imagen("./goma.png")} className="img" alt="Lapiz" />
+    </button>
+  );
 }
 
-export default Borrar
+export default Borrar;

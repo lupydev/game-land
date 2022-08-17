@@ -1,31 +1,24 @@
-import React, {useContext} from "react";
-import {SudokuContext} from '../../Contexts/SudokuContext'
-import Row from './Row';
+import React, { useContext } from "react";
+import { SudokuContext } from "../../Contexts/SudokuContext";
+import Row from "./Row";
 import Win from "./Win";
 
-function Board(){
+function Board() {
+  const { posiblesNumbers, winner } = useContext(SudokuContext);
 
-    const {posiblesNumbers, winner} = useContext(SudokuContext)
-
-    return(
-        <div className="board">
-            {winner
-            ?
-                <Win />
-            :
-                <div>    
-                    {posiblesNumbers.map((row) =>{
-                        return(
-                            <Row 
-                                row = {row} 
-                                r = {posiblesNumbers.indexOf(row)}                        
-                            />
-                        )
-                    })}
-                </div>
-            }   
-        </div>        
-    )
+  return (
+    <div className="board">
+      {winner ? (
+        <Win />
+      ) : (
+        <div>
+          {posiblesNumbers.map((row) => {
+            return <Row row={row} r={posiblesNumbers.indexOf(row)} />;
+          })}
+        </div>
+      )}
+    </div>
+  );
 }
 
-export default Board
+export default Board;
