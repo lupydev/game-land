@@ -87,6 +87,7 @@ export const SudokuProvider = ({children}) => {
     const [tiempo, setTiempo] = useState(Date.now())
 
     const [dificultad, setDificultad] = useState("");
+    
     const [preDif, setPreDif] = useState("")
 
     const setearBase = (str) => {

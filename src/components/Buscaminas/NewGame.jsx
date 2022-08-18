@@ -3,7 +3,7 @@ import {BuscaminasContext} from '../../Contexts/BuscaminasContext'
 
 function NewGame(){
 
-    const {winner, resetGame, newGame} = useContext(BuscaminasContext)
+    const {winner, newGame, newGToggle} = useContext(BuscaminasContext)
 
     return(
         <div className="newGame">
@@ -13,7 +13,7 @@ function NewGame(){
                 Volver
             </button>
             : */}
-            <button className="newGame-btn" onClick={() => newGame()}>
+            <button className="newGame-btn" onClick={() => newGToggle()}>
                 ▶
             </button>
             {/* } */}
