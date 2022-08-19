@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import { BuscaminasContext } from "../../Contexts/BuscaminasContext";
+import { BuscaminasContext } from "../../contexts/BuscaminasContext";
 import Row from "./Row";
-
+import Win from "./Win";
 
 function Board(){
 
-    const {mat} = useContext(BuscaminasContext)
+    const {mat, winner} = useContext(BuscaminasContext)
 
     let rows = []
 
@@ -15,15 +15,22 @@ function Board(){
 
     return(
         <div className="boardBuscaminas">
-            {rows.map((row) => {
-                return(
-                    <Row 
-                        row = {row}
-                        mat = {mat}
-                    />
-                )
-                
-            })}
+            {winner 
+            ? 
+                <Win />
+            :
+                <div>
+                    {rows.map((row) => {
+                        return(
+                            <Row 
+                                row = {row}
+                                mat = {mat}
+                            />
+                        )
+                        
+                    })}
+                </div>
+            }
         </div>        
     )
 }

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { BuscaminasContext } from "../../Contexts/BuscaminasContext";
+import { BuscaminasContext } from "../../contexts/BuscaminasContext";
 
 function Celd(props) {
     

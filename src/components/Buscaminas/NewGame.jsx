@@ -1,23 +1,22 @@
 import React, {useContext} from "react";
-import {BuscaminasContext} from '../../Contexts/BuscaminasContext'
+import {BuscaminasContext} from '../../contexts/BuscaminasContext'
 
 function NewGame(){
 
-    const {winner, newGame, newGToggle} = useContext(BuscaminasContext)
+    const {winner, startGame, newGToggle} = useContext(BuscaminasContext)
 
     return(
         <div className="newGame">
-            {/* {winner
+            {winner
             ?
-            <button className="newGame-btn" onClick={() => resetGame()}>
+            <button className="newGame-btn" onClick={() => startGame()}>
                 Volver
             </button>
-            : */}
+            :
             <button className="newGame-btn" onClick={() => newGToggle()}>
                 ▶
             </button>
-            {/* } */}
-            
+            }            
         </div>
     )
 }

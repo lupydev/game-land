@@ -17,7 +17,6 @@ function App() {
         <>
         <BrowserRouter>
             <div className="gameLand">
-                
                 <Routes>
                     <Route path="/" element={<LandingPage />} />
                     <Route path="/login" element={<Login />} />
@@ -28,8 +27,8 @@ function App() {
                     <Route path="/about" element={<About />} />
                     <Route path="/wordleInstructions" element={<WordleInstructions />} />
                     <Route path="/memoryInstructions" element={<MemoryInstructions />} />
-                    <Route path="/games/sudoku" element={<Sudoku />} />
-                    <Route path="/games/buscaminas" element={<Buscaminas />}/>
+                    <Route path="/sudoku" element={<Sudoku />} />
+                    <Route path="/buscaMinas" element={<Buscaminas />} />
                 </Routes>
             </div>
         </BrowserRouter>

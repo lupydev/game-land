@@ -28,18 +28,6 @@ $celdaDim: 3.8rem;
         scroll-behavior: smooth;    
         overflow: scroll;   
     }
-
-    &-aceptar {
-        width: 10rem;
-        height: 3rem;
-        margin: 7rem 0 2rem 0;
-        font-size: 1.7rem;
-        font-weight: bold;
-        background-color: $white;
-        box-shadow: $box-shadow;
-        border: none;
-        border-radius: 1.5rem;
-    }
 }
 
 .dificult{
@@ -55,6 +43,18 @@ $celdaDim: 3.8rem;
     top: 8rem;
     left: 1.5rem;
     z-index: 5;
+
+    &-aceptar {
+        width: 10rem;
+        height: 3rem;
+        margin: 7rem 0 2rem 0;
+        font-size: 1.7rem;
+        font-weight: bold;
+        background-color: $white;
+        box-shadow: $box-shadow;
+        border: none;
+        border-radius: 1.5rem;
+    }
 }
 
 .choice {
@@ -218,6 +218,7 @@ $celdaDim: 3.8rem;
     height: auto;    
     box-sizing: border-box;
     border: 2px solid #191d2b;
+    box-shadow: $box-shadow;
 }
 
 .win{

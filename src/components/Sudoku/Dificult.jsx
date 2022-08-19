@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { SudokuContext } from "../../Contexts/SudokuContext";
+import { SudokuContext } from "../../contexts/SudokuContext";
 import Choise from "./Choise";
 
 function Dificult(){
@@ -21,7 +21,7 @@ function Dificult(){
                 choise = "DIFÍCIL"
             />
 
-            <button className="sudoku-aceptar" onClick={() => startGame(dificultad)}>Aceptar</button>
+            <button className="dificult-aceptar" onClick={() => startGame(dificultad)}>Aceptar</button>
         </div>
     )
 }

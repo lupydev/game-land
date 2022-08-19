@@ -1,5 +1,5 @@
 import React from "react";
-import { SudokuProvider } from "../../Contexts/SudokuContext";
+import { SudokuProvider } from "../../contexts/SudokuContext";
 import Help from "./Help";
 import Main from "./Main";
 import NewGame from "./NewGame";

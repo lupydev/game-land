@@ -17,7 +17,7 @@ export const BuscaminasProvider = ({children}) => {
         return matriz
     }
 
-    const [dimensiones, setDimensiones] = useState([0, 0])
+    const [dimensiones, setDimensiones] = useState([9, 9])
 
     let auxMat = generarMatriz(dimensiones[0], dimensiones[1], "")
 
@@ -28,6 +28,7 @@ export const BuscaminasProvider = ({children}) => {
     let auxMarks = generarMatriz(dimensiones[0], dimensiones[1], "")
 
     let free = 0
+    let time = 0
 
     const [freePosition, setFreePosition] = useState(free)
 
@@ -43,13 +44,15 @@ export const BuscaminasProvider = ({children}) => {
 
     const [modo, setModo] = useState("")
 
-    const [tiempo, setTiempo] = useState(0)
+    const [tiempo, setTiempo] = useState(Date.now())
 
     const [gameOn, setGameOn] = useState(false)
 
     const [dificultad, setDificultad] = useState("")
 
     const [preDif, setPreDif] = useState("")
+
+    const [winner, setWinner] = useState(false)
 
     const putBombs = (b) => {
         console.log("put");
@@ -145,13 +148,13 @@ export const BuscaminasProvider = ({children}) => {
                 setBombsNum(10)
                 break;
             case "medio":
-                createGame([15,12])
-                setDimensiones([15, 12])
+                createGame([12,13])
+                setDimensiones([12, 13])
                 setBombsNum(30)
                 break;
             case "dificil":
-                createGame([20,14])
-                setDimensiones([20, 14])
+                createGame([15,13])
+                setDimensiones([15, 13])
                 setBombsNum(60)
                 break;
 
@@ -175,11 +178,14 @@ export const BuscaminasProvider = ({children}) => {
     }
 
     const newGToggle = () =>{
-        document.getElementById("sudoku-dificult").classList.toggle("mostrar")
+        document.getElementById("buscaminas-dificult").classList.toggle("mostrar")
+        setGameOn(true)
     }
     
     const newGame = () => {
         console.log("new");
+        setWinner(false)
+        setTiempo(Date.now())
         resetGame()
         putBombs(bombsNum)
 
@@ -220,11 +226,12 @@ export const BuscaminasProvider = ({children}) => {
         free = freePosition
 
         console.log(row, col);
-        
+        let id = row.toString().padStart(2, "0") + col.toString().padStart(2, "0")
         
         if(modo === "buscar" && auxBlock[row][col] === false){
-            document.getElementById(row.toString().padStart(2, "0") +col.toString().padStart(2, "0")).style.backgroundColor = "#DADADA"
-            document.getElementById(row.toString().padStart(2, "0") +col.toString().padStart(2, "0")).style.border = "1px solid #C9C9C9"
+            document.getElementById(id).style.backgroundColor = "#DADADA"
+            document.getElementById(id).style.border = "1px solid #C9C9C9"
+            auxBlock[row][col] = true
 
             if(auxMat[row][col] === "💣"){
                 console.log("bomb");
@@ -243,21 +250,36 @@ export const BuscaminasProvider = ({children}) => {
                 update()
             }
     
-            if(auxMat[row][col] > 0){
-                auxShow[row][col] = true
-                color(row.toString().padStart(2, "0") + col.toString().padStart(2, "0"), auxMat[row][col])
+            if(auxMat[row][col] > 0 && auxShow[row][col] === false){
+                auxShow[row][col] = true                
+                document.getElementById(id).style.fontWeight = "bold";
+                color(id, auxMat[row][col])
                 free--
             }
     
-            if(auxMat[row][col] === ""){
+            if(auxMat[row][col] === "" && auxShow[row][col] === false){
                 auxShow[row][col] = true
-                free--
-                color(row.toString().padStart(2, "0") + col.toString().padStart(2, "0"), auxMat[row][col])
+                free--                
                 clear(row, col)
             }
     
             if(free === 0){
                 console.log("ganaste!");
+                setWinner(true)
+                setGameOn(false)
+                for(let i = 0; i < dimensiones[0]; i++){
+                    for(let j = 0; j < dimensiones[1]; j++){
+    
+                        auxBlock[i][j] = true
+    
+                        if(auxMat[i][j] === "💣"){
+                            auxMarks[i][j] = "🚩"
+                        }
+                    }
+                }
+                time = new Date() - tiempo
+                setTiempo(time)
+                confModo("")
                 update()
             }
         }
@@ -304,7 +326,6 @@ export const BuscaminasProvider = ({children}) => {
                         document.getElementById(id).style.border = "1px solid #C9C9C9"
                         color(id, auxMat[i][j])
                         free--
-
                         update()
                     }
 
@@ -356,25 +377,35 @@ export const BuscaminasProvider = ({children}) => {
     }
 
     const confModo = (m) => {
-        if(m === "buscar"){
-            console.log("buscar");
-            document.getElementById("buscar").style.border = "3px solid #27ae60";
-            document.getElementById("bandera").style.border = "1px solid #D9D9D9";
-            document.getElementById("duda").style.border = "1px solid #D9D9D9";
-        }
 
-        if(m === "bandera"){
-            console.log("bandera");
-            document.getElementById("buscar").style.border = "1px solid #D9D9D9";
-            document.getElementById("bandera").style.border = "3px solid #27ae60";
-            document.getElementById("duda").style.border = "1px solid #D9D9D9";
-        }
+        switch (m) {
+            case "buscar":
+                console.log("buscar");
+                document.getElementById("buscar").style.border = "3px solid #27ae60";
+                document.getElementById("bandera").style.border = "1px solid #D9D9D9";
+                document.getElementById("duda").style.border = "1px solid #D9D9D9";
+                break;
 
-        if(m === "duda"){
-            console.log("duda");
-            document.getElementById("buscar").style.border = "1px solid #D9D9D9";
-            document.getElementById("bandera").style.border = "1px solid #D9D9D9";
-            document.getElementById("duda").style.border = "3px solid #27ae60";
+            case "bandera":
+                console.log("bandera");
+                document.getElementById("buscar").style.border = "1px solid #D9D9D9";
+                document.getElementById("bandera").style.border = "3px solid #27ae60";
+                document.getElementById("duda").style.border = "1px solid #D9D9D9";
+                break;
+
+            case "duda":
+                console.log("duda");
+                document.getElementById("buscar").style.border = "1px solid #D9D9D9";
+                document.getElementById("bandera").style.border = "1px solid #D9D9D9";
+                document.getElementById("duda").style.border = "3px solid #27ae60";
+                break;
+        
+            default:
+                console.log("defaulModo");
+                document.getElementById("buscar").style.border = "1px solid #D9D9D9";
+                document.getElementById("bandera").style.border = "1px solid #D9D9D9";
+                document.getElementById("duda").style.border = "1px solid #D9D9D9";
+                break;
         }
 
         setModo(m)
@@ -388,6 +419,34 @@ export const BuscaminasProvider = ({children}) => {
         document.getElementById("instDiv").classList.remove("ocultar");
     }
 
+    const formatTime = (t) => {
+        let timeArray = ["","","",""]
+
+        timeArray[3] = (t % 1000).toString().padStart(3, "0")
+        console.log(time)
+
+        let s = t/1000
+
+        if(s < 60){
+            timeArray[2] = Math.floor(s).toString().padStart(2,"0")
+        } else {
+            timeArray[2] = Math.floor(s % 60).toString().padStart(2,"0")
+        }
+
+        let m = s / 60
+
+        if(m < 60){
+            timeArray[1] = Math.floor(m).toString().padStart(2,"0")
+        } else {
+            timeArray[1] = Math.floor(m % 60).toString().padStart(2,"0")
+        }
+
+        let h = m / 60
+        timeArray[0] = Math.floor(h / 60).toString().padStart(2,"0")
+
+        return timeArray
+    }
+
     return (
         <BuscaminasContext.Provider value={{
             freePosition,
@@ -398,6 +457,8 @@ export const BuscaminasProvider = ({children}) => {
             marks,
             gameOn,
             dificultad,
+            winner,
+            tiempo,
             resetGame,
             newGame,
             digAt,
@@ -406,7 +467,8 @@ export const BuscaminasProvider = ({children}) => {
             mostrar,
             newGToggle,
             startGame,
-            selectDif
+            selectDif,
+            formatTime
         }}>
             {children}
         </BuscaminasContext.Provider>                                            

@@ -6,17 +6,17 @@ export const SudokuProvider = ({children}) => {
 
     let users 
 
-    const getUser = async (url = 'https://no-country-app.herokuapp.com/users/all', data = {mode: 'no-cors'}) => {
-        // Example POST method implementation:
-        // Default options are marked with *
-            console.log(await fetch(url))
+    const getUser = async (url = 'https://no-country-app.herokuapp.com/gamers', data = {mode: 'no-cors'}) => {
+        // console.log(await fetch(url))
     }
 
 
     getUser()
         .then((users) => {
-            console.log(users);
+            // console.log(users);
         })
+
+
     // La base se traera aleatoriamente entre varias plantillas del servidor.
     let base = [[5,6,3,7,8,1,4,9,2],
                 [8,9,2,3,5,4,6,1,7],
@@ -89,6 +89,8 @@ export const SudokuProvider = ({children}) => {
     const [dificultad, setDificultad] = useState("");
     
     const [preDif, setPreDif] = useState("")
+
+    const [puntaje, setPuntaje] = useState(0)
 
     const setearBase = (str) => {
         let mb = []
@@ -233,7 +235,7 @@ export const SudokuProvider = ({children}) => {
                 break;
         }
         
-        for(let i = 0; i < n; i++){
+        for(let i = 0; i < 80; i++){
             let r = Math.floor(Math.random() * 9)
             let c = Math.floor(Math.random() * 9)
                     
@@ -350,11 +352,50 @@ export const SudokuProvider = ({children}) => {
             console.log("Felicitaciones");
             setWinner(true)
             time = new Date() - tiempo
+            // puntajeFinal(0)
             setTiempo(time)
+            
         } else {
             console.log("El tablero esta mal.");
         }
     }
+
+    // const puntajeFinal = (t) => {
+    //     let puntos = 0
+    //     console.log(t);
+    //     switch (dificultad) {
+    //         case "facil":
+    //             if(1800 - (t / 1000) * 1.5 + 500 > 0){
+    //                 puntos = 1800 - (t / 1000) * 1.5 + 500
+    //             } else {
+    //                 puntos = 500
+    //             }
+                
+    //             break;
+
+    //         case "medio":
+    //             if(1800 - (t / 1000) * 2.2 + 2000 > 0){
+    //                 puntos = 1800 - (t / 1000) * 2.2 + 2000
+    //             } else {
+    //                 puntos = 2000
+    //             }
+    //             break;
+
+    //         case "dificil":
+    //             if(1800 - (t / 1000) * 3.8 + 3000 > 0){
+    //                 puntos = 1800 - (t / 1000) * 3.8 + 3000
+    //             } else {
+    //                 puntos = 3000
+    //             }
+    //             break;
+        
+    //         default:
+    //             break;
+    //     }
+
+    //     setPuntaje(puntos)
+    //     console.log(puntos);
+    // }
 
     const formatTime = (t) => {
         let timeArray = ["","","",""]
@@ -492,6 +533,7 @@ export const SudokuProvider = ({children}) => {
             winner,
             tiempo,
             dificultad,
+            puntaje,
             newGame,
             resaltar,
             ponerNum,
