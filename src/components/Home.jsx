@@ -18,21 +18,21 @@ export const Home = () => {
           <div className="homeContainer-card--ranking">⭐⭐⭐⭐⭐</div>
         </div>
         <div className="homeContainer-card">
-          <Link to="/sudoku">
+          <Link to="/games/sudoku">
             <h2>Sudoku</h2>
             <img src="" alt="" />
           </Link>
           <div className="homeContainer-card--ranking">⭐⭐⭐⭐</div>
         </div>
         <div className="homeContainer-card">
-          <Link to="/buscaMinas">
+          <Link to="/games/buscaMinas">
             <h2>Busca Minas</h2>
             <img src="" alt="" />
           </Link>
           <div className="homeContainer-card--ranking">⭐⭐⭐⭐</div>
         </div>
         <div className="homeContainer-card">
-          <Link to="/memory">
+          <Link to="/games/memory">
             <h2>Memory</h2>
             <img src="" alt="" />
           </Link>
