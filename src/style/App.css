@@ -256,6 +256,7 @@ input[type=checkbox], input[type=radio] {
 /*--VARIABLES UI*/
 /*--VARIBLES-WORDLE--*/
 /*--SUDOKU-VARIABLES--*/
+/*--MEMORY-VARIABLES*/
 /*----COMPONENTS---- */
 .aboutContainer {
   margin: 13rem 1.8rem 0 1.8rem;
@@ -693,6 +694,7 @@ input[type=checkbox], input[type=radio] {
 /*--VARIABLES UI*/
 /*--VARIBLES-WORDLE--*/
 /*--SUDOKU-VARIABLES--*/
+/*--MEMORY-VARIABLES*/
 .sudoku {
   display: flex;
   flex-direction: column;
@@ -1044,6 +1046,7 @@ input[type=checkbox], input[type=radio] {
 /*--VARIABLES UI*/
 /*--VARIBLES-WORDLE--*/
 /*--SUDOKU-VARIABLES--*/
+/*--MEMORY-VARIABLES*/
 .buscaminas {
   display: flex;
   flex-direction: column;
