@@ -16,6 +16,8 @@ export const Teclas = ({valor, especial}) => {
     }
 
   return (
+    <>
     <div className='teclas' id={especial && "especial"} onClick={seleccion}>{valor}</div>
+    </>
   )
 }

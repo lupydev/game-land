@@ -10,8 +10,7 @@ import { WordleInstructions } from "./components/WordleInstructions";
 import { MemoryInstructions } from "./components/MemoryInstructions";
 import "./style/App.css";
 import Sudoku from "./components/Sudoku/Sudoku";
-import { Header } from "./components/Header";
-import { NavBar } from "./components/NavBar";
+import { HomeWordle } from './components/Wordle/HomeWordle';
 import Buscaminas from "./components/Buscaminas/Buscaminas";
 
 function App() {
@@ -32,6 +31,7 @@ function App() {
                     <Route path="/memoryInstructions" element={<MemoryInstructions />} />
                     <Route path="/games/sudoku" element={<Sudoku />} />
                     <Route path="/games/buscaminas" element={<Buscaminas />}/>
+                    <Route path="/games/wordle" element={<HomeWordle/>}/>
                 </Routes>
             </div>
         </BrowserRouter>

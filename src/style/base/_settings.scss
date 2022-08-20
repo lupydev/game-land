@@ -37,6 +37,17 @@ $wordle-correct: #03A300;
 $wordle-incorrect: #FCE5AA;
 $wordle-wrong: #939393;
 
+@mixin flex-column-wordle { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+@mixin center {
+    align-items: center;
+    justify-content: center;
+}
+
 /*--SUDOKU-VARIABLES--*/
 
 $sudoku-game-background: #d5edff;

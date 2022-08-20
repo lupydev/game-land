@@ -56,7 +56,7 @@ export const Teclado = () => {
                 return <Teclas valor={x}/>
             })}
         </div>
-        <div className='linea3'>
+        <div className='linea3'>       
             <Teclas valor={"ENTER"} especial />
             {parte3.map((x) => {
                 return <Teclas valor={x}/>
