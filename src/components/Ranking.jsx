@@ -44,7 +44,7 @@ export const Ranking = () => {
                 <td>zxczcas</td>
                 <td>1200</td>
               </tr>
-              {/* <tr id="player6">
+              <tr id="player6">
               <td>6</td>
               <td>ertert</td>
               <td>1200</td>
@@ -68,7 +68,7 @@ export const Ranking = () => {
               <td>10</td>
               <td>fgjgfjs</td>
               <td>1200</td>
-            </tr> */}
+            </tr>
             </tbody>
           </table>
         </div>
@@ -107,7 +107,7 @@ export const Ranking = () => {
                   <td>zxczcas</td>
                   <td>1200</td>
                 </tr>
-                {/* <tr id="player6">
+                <tr id="player6">
                 <td>6</td>
                 <td>ertert</td>
                 <td>1200</td>
@@ -131,7 +131,7 @@ export const Ranking = () => {
                 <td>10</td>
                 <td>fgjgfjs</td>
                 <td>1200</td>
-              </tr> */}
+              </tr>
               </tbody>
             </table>
           </div>
@@ -169,7 +169,7 @@ export const Ranking = () => {
                 <td>zxczcas</td>
                 <td>1200</td>
               </tr>
-              {/* <tr id="player6">
+              <tr id="player6">
                 <td>6</td>
                 <td>ertert</td>
                 <td>1200</td>
@@ -193,7 +193,7 @@ export const Ranking = () => {
                 <td>10</td>
                 <td>fgjgfjs</td>
                 <td>1200</td>
-              </tr> */}
+              </tr>
               </tbody>
             </table>
           </div>
@@ -231,7 +231,7 @@ export const Ranking = () => {
                 <td>zxczcas</td>
                 <td>1200</td>
               </tr>
-              {/* <tr id="player6">
+              <tr id="player6">
               <td>6</td>
               <td>ertert</td>
               <td>1200</td>
@@ -255,7 +255,7 @@ export const Ranking = () => {
               <td>10</td>
               <td>fgjgfjs</td>
               <td>1200</td>
-            </tr> */}
+            </tr>
             </tbody>
             </table>
           </div>
@@ -293,7 +293,7 @@ export const Ranking = () => {
                 <td>zxczcas</td>
                 <td>1200</td>
               </tr>
-              {/* <tr id="player6">
+              <tr id="player6">
               <td>6</td>
               <td>ertert</td>
               <td>1200</td>
@@ -317,7 +317,7 @@ export const Ranking = () => {
               <td>10</td>
               <td>fgjgfjs</td>
               <td>1200</td>
-            </tr> */}
+            </tr>
             </tbody>
             </table>
           </div>

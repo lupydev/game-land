@@ -28,13 +28,84 @@
       }
     }
   }
+  .rankingContainer-global {
+    tr {
+      &:nth-of-type(n + 7) {
+        display: none;
+      }
+    }
+  }
+  .rankingContainer-games {
+    tr {
+      &:nth-of-type(n + 7) {
+        display: none;
+      }
+    }
+  }
   .rankingContainer-games {
     display: flex;
     gap: 3rem;
     height: 26rem;
-    padding: 0 3rem;
+    padding: 0 9.45rem;
     overflow-x: scroll;
     overscroll-behavior-x: contain;
     scroll-snap-type: x proximity;
+  }
+  @include media-up("tablet") {
+    gap: 3rem;
+    margin-top: 12rem;
+    .rankingContainer-global {
+      table {
+        tr {
+          &:nth-of-type(n) {
+            display: table-row;
+          }
+        }
+      }
+    }
+    .rankingContainer-games {
+      height: 43rem;
+      gap: 7rem;
+      padding: 0 263.344px;
+      table {
+        tr {
+          &:nth-of-type(n + 7) {
+            display: table-row;
+          }
+        }
+      }
+    }
+  }
+  @include media-up("desktop") {
+    flex-direction: row;
+    align-items: center;
+    height: 90vh;
+    margin-top: 0;
+    padding-top: 6rem;
+    gap: 10rem;
+    .rankingContainer-global {
+      table {
+        tr {
+          &:nth-of-type(n) {
+            display: table-row;
+          }
+        }
+      }
+    }
+    .rankingContainer-games {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      overflow: unset;
+      height: auto;
+      gap: 3rem;
+      padding: 0;
+      table {
+        tr {
+          &:nth-of-type(n + 8) {
+            display: none;
+          }
+        }
+      }
+    }
   }
 }
