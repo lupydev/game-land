@@ -7,24 +7,66 @@
   margin-top: 11rem;
   padding-bottom: 5rem;
   text-align: center;
-  a {
-    color: $secundary-color;
-    text-decoration: none;
-    h2 {
-      font-size: 2.2rem;
-      line-height: 1.936;
-      font-weight: 700;
+  .homeContainer-card {
+    justify-self: center;
+    width: 32rem;
+    height: 35rem;
+    border: 0.2rem solid $soft-blue;
+    border-radius: 2rem;
+    box-shadow: $box-shadow;
+    &:hover{
+      transform: translateY(-0.5rem);
     }
-    img {
-      width: 20rem;
-      height: 20rem;
-      border-radius: 5px;
-      box-shadow: $box-shadow;
-      object-fit: cover;
+    a {
+      color: $secundary-color;
+      text-decoration: none;
+      h2 {
+        font-size: 2.2rem;
+        line-height: 1.936;
+        font-weight: 700;
+      }
+      img {
+        width: 20rem;
+        height: 20rem;
+        border-radius: 5px;
+        box-shadow: $box-shadow;
+        object-fit: cover;
+      }
     }
+    
   }
-  .homeContainer-card--ranking{
+  .homeContainer-card--ranking {
     margin-top: 5px;
     font-size: 1.6rem;
+  }
+  @include media-up("tablet") {
+    display: grid;
+    grid-template-columns: repeat(2, 35.4rem);
+    grid-auto-rows: 38.4rem;
+    justify-content: center;
+    align-self: center;
+    gap: 0;
+    height: 85vh;
+    margin: 20% auto 0 auto;
+    // margin-top: 15vh;
+    padding: 0;
+        
+    .homeContainer-card {
+      justify-self: center;
+      width: 32rem;
+      height: 35rem;
+      border: 0.2rem solid $soft-blue;
+      border-radius: 2rem;
+      box-shadow: $box-shadow;
+      a {
+        height: auto;
+      }
+    }
+  }
+  @include media-up("desktop") {
+    max-width: 102.4rem;
+    margin: 10rem auto 0;
+    // padding-bottom: 0;
+    column-gap: 25rem;
   }
 }
