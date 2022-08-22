@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { SudokuContext } from "../../contexts/SudokuContext";
+import { Footer } from "../Footer";
 import Borrar from "./Borrar";
 import BotonModo from "./BotonModo";
 
@@ -52,21 +53,24 @@ function Instruction() {
 
             <h3>Puntaje:</h3>
 
-            <p>El puntaje que obtengas dependera de la dificultad seleccionada.</p>
+            <p>El puntaje que obtengas dependera de la dificultad seleccionada y el tiempo que demores en hacerlo.</p>
+            <p>En cada dificultad obtendras un puntaje base por tan solo ganar la partida, y a su vez obtendras un extra por hacerlo en menos de 30 min. Mientras menos demores mayor sera el puntaje extra.</p>
             
             <ul>
                 <li>
-                    <span>Facil: </span> 3 puntos por juego.
+                    <p><span>Facil: </span> Obtienes una base de 500 pts y un extra de hasta 2700 pts (Puntaje Maximo: 3200 pts)</p>
                 </li>
                 <li>
-                    <span>Medio: </span> 6 puntos por juego.
+                    <p><span>Medio: </span> Obtienes una base de 2000 pts y un extra de hasta 4000 pts (Puntaje Maximo: 6000 pts)</p>
                 </li>
                 <li>
-                    <span>Difícil: </span> 9 puntos por juego.
+                    <p><span>Difícil: </span> Obtienes una base de 3000 pts y un extra de hasta 7000 pts (Puntaje Maximo: 10000 pts)</p>
                 </li>
             </ul>
             <br></br>
             <br></br>
+
+            <Footer />
         </div>
     )
 }

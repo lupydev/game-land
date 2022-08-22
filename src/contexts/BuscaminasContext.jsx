@@ -44,7 +44,7 @@ export const BuscaminasProvider = ({children}) => {
 
     const [modo, setModo] = useState("")
 
-    const [tiempo, setTiempo] = useState(Date.now())
+    const [tiempo, setTiempo] = useState(new Date())
 
     const [gameOn, setGameOn] = useState(false)
 
@@ -57,11 +57,9 @@ export const BuscaminasProvider = ({children}) => {
     const putBombs = (b) => {
         console.log("put");
         let bombs = 0
-        console.log(dimensiones);
         while (bombs < b) {
             let row  = Math.floor(Math.random() * dimensiones[0])
             let col = Math.floor(Math.random() * dimensiones[1])
-            console.log(row, col);
             if(auxMat[row][col] === "💣"){
                 continue
             } else {
@@ -70,7 +68,6 @@ export const BuscaminasProvider = ({children}) => {
             }            
         }
         free = (dimensiones[0] * dimensiones[1]) - b
-        console.log(auxMat);
         update()
         setBombsNum(b)
     }
@@ -100,7 +97,6 @@ export const BuscaminasProvider = ({children}) => {
         for(let i = 0; i < dimensiones[0]; i++){
             for(let j = 0; j < dimensiones[1]; j++){
                 let id = i.toString().padStart(2, "0") + j.toString().padStart(2, "0")
-                console.log(id);
                 const celda = document.getElementById(id)
                 celda.style.color = "black"
                 celda.style.backgroundColor = "#E5E5E5"
@@ -112,7 +108,7 @@ export const BuscaminasProvider = ({children}) => {
         }
 
         confModo("buscar")
-        setTiempo(Date().now)
+        setTiempo(new Date())
         setGameOn(true)
         update()
     }
@@ -135,7 +131,6 @@ export const BuscaminasProvider = ({children}) => {
         
         console.log(dif);
         const selec = document.getElementById(dif);
-        console.log(selec);
         selec.style.backgroundColor = "#f7931a"
         selec.style.color = "#ffe9d4"
 
@@ -185,7 +180,6 @@ export const BuscaminasProvider = ({children}) => {
     const newGame = () => {
         console.log("new");
         setWinner(false)
-        setTiempo(Date.now())
         resetGame()
         putBombs(bombsNum)
 
@@ -225,7 +219,6 @@ export const BuscaminasProvider = ({children}) => {
         auxBlock = block
         free = freePosition
 
-        console.log(row, col);
         let id = row.toString().padStart(2, "0") + col.toString().padStart(2, "0")
         
         if(modo === "buscar" && auxBlock[row][col] === false){
@@ -277,7 +270,9 @@ export const BuscaminasProvider = ({children}) => {
                         }
                     }
                 }
+                console.log(time);
                 time = new Date() - tiempo
+                console.log(time);
                 setTiempo(time)
                 confModo("")
                 update()
@@ -305,15 +300,12 @@ export const BuscaminasProvider = ({children}) => {
             update() 
         }
 
-        console.log(free);
         update()
     }
 
     const clear = (r, c) => {
-        console.log("clear");
 
         if(auxMat[r][c] === "" && auxShow[r][c] === true) {
-            console.log("start clear");
 
             for(let i = Math.max(0, r - 1); i < Math.min(dimensiones[0], r + 2); i++){
                 for(let j = Math.max(0, c - 1); j < Math.min(dimensiones[1], c + 2); j++){
@@ -420,10 +412,12 @@ export const BuscaminasProvider = ({children}) => {
     }
 
     const formatTime = (t) => {
+
+        console.log(t)
         let timeArray = ["","","",""]
 
         timeArray[3] = (t % 1000).toString().padStart(3, "0")
-        console.log(time)
+        
 
         let s = t/1000
 

@@ -178,6 +178,9 @@ $celdaDim: 3.8rem;
             display: flex;
             align-items: center;
 
+            img {
+                margin-right: 2rem;
+            }
             span{
                 font-weight: bolder;
                 margin: 0 0 0.5rem 0;
@@ -238,6 +241,10 @@ $celdaDim: 3.8rem;
 
     .time{
         font-size: 14px;
+    }
+
+    .puntaje {
+        font-size: 18px;
     }
 }
 

@@ -858,6 +858,9 @@ input[type=checkbox], input[type=radio] {
   display: flex;
   align-items: center;
 }
+.instruction ul li img {
+  margin-right: 2rem;
+}
 .instruction ul li span {
   font-weight: bolder;
   margin: 0 0 0.5rem 0;
@@ -912,6 +915,9 @@ input[type=checkbox], input[type=radio] {
 }
 .win .time {
   font-size: 14px;
+}
+.win .puntaje {
+  font-size: 18px;
 }
 
 .row {
