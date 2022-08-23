@@ -1,6 +1,6 @@
 import { Teclas } from './TeclasTeclado'
 import { useEffect, useContext, useCallback } from 'react';
-import { Context } from '../../Context/Context';
+import { Context } from '../../contexts/WordleContext';
 
 export const Teclado = () => {
 

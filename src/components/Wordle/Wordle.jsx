@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Casilla } from "./Casillas";
 import { Teclado } from "./Teclado";
-import { Context } from "../../Context/Context";
+import { Context } from "../../contexts/WordleContext";
 
 export const Wordle = () => {
 

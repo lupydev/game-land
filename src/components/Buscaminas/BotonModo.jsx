@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { BuscaminasContext } from "../../Contexts/BuscaminasContext";
+import { BuscaminasContext } from "../../contexts/BuscaminasContext";
 
 const imagen = require.context("./../../img", true);
 
