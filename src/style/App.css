@@ -6,8 +6,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&display=swap");
 article,
 aside,
 details,
@@ -682,122 +680,6 @@ input[type=checkbox], input[type=radio] {
 }
 .registrationContainer a:hover {
   text-decoration: underline;
-}
-
-/*
-1. Position
-2. Box model
-3. Typographic
-4. Visuals
-5. Miscelaneos
-*/
-/*--MAIN-FONT--*/
-/*--GAME-FONT--*/
-/*--VARIABLES UI*/
-/*--VARIBLES-WORDLE--*/
-/*--SUDOKU-VARIABLES--*/
-/*--MEMORY-VARIABLES*/
-.tablero-container {
-  margin-top: 130px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-.tablero-container .dificultad {
-  height: 300px;
-  width: 300px;
-  margin: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
-.tablero-container .dificultad .botonDificultad {
-  width: 150px;
-  height: 30px;
-  font-size: 14px;
-  border: 2px solid #ffe9d4;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-  background-color: #d5edff;
-  border-radius: 5px;
-}
-.tablero-container .dificultad .botonDificultad:hover {
-  background-color: rgba(213, 237, 255, 0.6039215686);
-}
-.tablero-container .dificultad .botonDificultad:active {
-  background-color: #d5edff;
-  font-size: 20px;
-}
-.tablero-container .tablero {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 300px;
-  width: 300px;
-  margin: 20px;
-}
-.tablero-container .tablero .fila {
-  display: flex;
-  flex-direction: row;
-  padding: 0px;
-  margin: 1px;
-}
-.tablero-container .tablero .fila .casilla {
-  width: 37px;
-  height: 32px;
-  margin: 3px;
-  border-radius: 5px;
-  background-color: #d5edff;
-  border: 2px solid #ffe9d4;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  font-weight: bolder;
-}
-.tablero-container .tablero .fila #exacto {
-  background-color: #03A300;
-}
-.tablero-container .tablero .fila #existe {
-  background-color: #FCE5AA;
-}
-.tablero-container .tablero .fila #inexistente {
-  background-color: #939393;
-}
-.tablero-container .teclado {
-  margin: 2rem;
-}
-.tablero-container .teclado .linea1, .tablero-container .teclado .linea2, .tablero-container .teclado .linea3 {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding: 1px;
-}
-.tablero-container .teclado .linea1 .teclas, .tablero-container .teclado .linea2 .teclas, .tablero-container .teclado .linea3 .teclas {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  width: 27.5px;
-  height: 32px;
-  color: white;
-  background: #000000;
-  border-radius: 5px;
-  margin: 2px;
-}
-.tablero-container .teclado .linea1 .teclas:hover, .tablero-container .teclado .linea2 .teclas:hover, .tablero-container .teclado .linea3 .teclas:hover {
-  background-color: rgba(0, 0, 0, 0.7);
-}
-.tablero-container .teclado .linea1 .teclas:active, .tablero-container .teclado .linea2 .teclas:active, .tablero-container .teclado .linea3 .teclas:active {
-  background-color: #000000;
-  font-size: 20px;
-}
-.tablero-container .teclado .linea1 #especial, .tablero-container .teclado .linea2 #especial, .tablero-container .teclado .linea3 #especial {
-  width: 44px;
 }
 
 /*

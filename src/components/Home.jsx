@@ -32,7 +32,7 @@ export const Home = () => {
           <div className="homeContainer-card--ranking">⭐⭐⭐⭐</div>
         </div>
         <div className="homeContainer-card">
-          <Link to="/memory">
+          <Link to="/games/memory">
             <h2>Memory</h2>
             <img src="" alt="" />
           </Link>
