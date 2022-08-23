@@ -11,8 +11,8 @@ import { MemoryInstructions } from "./components/MemoryInstructions";
 import "./style/App.css";
 import Sudoku from "./components/Sudoku/Sudoku";
 import Buscaminas from "./components/Buscaminas/Buscaminas";
-import { Wordle } from "./components/Wordle/Wordle";
-import { Memory } from "./components/memory/Memory";
+import { HomeWordle } from "./components/Wordle/HomeWordle";
+// import { Memory } from "./components/memory/Memory";
 
 function App() {
   return (
@@ -28,9 +28,9 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/wordleInstructions" element={<WordleInstructions />} />
           <Route path="/memoryInstructions" element={<MemoryInstructions />} />
-          <Route path="/games/wordle" element={<Wordle />} />
+          <Route path="/games/wordle" element={<HomeWordle />} />
           <Route path="/games/sudoku" element={<Sudoku />} />
-          <Route path="/games/memory" element={<Memory />} />
+          {/* <Route path="/games/memory" element={<Memory />} /> */}
           <Route path="/games/buscaminas" element={<Buscaminas />} />
         </Routes>
       </BrowserRouter>
