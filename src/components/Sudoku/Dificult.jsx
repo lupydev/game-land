@@ -21,7 +21,7 @@ function Dificult(){
                 choise = "DIFÍCIL"
             />
 
-            <button className="sudoku-aceptar" onClick={() => startGame(dificultad)}>Aceptar</button>
+            <button className="dificult-aceptar" onClick={() => startGame(dificultad)}>Aceptar</button>
         </div>
     )
 }

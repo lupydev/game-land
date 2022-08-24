@@ -11,31 +11,32 @@ import { MemoryInstructions } from "./components/MemoryInstructions";
 import "./style/App.css";
 import Sudoku from "./components/Sudoku/Sudoku";
 import Buscaminas from "./components/Buscaminas/Buscaminas";
-import { HomeWordle } from "./components/Wordle/HomeWordle";
-// import { Memory } from "./components/memory/Memory";
+import { GlobalProvider } from "./contexts/GlobalContext";
 
 function App() {
-  return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/registration" element={<Registration />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/ranking" element={<Ranking />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/wordleInstructions" element={<WordleInstructions />} />
-          <Route path="/memoryInstructions" element={<MemoryInstructions />} />
-          <Route path="/games/wordle" element={<HomeWordle />} />
-          <Route path="/games/sudoku" element={<Sudoku />} />
-          {/* <Route path="/games/memory" element={<Memory />} /> */}
-          <Route path="/games/buscaminas" element={<Buscaminas />} />
-        </Routes>
-      </BrowserRouter>
-    </>
-  );
+    return (
+        <>
+        <GlobalProvider>
+        <BrowserRouter>
+            <div className="gameLand">
+                <Routes>
+                    <Route path="/" element={<LandingPage />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/registration" element={<Registration />} />
+                    <Route path="/home" element={<Home />} />
+                    <Route path="/ranking" element={<Ranking />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/wordleInstructions" element={<WordleInstructions />} />
+                    <Route path="/memoryInstructions" element={<MemoryInstructions />} />
+                    <Route path="/sudoku" element={<Sudoku />} />
+                    <Route path="/buscaMinas" element={<Buscaminas />} />
+                </Routes>
+            </div>
+        </BrowserRouter>
+        </GlobalProvider>
+        </>
+    );
 }
 
 export default App;

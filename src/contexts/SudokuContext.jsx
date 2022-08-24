@@ -1,22 +1,58 @@
-import {createContext, useState} from "react";
+import {createContext, useContext, useState} from "react";
+import { GlobalContext } from "./GlobalContext";
 
 export const SudokuContext = createContext();
 
 export const SudokuProvider = ({children}) => {
 
-    let users 
+    const {token} = useContext(GlobalContext)
 
-    const getUser = async (url = 'https://no-country-app.herokuapp.com/users/all', data = {mode: 'no-cors'}) => {
-        // Example POST method implementation:
-        // Default options are marked with *
-            console.log(await fetch(url))
+    const [usersData, setUsersData] = useState({})
+
+    const [dataGeted, setDataGeted] = useState(false)
+    // 'https://no-country-app.herokuapp.com/gamers'
+
+    const getData = async () => {
+        
+        await fetch('https://no-country-app.herokuapp.com/gamers/2', {
+            method: "GET",
+            headers: {
+                "Content-type": "application/json;charset=UTF-8",
+                "Authorization": token
+            }
+            })
+            .then(response => response.json()) 
+            .then((json) => {
+                console.log("Geted: ");
+                setUsersData(json)
+                setDataGeted(true)
+            })
+            .catch(err => console.log(err))
     }
 
+    if(!dataGeted){
+        getData()
+    }
 
-    getUser()
-        .then((users) => {
-            console.log(users);
-        })
+    console.log(usersData);
+
+    // let user = usersData
+    
+    // user.recordSudoku = [2500,0,0,0,0]
+
+    // const postData = async () => {
+    //     fetch('https://jsonplaceholder.typicode.com/posts', {
+    //         method: "POST",
+    //         body: JSON.stringify(user),
+    //         headers: {"Content-type": "application/json; charset=UTF-8"}
+    //         })
+    //         .then(response => response.json()) 
+    //         .then(json => console.log(json))
+    //         .catch(err => console.log(err))
+    // }
+
+    // postData()
+
     // La base se traera aleatoriamente entre varias plantillas del servidor.
     let base = [[5,6,3,7,8,1,4,9,2],
                 [8,9,2,3,5,4,6,1,7],
@@ -84,10 +120,13 @@ export const SudokuProvider = ({children}) => {
 
     const [winner, setWinner] = useState(false)
 
-    const [tiempo, setTiempo] = useState(Date.now())
+    const [tiempo, setTiempo] = useState(new Date())
 
     const [dificultad, setDificultad] = useState("");
+    
     const [preDif, setPreDif] = useState("")
+
+    const [puntaje, setPuntaje] = useState(0)
 
     const setearBase = (str) => {
         let mb = []
@@ -349,11 +388,50 @@ export const SudokuProvider = ({children}) => {
             console.log("Felicitaciones");
             setWinner(true)
             time = new Date() - tiempo
+            // puntajeFinal(time)
             setTiempo(time)
+            
         } else {
             console.log("El tablero esta mal.");
         }
     }
+
+    // const puntajeFinal = (t) => {
+    //     let puntos = 0
+    //     console.log(t);
+    //     switch (dificultad) {
+    //         case "facil":
+    //             if((1800 - (t / 1000)) * 1.5 + 500 > 0){
+    //                 puntos = (1800 - (t / 1000)) * 1.5 + 500
+    //             } else {
+    //                 puntos = 500
+    //             }
+                
+    //             break;
+
+    //         case "medio":
+    //             if((1800 - (t / 1000)) * 2.2 + 2000 > 0){
+    //                 puntos = (1800 - (t / 1000)) * 2.2222 + 2000
+    //             } else {
+    //                 puntos = 2000
+    //             }
+    //             break;
+
+    //         case "dificil":
+    //             if((1800 - (t / 1000)) * 3.8 + 3000 > 0){
+    //                 puntos = (1800 - (t / 1000)) * 3.888888 + 3000
+    //             } else {
+    //                 puntos = 3000
+    //             }
+    //             break;
+        
+    //         default:
+    //             break;
+    //     }
+
+    //     setPuntaje(puntos)
+    //     console.log(puntos);
+    // }
 
     const formatTime = (t) => {
         let timeArray = ["","","",""]
@@ -491,6 +569,7 @@ export const SudokuProvider = ({children}) => {
             winner,
             tiempo,
             dificultad,
+            puntaje,
             newGame,
             resaltar,
             ponerNum,

@@ -1,7 +1,27 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { GlobalContext } from "../contexts/GlobalContext";
 
 export const Registration = () => {
+
+  const {singUp} = useContext(GlobalContext)
+
+  const [userData, setUserData] = useState({username: "", name: "", password: ""})
+
+  const submitReg = (e) => {
+    e.preventDefault();
+    console.log("Enviado: ", userData);
+    singUp(userData)
+  }
+
+  const changeInput = (e) =>{
+        
+    setUserData({
+        ...userData,
+        [e.target.name]: e.target.value
+    });
+  }
+
   return (
     <div className="registrationContainer">
       <div className="registration-title">
@@ -9,16 +29,17 @@ export const Registration = () => {
           <h2>Game land</h2>
           </Link>
       </div>
-      <form action="" className="registrationContainer-form">
-        <label htmlFor="name" maxlength="12" >
+      <form action="" className="registrationContainer-form" onSubmit={submitReg}>
+        <label htmlFor="name" maxLength="12" >
           <span>Nombre de Usuario</span>
           <input
             type="text"
             id="name"
-            name="text"
+            name="name"
             required
             placeholder="Nombre"
-            maxlength="12"
+            maxLength="12"
+            onChange={changeInput}
           />
         </label>
         <label htmlFor="email">
@@ -26,14 +47,21 @@ export const Registration = () => {
           <input
             type="email"
             id="email"
-            name="email"
+            name="username"
             required
             placeholder="gameland@gmail.com"
+            onChange={changeInput}
           />
         </label>
         <label htmlFor="password">
           <span>Contraseña</span>
-          <input type="password" id="password" name="password" required />
+          <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            required 
+            onChange={changeInput}
+          />
         </label>
         <button className="registrationForm--btn btn" type="submit">
           Enviar

@@ -14,6 +14,18 @@
         height: 8rem;
         width: 100%;
     }
+
+    &-instructionDiv {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        top: 0px;
+        background-color: rgba(256,256,256,1);
+        max-height: calc(100vh - 10rem);
+        z-index: 5;
+        scroll-behavior: smooth;    
+        overflow: scroll;   
+    }
 }
 
 .mainBuscaminas {
@@ -27,27 +39,66 @@
 .boardBuscaminas {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    align-items: center;
+    justify-content: center;
+    width: auto;
     height: auto;
+    border-top: 4px solid #999999;
+    border-left: 4px solid #999999;
+    border-bottom: 4px solid #FFFFFF;
+    border-right: 4px solid #FFFFFF;
+    box-shadow: $box-shadow;
 }
 
 .rowBuscaminas {
-    width: 100%;
-    height: 2rem;
+    width: auto;
+    height: 25px;
     display: flex;
-    margin: 0.25px;
 }
 
 .celdBuscaminas {
-    width: 2.25rem;
+    width: 25px;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 1.5rem;
     font-weight: bold;
-    background-color: $third-color;
-    border-radius: 4px;
-    border: 1px solid black;
-    box-shadow: inset 2px 2px 8px grey;
+    background-color: #E5E5E5;
+    box-sizing: border-box;
+    // border-radius: 4px;
+    border-top: 3px solid #FFFFFF;
+    border-left: 3px solid #FFFFFF;
+    border-bottom: 3px solid #999999;
+    border-right: 3px solid #999999;
+    // box-shadow: inset 2px 2px 8px grey;
+}
+
+.ocultar {
+    display: none;
+}
+
+.mostrar {
+    display: flex;
+}
+
+.win-buscaminas {
+    width: 337px;
+    height: 339px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #191d2b;
+    
+    .congrats{
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .time{
+        font-size: 14px;
+    }
 }
 
