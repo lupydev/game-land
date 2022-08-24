@@ -10,12 +10,13 @@ export const SudokuProvider = ({children}) => {
     const [usersData, setUsersData] = useState({})
 
     const [dataGeted, setDataGeted] = useState(false)
-    // 'https://no-country-app.herokuapp.com/gamers'
 
     const getData = async () => {
+        console.log(token);
         
-        await fetch('https://no-country-app.herokuapp.com/gamers/2', {
+        await fetch('https://no-country-app.herokuapp.com/sudoku/2', {
             method: "GET",
+            mode: "no-cors",
             headers: {
                 "Content-type": "application/json;charset=UTF-8",
                 "Authorization": token
@@ -23,8 +24,8 @@ export const SudokuProvider = ({children}) => {
             })
             .then(response => response.json()) 
             .then((json) => {
-                console.log("Geted: ");
-                setUsersData(json)
+                console.log(json);
+                // setUsersData(json)
                 setDataGeted(true)
             })
             .catch(err => console.log(err))
@@ -36,23 +37,7 @@ export const SudokuProvider = ({children}) => {
 
     console.log(usersData);
 
-    // let user = usersData
     
-    // user.recordSudoku = [2500,0,0,0,0]
-
-    // const postData = async () => {
-    //     fetch('https://jsonplaceholder.typicode.com/posts', {
-    //         method: "POST",
-    //         body: JSON.stringify(user),
-    //         headers: {"Content-type": "application/json; charset=UTF-8"}
-    //         })
-    //         .then(response => response.json()) 
-    //         .then(json => console.log(json))
-    //         .catch(err => console.log(err))
-    // }
-
-    // postData()
-
     // La base se traera aleatoriamente entre varias plantillas del servidor.
     let base = [[5,6,3,7,8,1,4,9,2],
                 [8,9,2,3,5,4,6,1,7],

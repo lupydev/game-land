@@ -22,6 +22,3 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-src/components/Buscaminas
-src/Contexts/BuscaminasContexts
-src/style/components/_Buscanimas.scss
