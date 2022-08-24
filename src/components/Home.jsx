@@ -11,28 +11,28 @@ export const Home = () => {
       <NavBar />
       <div className="homeContainer">
         <div className="homeContainer-card">
-          <Link to="/games/wordle">
+          <Link to="/wordle">
             <h2>Wordle</h2>
             <img src="" alt="" />
           </Link>
           <div className="homeContainer-card--ranking">⭐⭐⭐⭐⭐</div>
         </div>
         <div className="homeContainer-card">
-          <Link to="/games/sudoku">
+          <Link to="/sudoku">
             <h2>Sudoku</h2>
             <img src="" alt="" />
           </Link>
           <div className="homeContainer-card--ranking">⭐⭐⭐⭐</div>
         </div>
         <div className="homeContainer-card">
-          <Link to="/games/buscaMinas">
+          <Link to="/buscaMinas">
             <h2>Busca Minas</h2>
             <img src="" alt="" />
           </Link>
           <div className="homeContainer-card--ranking">⭐⭐⭐⭐</div>
         </div>
         <div className="homeContainer-card">
-          <Link to="/games/memory">
+          <Link to="/memory">
             <h2>Memory</h2>
             <img src="" alt="" />
           </Link>

@@ -10,6 +10,7 @@ import { WordleInstructions } from "./components/WordleInstructions";
 import { MemoryInstructions } from "./components/MemoryInstructions";
 import "./style/App.css";
 import Sudoku from "./components/Sudoku/Sudoku";
+import { HomeWordle} from "./components/Wordle/HomeWordle";
 import Buscaminas from "./components/Buscaminas/Buscaminas";
 import { GlobalProvider } from "./contexts/GlobalContext";
 
@@ -30,6 +31,7 @@ function App() {
                     <Route path="/wordleInstructions" element={<WordleInstructions />} />
                     <Route path="/memoryInstructions" element={<MemoryInstructions />} />
                     <Route path="/sudoku" element={<Sudoku />} />
+                    <Route path="/wordle" element={<HomeWordle />} />
                     <Route path="/buscaMinas" element={<Buscaminas />} />
                 </Routes>
             </div>
