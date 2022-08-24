@@ -11,10 +11,12 @@ import { MemoryInstructions } from "./components/MemoryInstructions";
 import "./style/App.css";
 import Sudoku from "./components/Sudoku/Sudoku";
 import Buscaminas from "./components/Buscaminas/Buscaminas";
+import { GlobalProvider } from "./contexts/GlobalContext";
 
 function App() {
     return (
         <>
+        <GlobalProvider>
         <BrowserRouter>
             <div className="gameLand">
                 <Routes>
@@ -32,6 +34,7 @@ function App() {
                 </Routes>
             </div>
         </BrowserRouter>
+        </GlobalProvider>
         </>
     );
 }

@@ -1,8 +1,11 @@
-import {createContext, useState} from "react";
+import {createContext, useContext, useState} from "react";
+import { GlobalContext } from "./GlobalContext";
 
 export const SudokuContext = createContext();
 
 export const SudokuProvider = ({children}) => {
+
+    const {token} = useContext(GlobalContext)
 
     const [usersData, setUsersData] = useState({})
 
@@ -11,10 +14,12 @@ export const SudokuProvider = ({children}) => {
 
     const getData = async () => {
         
-
-        fetch('https://no-country-app.herokuapp.com/gamers/2', {
+        await fetch('https://no-country-app.herokuapp.com/gamers/2', {
             method: "GET",
-            headers: {"Content-type": "application/json;charset=UTF-8"}
+            headers: {
+                "Content-type": "application/json;charset=UTF-8",
+                "Authorization": token
+            }
             })
             .then(response => response.json()) 
             .then((json) => {
