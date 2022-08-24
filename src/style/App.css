@@ -236,8 +236,6 @@ table {
 
 input[type=search] {
   -webkit-appearance: textfield;
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
   box-sizing: content-box;
 }
 input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-search-decoration {
@@ -397,6 +395,7 @@ input[type=checkbox], input[type=radio] {
 }
 
 .headerContainer {
+  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -488,7 +487,8 @@ input[type=checkbox], input[type=radio] {
   height: 20rem;
   border-radius: 5px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .homeContainer .homeContainer-card--ranking {
   margin-top: 5px;
@@ -522,7 +522,8 @@ input[type=checkbox], input[type=radio] {
   .homeContainer {
     max-width: 102.4rem;
     margin: 10rem auto 0;
-    column-gap: 25rem;
+    -moz-column-gap: 25rem;
+         column-gap: 25rem;
   }
 }
 
@@ -665,9 +666,10 @@ input[type=checkbox], input[type=radio] {
 }
 
 .navBar {
-  position: relative;
+  position: fixed;
   display: flex;
   justify-content: space-evenly;
+  margin-top: 6.4766rem;
   top: 0;
   width: 100%;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
@@ -729,7 +731,8 @@ input[type=checkbox], input[type=radio] {
   padding: 0 9.45rem;
   overflow-x: scroll;
   overscroll-behavior-x: contain;
-  scroll-snap-type: x proximity;
+  -ms-scroll-snap-type: x proximity;
+      scroll-snap-type: x proximity;
 }
 @media screen and (min-width: 768px) {
   .rankingContainer {
@@ -901,7 +904,7 @@ input[type=checkbox], input[type=radio] {
   border-radius: 5px;
 }
 .tablero-container .dificultad .botonDificultad:hover {
-  background-color: #d5edff9a;
+  background-color: rgba(213, 237, 255, 0.6039215686);
 }
 .tablero-container .dificultad .botonDificultad:active {
   background-color: #d5edff;
@@ -1011,7 +1014,7 @@ input[type=checkbox], input[type=radio] {
   display: flex;
   justify-content: center;
   top: 0px;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   max-height: calc(100vh - 10rem);
   z-index: 5;
   scroll-behavior: smooth;
@@ -1116,7 +1119,7 @@ input[type=checkbox], input[type=radio] {
 }
 
 .instruction {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   width: 90%;
   padding: 1rem;
   display: flex;
@@ -1131,6 +1134,7 @@ input[type=checkbox], input[type=radio] {
   text-align: center;
   color: #c03030;
   background-color: #ffe9d4;
+  position: -webkit-sticky;
   position: sticky;
   left: 90%;
   top: 3rem;
@@ -1370,7 +1374,7 @@ input[type=checkbox], input[type=radio] {
   display: flex;
   justify-content: center;
   top: 0px;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   max-height: calc(100vh - 10rem);
   z-index: 5;
   scroll-behavior: smooth;
@@ -1445,6 +1449,4 @@ input[type=checkbox], input[type=radio] {
 }
 .win-buscaminas .time {
   font-size: 14px;
-}
-
-/*# sourceMappingURL=App.css.map */
+}/*# sourceMappingURL=App.css.map */
