@@ -1,5 +1,5 @@
 import React, {useContext, useEffect} from "react";
-import { SudokuContext } from "../../Contexts/SudokuContext";
+import { SudokuContext } from "../../contexts/SudokuContext";
 import NumList from './NumList';
 
 const imagen = require.context("./../../img", true); 

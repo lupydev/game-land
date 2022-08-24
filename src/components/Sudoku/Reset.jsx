@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { SudokuContext } from "../../Contexts/SudokuContext";
+import { SudokuContext } from "../../contexts/SudokuContext";
 
 function Reset() {
     

@@ -1,5 +1,5 @@
 import {useContext} from 'react';
-import { Context } from '../../Context/Context';
+import { Context } from '../../contexts/WordleContext';
 
 export const Teclas = ({valor, especial}) => {
 
@@ -16,6 +16,8 @@ export const Teclas = ({valor, especial}) => {
     }
 
   return (
+    <>
     <div className='teclas' id={especial && "especial"} onClick={seleccion}>{valor}</div>
+    </>
   )
 }

@@ -8,7 +8,6 @@ export const Header = () => {
         <p>GL</p>
         {/* <img src="" alt="" /> */}
       </div>
-      {/* <div className="headerContainer-navbar"><NavBar/></div> */}
       <div className="headerContainer-player">
         <div className="headerContainer-player--name">
           <p>gameland</p>

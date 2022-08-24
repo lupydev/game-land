@@ -5,7 +5,7 @@ import NewGame from "./NewGame";
 import Dificult from "./Dificult";
 import Reset from "./Reset";
 import Main from "./Main";
-import { BuscaminasProvider } from "../../Contexts/BuscaminasContext";
+import { BuscaminasProvider } from "../../contexts/BuscaminasContext";
 
 function Buscaminas() {
     
