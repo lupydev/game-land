@@ -522,8 +522,7 @@ input[type=checkbox], input[type=radio] {
   .homeContainer {
     max-width: 102.4rem;
     margin: 10rem auto 0;
-    -moz-column-gap: 25rem;
-         column-gap: 25rem;
+    column-gap: 25rem;
   }
 }
 
@@ -902,7 +901,7 @@ input[type=checkbox], input[type=radio] {
   border-radius: 5px;
 }
 .tablero-container .dificultad .botonDificultad:hover {
-  background-color: rgba(213, 237, 255, 0.6039215686);
+  background-color: #d5edff9a;
 }
 .tablero-container .dificultad .botonDificultad:active {
   background-color: #d5edff;

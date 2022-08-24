@@ -5,22 +5,23 @@ export const SudokuContext = createContext();
 
 export const SudokuProvider = ({children}) => {
 
-    const {token} = useContext(GlobalContext)
+    
 
+   
     const [usersData, setUsersData] = useState({})
 
     const [dataGeted, setDataGeted] = useState(false)
 
     const getData = async () => {
-        console.log(token);
+        console.log(sessionStorage.getItem("GameLandLogin"));
         
         await fetch('https://no-country-app.herokuapp.com/sudoku/2', {
             method: "GET",
-            mode: "no-cors",
-            headers: {
+            mode:"no-cors",
+            headers: new Headers({
                 "Content-type": "application/json;charset=UTF-8",
-                "Authorization": token
-            }
+                "Authorization": "Basic " + sessionStorage.getItem("GameLandLogin")
+            })
             })
             .then(response => response.json()) 
             .then((json) => {
@@ -34,8 +35,6 @@ export const SudokuProvider = ({children}) => {
     if(!dataGeted){
         getData()
     }
-
-    console.log(usersData);
 
     
     // La base se traera aleatoriamente entre varias plantillas del servidor.

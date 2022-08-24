@@ -1,9 +1,6 @@
 import React, { useContext } from "react";
 import { SudokuContext } from "../../contexts/SudokuContext";
-<<<<<<< HEAD
-=======
 import { Footer } from "../Footer";
->>>>>>> sudoku
 import Borrar from "./Borrar";
 import BotonModo from "./BotonModo";
 
