@@ -23,33 +23,20 @@ export const SudokuProvider = ({children}) => {
     const getData = async () => {
         console.log("Bearer " + sessionStorage.getItem("GameLandLogin"))
         
-        await fetch('https://no-country-app.herokuapp.com/sudoku', {
-                headers: {
-                    Authorization: "Bearer " + sessionStorage.getItem("GameLandLogin"),
-                    "Content-type": "application/json;charset=UTF-8",
-                    Accept: "application/json"
-                },
-                method: "GET",
-                credentials: "include",
-                mode: "no-cors"
-            }
-        )
-            .then(response => console.log(response)) 
-            .then((json) => {
-                console.log(json);
-                if(json){
-                    let template = json[Math.floor(Math.random() * json.length)];
-                    base = setearBase(template)
-                    setBaseBackup(base)
-                } else {
-                    base = baseBackup
-                }
-                // setUsersData(json)
-                setDataGeted(true)
-
+        await fetch('https://no-country-app.herokuapp.com/sudoku/1', {
+            method: "GET",
+            headers: {"Content-type": "application/json; charset=UTF-8"}
+            })
+            .then(resp => resp.json()) 
+            .then(json => {
+                console.log(json.templates)
             })
             .catch(err => console.log(err))
+
+            // setLogIn(true)
+        
     }
+    
 
     if(!dataGeted){
         getData()

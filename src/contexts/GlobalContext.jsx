@@ -25,13 +25,9 @@ export const GlobalProvider = ({children}) => {
             })
             .then(resp => resp.json()) 
             .then(json => {
-                console.log(json);
                 console.log(json.jwt)
-                if(json.jwt){
-                    sessionStorage.setItem("GameLandLogin", json.jwt)
-                    setLogIn(true)
-                }
-                
+                sessionStorage.setItem("GameLandLogin", json.jwt)
+                setLogIn(true)
             })
             .catch(err => console.log(err))
 
