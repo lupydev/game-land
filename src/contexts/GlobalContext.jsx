@@ -1,5 +1,6 @@
 import {createContext, useState} from "react";
 
+
 export const GlobalContext = createContext();
 
 export const GlobalProvider = ({children}) => {
@@ -24,9 +25,13 @@ export const GlobalProvider = ({children}) => {
             })
             .then(resp => resp.json()) 
             .then(json => {
+                console.log(json);
                 console.log(json.jwt)
-                setToken(json.jwt)
-                setLogIn(true)
+                if(json.jwt){
+                    sessionStorage.setItem("GameLandLogin", json.jwt)
+                    setLogIn(true)
+                }
+                
             })
             .catch(err => console.log(err))
 

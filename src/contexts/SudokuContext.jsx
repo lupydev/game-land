@@ -1,32 +1,52 @@
 import {createContext, useContext, useState} from "react";
-import { GlobalContext } from "./GlobalContext";
 
 export const SudokuContext = createContext();
 
 export const SudokuProvider = ({children}) => {
 
-    const {token} = useContext(GlobalContext)
-
     const [usersData, setUsersData] = useState({})
 
     const [dataGeted, setDataGeted] = useState(false)
 
+    const [baseBackup, setBaseBackup] = useState([[5,6,3,7,8,1,4,9,2],
+                                                    [8,9,2,3,5,4,6,1,7],
+                                                    [4,7,1,6,2,9,5,8,3],
+                                                    [9,4,7,2,6,3,1,5,8],
+                                                    [2,5,6,1,4,8,3,7,9],
+                                                    [3,1,8,5,9,7,2,6,4],
+                                                    [6,8,9,4,1,2,7,3,5],
+                                                    [7,2,5,9,3,6,8,4,1],
+                                                    [1,3,4,8,7,5,9,2,6]])
+
+    let base = []
+
     const getData = async () => {
-        console.log(token);
+        console.log("Bearer " + sessionStorage.getItem("GameLandLogin"))
         
-        await fetch('https://no-country-app.herokuapp.com/sudoku/2', {
-            method: "GET",
-            mode: "no-cors",
-            headers: {
-                "Content-type": "application/json;charset=UTF-8",
-                "Authorization": token
+        await fetch('https://no-country-app.herokuapp.com/sudoku', {
+                headers: {
+                    Authorization: "Bearer " + sessionStorage.getItem("GameLandLogin"),
+                    "Content-type": "application/json;charset=UTF-8",
+                    Accept: "application/json"
+                },
+                method: "GET",
+                credentials: "include",
+                mode: "no-cors"
             }
-            })
-            .then(response => response.json()) 
+        )
+            .then(response => console.log(response)) 
             .then((json) => {
                 console.log(json);
+                if(json){
+                    let template = json[Math.floor(Math.random() * json.length)];
+                    base = setearBase(template)
+                    setBaseBackup(base)
+                } else {
+                    base = baseBackup
+                }
                 // setUsersData(json)
                 setDataGeted(true)
+
             })
             .catch(err => console.log(err))
     }
@@ -35,11 +55,10 @@ export const SudokuProvider = ({children}) => {
         getData()
     }
 
-    console.log(usersData);
 
     
     // La base se traera aleatoriamente entre varias plantillas del servidor.
-    let base = [[5,6,3,7,8,1,4,9,2],
+    base = [[5,6,3,7,8,1,4,9,2],
                 [8,9,2,3,5,4,6,1,7],
                 [4,7,1,6,2,9,5,8,3],
                 [9,4,7,2,6,3,1,5,8],
@@ -239,6 +258,7 @@ export const SudokuProvider = ({children}) => {
         resetGame()
         let n;
 
+        getData()
         switch (dificultad) {
             case "facil":
                 n = 40
