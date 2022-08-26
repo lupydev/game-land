@@ -24,17 +24,19 @@ export const SudokuProvider = ({children}) => {
         
     const getData = async () => {
         console.log(sessionStorage.getItem("GameLandLogin"));
-        console.log("Bearer ".concat(JSON.parse(sessionStorage.getItem("GameLandLogin")).jwt))
+        console.log("Bearer " + sessionStorage.getItem("GameLandLogin"))
         
         await fetch('https://no-country-app.herokuapp.com/sudoku/1', {
             method: "GET",
-            mode: "no-cors",
             headers: {
-                Authorization: "Bearer ".concat(JSON.parse(sessionStorage.getItem("GameLandLogin")).jwt),
-                "Content-type": "application/json; charset=UTF-8"}
+                Authorization: "Bearer " + sessionStorage.getItem("GameLandLogin"),
+                "Content-type": "application/json; charset=UTF-8"
+            }
             })
             .then((resp) => resp.json())
             .then(json => {
+
+                console.log(json);
                 if((json === false || json === undefined) && templates.length === 0){
                     setTemplates([])
                 } else {
@@ -43,27 +45,13 @@ export const SudokuProvider = ({children}) => {
                 }
                 console.log(json)
             })
-            .catch(err => console.log(err))
-
-            // setLogIn(true)        
+            .catch(err => console.log(err))           
     }
     
 
     if(!dataGeted){
         getData()
     }
-
-    
-    // La base se traera aleatoriamente entre varias plantillas del servidor.
-    base = [[5,6,3,7,8,1,4,9,2],
-                [8,9,2,3,5,4,6,1,7],
-                [4,7,1,6,2,9,5,8,3],
-                [9,4,7,2,6,3,1,5,8],
-                [2,5,6,1,4,8,3,7,9],
-                [3,1,8,5,9,7,2,6,4],
-                [6,8,9,4,1,2,7,3,5],
-                [7,2,5,9,3,6,8,4,1],
-                [1,3,4,8,7,5,9,2,6]]
     
     let auxMat = [["","","","","","","","",""],
                 ["","","","","","","","",""],
