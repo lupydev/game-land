@@ -1,20 +1,111 @@
 .contactContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin: 11rem 1rem 0rem 1rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: $secundary-color;
+  h2 {
+    color: $soft-blue1;
+  }
+  .frontend {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    margin: 11rem 1.8rem 0 1.8rem;
-    gap: 3rem;
-    font-size: 1.6rem;
+    grid-template-columns: repeat(2, 17rem);
     justify-content: center;
     align-items: center;
-    .contactContainer-card{
+    row-gap: 3rem;
+
+    .contactContainer-card {
       display: flex;
-      justify-content: center;
-    align-items: center;
-      .contactContainer-card--img{
-          height: 6rem;
-          width: 6rem;
-          border-radius: 50%;
-          background-color: $soft-orange;
+      align-items: center;
+      gap: 1rem;
+      .contactContainer-card--img {
+        height: 7rem;
+        width: 7rem;
+        border-radius: 30%;
+        background-color: $soft-orange;
+        box-shadow: $box-shadow;
+      }
+      .contactContainer-card--contact {
+        p {
+          margin-top: 0;
+        }
+        .contactContainer-card--socials {
+          display: flex;
+          gap: 1rem;
+          font-size: 2rem;
+          color: $main-color;
+        }
       }
     }
   }
+  .backend {
+    .contactContainer-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      text-align: center;
+      .contactContainer-card--img {
+        height: 7rem;
+        width: 7rem;
+        border-radius: 30%;
+        background-color: $soft-orange;
+        box-shadow: $box-shadow;
+      }
+      .contactContainer-card--contact {
+        p {
+          margin-top: 0;
+        }
+        .contactContainer-card--socials {
+          display: flex;
+          gap: 1rem;
+          font-size: 2rem;
+          color: $main-color;
+        }
+      }
+    }
+  }
+  @include media-up("tablet") {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    font-size: 2rem;
+    gap: 3rem;
+    .frontend {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6rem;
+      .contactContainer-card {
+        gap: 3rem;
+        .contactContainer-card--img {
+          width: 10rem;
+          height: 10rem;
+        }
+        .contactContainer-card--contact{
+          .contactContainer-card--socials{
+            font-size: 3rem;
+          }
+        }
+      }
+    }
+    .backend {
+      .contactContainer-card {
+        gap: 3rem;
+        .contactContainer-card--img {
+          width: 10rem;
+          height: 10rem;
+        }
+        .contactContainer-card--contact{
+          .contactContainer-card--socials{
+            font-size: 3rem;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import { tableroDefault } from '../components/Wordle/Matriz';
 
 export const Context = createContext({});
@@ -10,10 +10,32 @@ export const ContextApp = ({children}) => {
 
     const [tablero, setTablero] = useState(tableroDefault) 
     const [intentoActual, setIntentoActual] = useState({y: 0, x: 0})
-    const [palabraGanadora, setPalabraGanadora] = useState("BRUNO");
+    const [palabraGanadora, setPalabraGanadora] = useState("");
     const [win, setWin] = useState(false);
+    const [seleccion, setSeleccion] = useState("");
+    const [palabra, setPalabra] = useState();
+    const [juego, setJuego] = useState(false)
 
+    useEffect(()=>{
+        if(palabra === palabraGanadora){
+            setWin(true);
+        }
+    }, [palabra])
+
+    useEffect(()=>{
+        partida();
+    }, [juego])
+
+    const palabrasRandom = ["BRUNO", "ROQUE", "PABLO", "HELGA", "LUCHI", "ROCIO", "ELIAN", "LUCIO", "MARIA", "ELISA", "KEVIN", "KAREN", "JULIA", "JUANA", "MARCO", "OSCAR", "PEDRO", "JAIME", "DIEGO", "RAMON", "JORGE", "JESUS", "BRISA", "DARIO"];
+
+    const partida = () => {
+        if(juego === true){
+            const random = palabrasRandom[Math.floor(Math.random() * palabrasRandom.length)];
+            setPalabraGanadora(random);
+        }
+    }
     const onSeleccion = (valor) => {
+        if(win === true) return;
         if(intentoActual.x > 4) return;
         const newTablero = [...tablero];
         newTablero[intentoActual.y][intentoActual.x] = valor;
@@ -22,19 +44,15 @@ export const ContextApp = ({children}) => {
     } 
     const onEnter = () => {
         const indice = intentoActual.y
-        const palabra = tablero[indice].join("");
-        if (intentoActual.x !== 5 || palabra === palabraGanadora) {
-            setWin(true);
-            return; 
-        }
-        setIntentoActual({y: intentoActual.y + 1, x: 0});
-        console.log(palabra)
+        const palabraW = tablero[indice].join("");
+        setPalabra(palabraW)
+        if(intentoActual.x !== 5) return;
+        setIntentoActual({y: intentoActual.y + 1, x: 0})    
     }
     const onDel = () => {
         const indice = intentoActual.y
         const palabra = tablero[indice].join("");
         if (intentoActual.x === 0 || palabra === palabraGanadora) {
-            setWin(true);
             return; 
         }
         const newTablero = [...tablero];
@@ -45,7 +63,7 @@ export const ContextApp = ({children}) => {
     /* ---------------------------------------------------------*/
 
     return(
-        <Context.Provider value={{tablero, setTablero, intentoActual, setIntentoActual, onSeleccion, onEnter, onDel, win, palabraGanadora}}>
+        <Context.Provider value={{tablero, seleccion, setJuego, setSeleccion, setTablero, intentoActual, setIntentoActual, onSeleccion, onEnter, onDel, win, palabraGanadora}}>
             {children}
         </Context.Provider>
     )

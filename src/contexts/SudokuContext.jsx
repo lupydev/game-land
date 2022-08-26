@@ -53,7 +53,6 @@ export const SudokuProvider = ({children}) => {
         getData()
     }
 
-
     
     // La base se traera aleatoriamente entre varias plantillas del servidor.
     base = [[5,6,3,7,8,1,4,9,2],

@@ -6,6 +6,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&display=swap");
 article,
 aside,
 details,
@@ -234,8 +236,6 @@ table {
 
 input[type=search] {
   -webkit-appearance: textfield;
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
   box-sizing: content-box;
 }
 input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-search-decoration {
@@ -253,12 +253,13 @@ input[type=checkbox], input[type=radio] {
 4. Visuals
 5. Miscelaneos
 */
+/*--BREAKPOINTS--*/
 /*--MAIN-FONT--*/
 /*--GAME-FONT--*/
-/*--VARIABLES UI*/
+/*--VARIABLES-UI--*/
 /*--VARIBLES-WORDLE--*/
 /*--SUDOKU-VARIABLES--*/
-/*--MEMORY-VARIABLES*/
+/*--MEMORY-VARIABLES--*/
 /*----COMPONENTS---- */
 .aboutContainer {
   margin: 13rem 1.8rem 0 1.8rem;
@@ -268,24 +269,104 @@ input[type=checkbox], input[type=radio] {
 }
 
 .contactContainer {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  margin: 11rem 1.8rem 0 1.8rem;
-  gap: 3rem;
-  font-size: 1.6rem;
-  justify-content: center;
-  align-items: center;
-}
-.contactContainer .contactContainer-card {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 2rem;
+  margin: 11rem 1rem 0rem 1rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #27ae60;
 }
-.contactContainer .contactContainer-card .contactContainer-card--img {
-  height: 6rem;
-  width: 6rem;
-  border-radius: 50%;
+.contactContainer h2 {
+  color: #1d2532;
+}
+.contactContainer .frontend {
+  display: grid;
+  grid-template-columns: repeat(2, 17rem);
+  justify-content: center;
+  align-items: center;
+  row-gap: 3rem;
+}
+.contactContainer .frontend .contactContainer-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.contactContainer .frontend .contactContainer-card .contactContainer-card--img {
+  height: 7rem;
+  width: 7rem;
+  border-radius: 30%;
   background-color: #ffe9d4;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+.contactContainer .frontend .contactContainer-card .contactContainer-card--contact p {
+  margin-top: 0;
+}
+.contactContainer .frontend .contactContainer-card .contactContainer-card--contact .contactContainer-card--socials {
+  display: flex;
+  gap: 1rem;
+  font-size: 2rem;
+  color: #191d2b;
+}
+.contactContainer .backend .contactContainer-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+.contactContainer .backend .contactContainer-card .contactContainer-card--img {
+  height: 7rem;
+  width: 7rem;
+  border-radius: 30%;
+  background-color: #ffe9d4;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+.contactContainer .backend .contactContainer-card .contactContainer-card--contact p {
+  margin-top: 0;
+}
+.contactContainer .backend .contactContainer-card .contactContainer-card--contact .contactContainer-card--socials {
+  display: flex;
+  gap: 1rem;
+  font-size: 2rem;
+  color: #191d2b;
+}
+@media screen and (min-width: 768px) {
+  .contactContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    font-size: 2rem;
+    gap: 3rem;
+  }
+  .contactContainer .frontend {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6rem;
+  }
+  .contactContainer .frontend .contactContainer-card {
+    gap: 3rem;
+  }
+  .contactContainer .frontend .contactContainer-card .contactContainer-card--img {
+    width: 10rem;
+    height: 10rem;
+  }
+  .contactContainer .frontend .contactContainer-card .contactContainer-card--contact .contactContainer-card--socials {
+    font-size: 3rem;
+  }
+  .contactContainer .backend .contactContainer-card {
+    gap: 3rem;
+  }
+  .contactContainer .backend .contactContainer-card .contactContainer-card--img {
+    width: 10rem;
+    height: 10rem;
+  }
+  .contactContainer .backend .contactContainer-card .contactContainer-card--contact .contactContainer-card--socials {
+    font-size: 3rem;
+  }
 }
 
 .footerContainer {
@@ -314,6 +395,7 @@ input[type=checkbox], input[type=radio] {
 }
 
 .headerContainer {
+  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -341,7 +423,6 @@ input[type=checkbox], input[type=radio] {
   align-items: center;
 }
 .headerContainer .headerContainer-player--name p {
-  justify-content: center;
   font-size: 2rem;
   line-height: 2.478rem;
   font-weight: 700;
@@ -365,6 +446,11 @@ input[type=checkbox], input[type=radio] {
   font-weight: 700;
   text-align: center;
 }
+@media screen and (min-width: 1024px) {
+  .headerContainer {
+    justify-content: space-around;
+  }
+}
 
 .homeContainer {
   display: flex;
@@ -376,25 +462,69 @@ input[type=checkbox], input[type=radio] {
   padding-bottom: 5rem;
   text-align: center;
 }
-.homeContainer a {
+.homeContainer .homeContainer-card {
+  justify-self: center;
+  width: 32rem;
+  height: 35rem;
+  border: 0.2rem solid #d5edff;
+  border-radius: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+.homeContainer .homeContainer-card:hover {
+  transform: translateY(-0.5rem);
+}
+.homeContainer .homeContainer-card a {
   color: #27ae60;
   text-decoration: none;
 }
-.homeContainer a h2 {
+.homeContainer .homeContainer-card a h2 {
   font-size: 2.2rem;
   line-height: 1.936;
   font-weight: 700;
 }
-.homeContainer a img {
+.homeContainer .homeContainer-card a img {
   width: 20rem;
   height: 20rem;
   border-radius: 5px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .homeContainer .homeContainer-card--ranking {
   margin-top: 5px;
   font-size: 1.6rem;
+}
+@media screen and (min-width: 768px) {
+  .homeContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 35.4rem);
+    grid-auto-rows: 38.4rem;
+    justify-content: center;
+    align-self: center;
+    gap: 0;
+    height: 85vh;
+    margin: 20% auto 0 auto;
+    padding: 0;
+  }
+  .homeContainer .homeContainer-card {
+    justify-self: center;
+    width: 32rem;
+    height: 35rem;
+    border: 0.2rem solid #d5edff;
+    border-radius: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  }
+  .homeContainer .homeContainer-card a {
+    height: auto;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .homeContainer {
+    max-width: 102.4rem;
+    margin: 10rem auto 0;
+    -moz-column-gap: 25rem;
+         column-gap: 25rem;
+  }
 }
 
 .landingPage {
@@ -409,7 +539,9 @@ input[type=checkbox], input[type=radio] {
   width: 100%;
   margin-top: 13rem;
   padding: 5rem 0;
-  background-color: #191d2b;
+  background: url("https://i.postimg.cc/vZhFwQmJ/bg.png");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .landingPage .landingPage-title h1 {
   font-size: 5.6rem;
@@ -465,6 +597,9 @@ input[type=checkbox], input[type=radio] {
   width: 100%;
   margin-top: 13rem;
   background-color: #191d2b;
+  background: url("https://i.postimg.cc/vZhFwQmJ/bg.png");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .loginContainer .loginContainer-form form {
   display: flex;
@@ -531,9 +666,10 @@ input[type=checkbox], input[type=radio] {
 }
 
 .navBar {
-  position: relative;
+  position: fixed;
   display: flex;
   justify-content: space-evenly;
+  margin-top: 6.4766rem;
   top: 0;
   width: 100%;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
@@ -582,14 +718,62 @@ input[type=checkbox], input[type=radio] {
   padding: 0.5rem 1.5rem 0.5rem 1.5rem;
   border-bottom: 1px solid #d5edff;
 }
+.rankingContainer .rankingContainer-global tr:nth-of-type(n + 7) {
+  display: none;
+}
+.rankingContainer .rankingContainer-games tr:nth-of-type(n + 7) {
+  display: none;
+}
 .rankingContainer .rankingContainer-games {
   display: flex;
   gap: 3rem;
   height: 26rem;
-  padding: 0 3rem;
+  padding: 0 9.45rem;
   overflow-x: scroll;
   overscroll-behavior-x: contain;
-  scroll-snap-type: x proximity;
+  -ms-scroll-snap-type: x proximity;
+      scroll-snap-type: x proximity;
+}
+@media screen and (min-width: 768px) {
+  .rankingContainer {
+    gap: 3rem;
+    margin-top: 12rem;
+  }
+  .rankingContainer .rankingContainer-global table tr:nth-of-type(n) {
+    display: table-row;
+  }
+  .rankingContainer .rankingContainer-games {
+    height: 43rem;
+    gap: 7rem;
+    padding: 0 263.344px;
+  }
+  .rankingContainer .rankingContainer-games table tr:nth-of-type(n + 7) {
+    display: table-row;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .rankingContainer {
+    flex-direction: row;
+    align-items: center;
+    height: 90vh;
+    margin-top: 0;
+    padding-top: 6rem;
+    gap: 10rem;
+  }
+  .rankingContainer .rankingContainer-global table tr:nth-of-type(n) {
+    display: table-row;
+  }
+  .rankingContainer .rankingContainer-games {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    overflow: unset;
+    height: auto;
+    gap: 3rem;
+    padding: 0;
+  }
+  .rankingContainer .rankingContainer-games table tr:nth-of-type(n + 8) {
+    display: none;
+  }
 }
 
 .registrationContainer {
@@ -687,12 +871,130 @@ input[type=checkbox], input[type=radio] {
 4. Visuals
 5. Miscelaneos
 */
+/*--BREAKPOINTS--*/
 /*--MAIN-FONT--*/
 /*--GAME-FONT--*/
-/*--VARIABLES UI*/
+/*--VARIABLES-UI--*/
 /*--VARIBLES-WORDLE--*/
 /*--SUDOKU-VARIABLES--*/
-/*--MEMORY-VARIABLES*/
+/*--MEMORY-VARIABLES--*/
+.tablero-container {
+  margin-top: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.tablero-container .dificultad {
+  height: 300px;
+  width: 300px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.tablero-container .dificultad .botonDificultad {
+  width: 150px;
+  height: 30px;
+  font-size: 14px;
+  border: 2px solid #ffe9d4;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  background-color: #d5edff;
+  border-radius: 5px;
+}
+.tablero-container .dificultad .botonDificultad:hover {
+  background-color: rgba(213, 237, 255, 0.6039215686);
+}
+.tablero-container .dificultad .botonDificultad:active {
+  background-color: #d5edff;
+  font-size: 20px;
+}
+.tablero-container .tablero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 300px;
+  width: 300px;
+  margin: 20px;
+}
+.tablero-container .tablero .fila {
+  display: flex;
+  flex-direction: row;
+  padding: 0px;
+  margin: 1px;
+}
+.tablero-container .tablero .fila .casilla {
+  width: 37px;
+  height: 32px;
+  margin: 3px;
+  border-radius: 5px;
+  background-color: #d5edff;
+  border: 2px solid #ffe9d4;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bolder;
+}
+.tablero-container .tablero .fila #exacto {
+  background-color: #03a300;
+}
+.tablero-container .tablero .fila #existe {
+  background-color: #fce5aa;
+}
+.tablero-container .tablero .fila #inexistente {
+  background-color: #939393;
+}
+.tablero-container .teclado {
+  margin: 2rem;
+}
+.tablero-container .teclado .linea1, .tablero-container .teclado .linea2, .tablero-container .teclado .linea3 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 1px;
+}
+.tablero-container .teclado .linea1 .teclas, .tablero-container .teclado .linea2 .teclas, .tablero-container .teclado .linea3 .teclas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  width: 27.5px;
+  height: 32px;
+  color: white;
+  background: #000000;
+  border-radius: 5px;
+  margin: 2px;
+}
+.tablero-container .teclado .linea1 .teclas:hover, .tablero-container .teclado .linea2 .teclas:hover, .tablero-container .teclado .linea3 .teclas:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.tablero-container .teclado .linea1 .teclas:active, .tablero-container .teclado .linea2 .teclas:active, .tablero-container .teclado .linea3 .teclas:active {
+  background-color: #000000;
+  font-size: 20px;
+}
+.tablero-container .teclado .linea1 #especial, .tablero-container .teclado .linea2 #especial, .tablero-container .teclado .linea3 #especial {
+  width: 44px;
+}
+
+/*
+1. Position
+2. Box model
+3. Typographic
+4. Visuals
+5. Miscelaneos
+*/
+/*--BREAKPOINTS--*/
+/*--MAIN-FONT--*/
+/*--GAME-FONT--*/
+/*--VARIABLES-UI--*/
+/*--VARIBLES-WORDLE--*/
+/*--SUDOKU-VARIABLES--*/
+/*--MEMORY-VARIABLES--*/
 .sudoku {
   display: flex;
   flex-direction: column;
@@ -712,7 +1014,7 @@ input[type=checkbox], input[type=radio] {
   display: flex;
   justify-content: center;
   top: 0px;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   max-height: calc(100vh - 10rem);
   z-index: 5;
   scroll-behavior: smooth;
@@ -817,7 +1119,7 @@ input[type=checkbox], input[type=radio] {
 }
 
 .instruction {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   width: 90%;
   padding: 1rem;
   display: flex;
@@ -832,6 +1134,7 @@ input[type=checkbox], input[type=radio] {
   text-align: center;
   color: #c03030;
   background-color: #ffe9d4;
+  position: -webkit-sticky;
   position: sticky;
   left: 90%;
   top: 3rem;
@@ -1045,12 +1348,13 @@ input[type=checkbox], input[type=radio] {
 4. Visuals
 5. Miscelaneos
 */
+/*--BREAKPOINTS--*/
 /*--MAIN-FONT--*/
 /*--GAME-FONT--*/
-/*--VARIABLES UI*/
+/*--VARIABLES-UI--*/
 /*--VARIBLES-WORDLE--*/
 /*--SUDOKU-VARIABLES--*/
-/*--MEMORY-VARIABLES*/
+/*--MEMORY-VARIABLES--*/
 .buscaminas {
   display: flex;
   flex-direction: column;
@@ -1070,7 +1374,7 @@ input[type=checkbox], input[type=radio] {
   display: flex;
   justify-content: center;
   top: 0px;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   max-height: calc(100vh - 10rem);
   z-index: 5;
   scroll-behavior: smooth;
@@ -1145,6 +1449,4 @@ input[type=checkbox], input[type=radio] {
 }
 .win-buscaminas .time {
   font-size: 14px;
-}
-
-/*# sourceMappingURL=App.css.map */
+}/*# sourceMappingURL=App.css.map */

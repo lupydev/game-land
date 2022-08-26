@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { Context } from "../../Context/Context";
+import { Context } from "../../contexts/WordleContext";
 
 export const Casilla = ({y, x}) => {
-    const { tablero, intentoActual, palabraGanadora, win } = useContext(Context);
+    const { tablero, intentoActual, palabraGanadora } = useContext(Context);
     const casilla = tablero[y][x];
 
     const exacto = palabraGanadora[x] === casilla;

@@ -1,7 +1,8 @@
 .navBar {
-  position: relative;
+  position: fixed;
   display: flex;
   justify-content: space-evenly;
+  margin-top: 6.4766rem;
   top: 0;
   width: 100%;
   box-shadow: $box-shadow;
