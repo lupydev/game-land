@@ -1,19 +1,27 @@
 @import "../base/settings";
 
 $celdaDim: 3.8rem;
+$celdaDimTab: 6rem;
+
+.sudokuApp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
 
 .sudoku{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative;
+    max-width: 50rem;
 
     &-head {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: 8rem;
+        height: 8.1rem;
         width: 100%;
     }
 
@@ -21,12 +29,16 @@ $celdaDim: 3.8rem;
         position: absolute;
         display: flex;
         justify-content: center;
-        top: 0px;
+        top: 9.7rem;
         background-color: rgba(256,256,256,1);
         max-height: calc(100vh - 10rem);
         z-index: 5;
         scroll-behavior: smooth;    
         overflow: scroll;   
+    }
+
+    @include media-up("desktop"){
+        max-width: 70vw;
     }
 }
 
@@ -89,6 +101,16 @@ $celdaDim: 3.8rem;
         justify-content: center;
         align-items: center;
         box-shadow: $box-shadow;
+
+        @include media-up("tablet"){
+            height: 50px;
+            width: 50px;
+            border-radius: 25px;
+        }
+    }
+
+    @include media-up("tablet"){
+        margin: 3rem 0 0 3rem;   
     }
 }
 
@@ -106,6 +128,13 @@ $celdaDim: 3.8rem;
     justify-content: center;
     align-items: center;
     box-shadow: $box-shadow;
+
+    @include media-up("tablet"){
+        height: 50px;
+        width: 50px;
+        border-radius: 25px;
+        margin: 3rem 0 0 3rem;   
+    }
 }
 
 .help {
@@ -120,6 +149,13 @@ $celdaDim: 3.8rem;
     justify-content: center;
     align-items: center;
     box-shadow: $box-shadow;
+
+    @include media-up("tablet"){
+        height: 50px;
+        width: 50px;
+        border-radius: 25px;
+        margin: 3rem 0 0 3rem;   
+    }
 }
 
 .ocultar {
@@ -212,6 +248,10 @@ $celdaDim: 3.8rem;
     align-items: center;
     position: relative;
     z-index: 3;
+
+    @include media-up("desktop"){
+        flex-direction: row;
+    }
 }
 
 .board{
@@ -222,6 +262,15 @@ $celdaDim: 3.8rem;
     box-sizing: border-box;
     border: 2px solid #191d2b;
     box-shadow: $box-shadow;
+
+    @include media-up("tablet"){
+        margin: 6rem 0 3rem 0;
+    }
+
+    @include media-up("desktop"){
+        max-width: 80vw;
+        margin-right: 8rem;
+    }
 }
 
 .win{
@@ -251,13 +300,32 @@ $celdaDim: 3.8rem;
 .row{
     display: flex;
     flex-direction: column;
-    width: auto;
+    max-width: calc($celdaDim * 9);
     height: auto;
 
     .rowSection{
         display: flex;
         height: $celdaDim;
+
+        @include media-up("tablet"){
+            max-width: calc($celdaDimTab * 9);
+            height: $celdaDimTab;
+        }
+
+        @include media-up("desktop"){
+            max-width: calc($celdaDimTab * 9);
+            height: calc($celdaDimTab - 1rem);
+        }
     }
+
+    @include media-up("tablet"){
+        max-width: calc($celdaDimTab * 9);
+    }
+
+    @include media-up("desktop"){
+        max-width: calc($celdaDimTab * 9);
+    }
+    
 }
 
 .lineHor{
@@ -309,7 +377,17 @@ $celdaDim: 3.8rem;
                 color: #191d2b;
             }
         }
-    }   
+    } 
+    
+    @include media-up("tablet"){
+        width: $celdaDimTab;
+        height: $celdaDimTab;
+    }
+
+    @include media-up("desktop"){
+        width: calc($celdaDimTab - 1rem);
+        height: calc($celdaDimTab - 1rem);
+    }
 }
 
 .btnNumList{
@@ -322,11 +400,36 @@ $celdaDim: 3.8rem;
         font-size: 14px;
         color: white;
         background-color: #191d2b;
-        width: 32px;
-        height: 32px;
+        width: calc($celdaDim - 1rem);
+        height: calc($celdaDim - 1rem);
         border: 1px solid #191d2b;
         border-radius: 5px;
         box-shadow: $box-shadow;
+        
+
+        @include media-up("tablet"){
+            font-size: 28px;
+            width: calc($celdaDimTab - 1rem);
+            height: calc($celdaDimTab - 1rem);
+        }
+
+        @include media-up("desktop"){
+            width: calc($celdaDimTab - 1rem);
+            height: calc($celdaDimTab - 1rem);
+            margin-left: 2rem;
+        }
+    }
+
+    @include media-up("tablet"){
+        margin: 2rem 0 3rem 0;
+    }
+
+    @include media-up("desktop"){
+        display: flex;
+        flex-wrap: wrap;
+        margin: 6rem 0 0 0;
+        height: calc($celdaDimTab * 8);
+        width: 30vw;
     }
 }
 
@@ -351,7 +454,30 @@ $celdaDim: 3.8rem;
         .img{
             width: 2.5rem;
             height: 2.5rem;
+
+            @include media-up("tablet"){
+                width: 3rem;
+                height: 3rem;
+            }
         }
+
+        @include media-up("tablet"){
+            height: 70px;
+            width: 70px;
+            border-radius: 35px;
+        }
+    }
+
+    @include media-up("desktop"){
+        flex-direction: column;
+    }
+
+    @include media-up("desktop"){
+        display: flex;
+        flex-wrap: wrap;
+        margin: 3rem 5rem 0 8rem;
+        height: calc($celdaDimTab * 8);
+        width: calc($celdaDimTab * 5);
     }
 }
 
@@ -372,7 +498,6 @@ $celdaDim: 3.8rem;
         height: 100%;
     }
 }
-
 
 
 

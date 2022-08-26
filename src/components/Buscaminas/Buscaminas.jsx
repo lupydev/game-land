@@ -13,7 +13,7 @@ function Buscaminas() {
     
     return(
         <BuscaminasProvider>
-            <div>
+            <div className="buscaminasApp">
                 <Header />
                 <NavBar />
                 <div className="buscaminas">

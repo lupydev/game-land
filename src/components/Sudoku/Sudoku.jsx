@@ -13,7 +13,7 @@ function Sudoku(){
 
     return(
         <SudokuProvider>
-            <div>
+            <div className="sudokuApp">
                 <Header />
                 <NavBar />
                 <div className="sudoku">

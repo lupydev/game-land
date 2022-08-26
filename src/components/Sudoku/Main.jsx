@@ -11,7 +11,6 @@ function Main(){
 
     return(
         <div className="mainSudoku">
-            <div>
                 <Board />
 
                 <div className='btnNumList'>
@@ -39,7 +38,6 @@ function Main(){
                         disable = {false}
                     />
                 </div>
-            </div>
         </div>
     )
 }
