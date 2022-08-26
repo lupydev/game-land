@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Header } from "./Header";
 import { NavBar } from "./NavBar";
 import { Footer } from "./Footer";
 import { Link } from "react-router-dom";
+import { GlobalContext } from "../contexts/GlobalContext";
 
 export const Home = () => {
+
+  const {getUserData} = useContext(GlobalContext)
+  
+  getUserData()
+  
   return (
     <div>
       <Header />

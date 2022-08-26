@@ -53,6 +53,23 @@ export const GlobalProvider = ({children}) => {
             .catch(err => console.log(err))
     }
 
+    const getUserData = async () => {
+
+        await fetch('https://no-country-app.herokuapp.com/gamers/2', {
+            method: "GET",
+            headers: {"Content-type": "application/json; charset=UTF-8"}
+            })
+            .then((resp) => 
+                resp.json()
+            )
+            .then(json => {
+                
+                console.log(json)
+            })
+            .catch(err => console.log(err))
+
+    }
+
     console.log(user);
 
     return (
@@ -60,7 +77,8 @@ export const GlobalProvider = ({children}) => {
             token,
             logIn,
             singIn,
-            singUp
+            singUp,
+            getUserData
         }}>
             {children}
         </GlobalContext.Provider>                                            

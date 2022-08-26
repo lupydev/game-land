@@ -17,6 +17,8 @@ export const SudokuProvider = ({children}) => {
                                                     [6,8,9,4,1,2,7,3,5],
                                                     [7,2,5,9,3,6,8,4,1],
                                                     [1,3,4,8,7,5,9,2,6]])
+    
+    const [templates, setTemplates] = useState([])
 
     let base = []
 
@@ -27,14 +29,21 @@ export const SudokuProvider = ({children}) => {
             method: "GET",
             headers: {"Content-type": "application/json; charset=UTF-8"}
             })
-            .then(resp => resp.json()) 
+            .then((resp) => 
+                resp.json()
+            )
             .then(json => {
-                console.log(json.templates)
+                if((json === false || json === undefined) && templates.length === 0){
+                    setTemplates([])
+                } else {
+                    setTemplates(json.templates)
+                    setDataGeted(true)
+                }
+                console.log(json)
             })
             .catch(err => console.log(err))
 
-            // setLogIn(true)
-        
+            // setLogIn(true)        
     }
     
 
@@ -246,6 +255,13 @@ export const SudokuProvider = ({children}) => {
         let n;
 
         getData()
+        if(templates.length === 0){
+            base = baseBackup
+        } else {
+            base = setearBase(templates[Math.floor(Math.random() * templates.length)])
+        }
+        
+
         switch (dificultad) {
             case "facil":
                 n = 40
