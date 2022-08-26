@@ -26,7 +26,7 @@ export const GlobalProvider = ({children}) => {
             .then(resp => resp.json()) 
             .then(json => {
                 console.log(json.jwt)
-                sessionStorage.setItem("GameLandLogin", json.jwt)
+                sessionStorage.setItem("GameLandLogin", JSON.stringify(json))
                 setLogIn(true)
             })
             .catch(err => console.log(err))
@@ -53,22 +53,25 @@ export const GlobalProvider = ({children}) => {
             .catch(err => console.log(err))
     }
 
-    const getUserData = async () => {
+    // const getUserData = async () => {
 
-        await fetch('https://no-country-app.herokuapp.com/gamers/2', {
-            method: "GET",
-            headers: {"Content-type": "application/json; charset=UTF-8"}
-            })
-            .then((resp) => 
-                resp.json()
-            )
-            .then(json => {
+    //     await fetch('https://no-country-app.herokuapp.com/sudoku/1', {
+    //         method: "GET",
+    //         mode: "no-cors",
+    //         headers: {
+    //             Authorization: "Bearer ".concat(sessionStorage.getItem("GameLandLogin")),
+    //             "Content-type": "application/json; charset=UTF-8"}
+    //         })
+    //         .then((resp) => 
+    //             resp.json()
+    //         )
+    //         .then(json => {
                 
-                console.log(json)
-            })
-            .catch(err => console.log(err))
+    //             console.log(json)
+    //         })
+    //         .catch(err => console.log(err))
 
-    }
+    // }
 
     console.log(user);
 
@@ -78,7 +81,7 @@ export const GlobalProvider = ({children}) => {
             logIn,
             singIn,
             singUp,
-            getUserData
+            // getUserData
         }}>
             {children}
         </GlobalContext.Provider>                                            

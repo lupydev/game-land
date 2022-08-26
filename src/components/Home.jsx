@@ -7,9 +7,9 @@ import { GlobalContext } from "../contexts/GlobalContext";
 
 export const Home = () => {
 
-  const {getUserData} = useContext(GlobalContext)
+  // const {getUserData} = useContext(GlobalContext)
   
-  getUserData()
+  // getUserData()
   
   return (
     <div>

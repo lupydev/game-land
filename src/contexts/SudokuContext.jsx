@@ -21,17 +21,19 @@ export const SudokuProvider = ({children}) => {
     const [templates, setTemplates] = useState([])
 
     let base = []
-
+        
     const getData = async () => {
-        console.log("Bearer " + sessionStorage.getItem("GameLandLogin"))
+        console.log(sessionStorage.getItem("GameLandLogin"));
+        console.log("Bearer ".concat(JSON.parse(sessionStorage.getItem("GameLandLogin")).jwt))
         
         await fetch('https://no-country-app.herokuapp.com/sudoku/1', {
             method: "GET",
-            headers: {"Content-type": "application/json; charset=UTF-8"}
+            mode: "no-cors",
+            headers: {
+                Authorization: "Bearer ".concat(JSON.parse(sessionStorage.getItem("GameLandLogin")).jwt),
+                "Content-type": "application/json; charset=UTF-8"}
             })
-            .then((resp) => 
-                resp.json()
-            )
+            .then((resp) => resp.json())
             .then(json => {
                 if((json === false || json === undefined) && templates.length === 0){
                     setTemplates([])
