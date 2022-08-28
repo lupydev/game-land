@@ -3,7 +3,7 @@ import { BuscaminasContext } from "../../contexts/BuscaminasContext";
 
 function Win(){
 
-    const {tiempo,formatTime} = useContext(BuscaminasContext)
+    const {tiempo,formatTime,puntaje} = useContext(BuscaminasContext)
 
     console.log(tiempo);
     const time = formatTime(tiempo)
@@ -13,7 +13,7 @@ function Win(){
             <p className="congrats">!Felicitaciones</p>
             <p className="congrats">Ganaste!</p>
             <p className="time">⏱️Tu tiempo fue: {time[0]}:{time[1]}:{time[2]}.{time[3]}</p>
-            {/* <p className="puntaje">Obtuviste un puntaje total de: <span>{puntaje}</span></p>*/}
+            <p className="puntaje">Obtuviste un puntaje total de: <span>{puntaje}</span></p>
         </div>
     )
 }

@@ -115,26 +115,20 @@ export const GlobalProvider = ({children}) => {
         
         console.log(auxArray);
 
-        for(let i = auxArray.length; i < (5 - auxArray.length); i++){
+        for(let i = 0; i < (5  - auxArray.length); i++){
             auxArray.push(0)
         }
 
         console.log(auxArray);
         
         min = Math.min(...auxArray)
+        console.log(min);
 
         for(let i = 0; i < auxArray.length; i++){
-            if(min < puntos){
+            if(auxArray[i] === min){
                 auxArray[i] = puntos
                 finalArray = auxArray
                 break
-            }
-        }
-        
-        console.log(finalArray);
-        if(finalArray.length < 5){
-            for(let i = finalArray.length; i < (5 - finalArray.length); i++){
-                finalArray.push(0)
             }
         }
         

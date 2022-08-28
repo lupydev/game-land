@@ -27,33 +27,33 @@ export const SudokuProvider = ({children}) => {
 
     const [base, setBase] = useState([])
         
-    // const getData = async () => {
+    const getData = async () => {
         
-    //     await fetch('https://no-country-app.herokuapp.com/sudoku/1', {
-    //             method: "GET",
-    //             modo: "cors",
-    //             headers: {
-    //                 "Content-type": "application/json; charset=UTF-8",
-    //                 "Access-Control-Allow-Origin": "*",
-    //             }
-    //         }
-    //     )
-    //         .then((resp) => resp.json())
-    //         .then(json => {
-    //             console.log(json);
-    //             if((json === false || json === undefined) && templates.length === 0){
-    //                 setTemplates([])
-    //             } else {
-    //                 setTemplates(json.templates)
-    //                 setDataGeted(true)
-    //             }
-    //         })
-    //         .catch(err => console.log(err))           
-    // }    
+        await fetch('https://no-country-app.herokuapp.com/sudoku/1', {
+                method: "GET",
+                modo: "cors",
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8",
+                    "Access-Control-Allow-Origin": "*",
+                }
+            }
+        )
+            .then((resp) => resp.json())
+            .then(json => {
+                console.log(json);
+                if((json === false || json === undefined) && templates.length === 0){
+                    setTemplates([])
+                } else {
+                    setTemplates(json.templates)
+                    setDataGeted(true)
+                }
+            })
+            .catch(err => console.log(err))           
+    }    
 
-    // if(!dataGeted){
-    //     getData()
-    // }
+    if(!dataGeted){
+        getData()
+    }
     
     let auxMat = [["","","","","","","","",""],
                 ["","","","","","","","",""],
@@ -137,6 +137,9 @@ export const SudokuProvider = ({children}) => {
     }
 
     const resetGame = () => {
+
+        document.querySelector(".reset").disabled = false
+
         auxMat = [["","","","","","","","",""],
                     ["","","","","","","","",""],
                     ["","","","","","","","",""],
@@ -267,7 +270,7 @@ export const SudokuProvider = ({children}) => {
                 break;
         }
         
-        for(let i = 0; i < 80; i++){
+        for(let i = 0; i < n; i++){
             let r = Math.floor(Math.random() * 9)
             let c = Math.floor(Math.random() * 9)
             
@@ -384,6 +387,7 @@ export const SudokuProvider = ({children}) => {
             setPuntaje(puntos)
             setTiempo(time)
             loadScore(usersData.id, usersData.recordSudoku, puntos, "sudoku")
+            document.querySelector(".reset").disabled = "true"
             
         } else {
             console.log("El tablero esta mal.");

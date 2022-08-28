@@ -1,8 +1,13 @@
-import {createContext, useState} from "react";
+import {createContext, useContext, useState} from "react";
+import { GlobalContext } from "./GlobalContext";
 
 export const BuscaminasContext = createContext();
 
 export const BuscaminasProvider = ({children}) => {
+
+    const {puntajeFinal, loadScore} = useContext(GlobalContext)
+
+    const [usersData, setUsersData] = useState(JSON.parse(sessionStorage.getItem("userData")))
 
     const generarMatriz = (r, c, value) =>{
         let matriz = []
@@ -53,6 +58,8 @@ export const BuscaminasProvider = ({children}) => {
     const [preDif, setPreDif] = useState("")
 
     const [winner, setWinner] = useState(false)
+
+    const [puntaje, setPuntaje] = useState(0)
 
     const putBombs = (b) => {
         console.log("put");
@@ -274,6 +281,9 @@ export const BuscaminasProvider = ({children}) => {
                 time = new Date() - tiempo
                 console.log(time);
                 setTiempo(time)
+                let puntos = puntajeFinal(time, dificultad)
+                setPuntaje(puntos)
+                loadScore(usersData.id, usersData.recordBuscaMinas, puntos, "buscaMinas")
                 confModo("")
                 update()
             }
@@ -453,6 +463,7 @@ export const BuscaminasProvider = ({children}) => {
             dificultad,
             winner,
             tiempo,
+            puntaje,
             resetGame,
             newGame,
             digAt,
