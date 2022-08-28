@@ -1,10 +1,15 @@
 import {createContext, useContext, useState} from "react";
+import { GlobalContext } from "./GlobalContext";
 
 export const SudokuContext = createContext();
 
 export const SudokuProvider = ({children}) => {
 
-    const [usersData, setUsersData] = useState({})
+    const {puntajeFinal, loadScore} = useContext(GlobalContext)
+
+    const [usersData, setUsersData] = useState(JSON.parse(sessionStorage.getItem("userData")))
+
+    console.log(JSON.parse(sessionStorage.getItem("userData")));
 
     const [dataGeted, setDataGeted] = useState(false)
 
@@ -20,38 +25,35 @@ export const SudokuProvider = ({children}) => {
     
     const [templates, setTemplates] = useState([])
 
-    let base = []
+    const [base, setBase] = useState([])
         
-    const getData = async () => {
-        console.log(sessionStorage.getItem("GameLandLogin"));
-        console.log("Bearer " + sessionStorage.getItem("GameLandLogin"))
+    // const getData = async () => {
         
-        await fetch('https://no-country-app.herokuapp.com/sudoku/1', {
-            method: "GET",
-            headers: {
-                Authorization: "Bearer " + sessionStorage.getItem("GameLandLogin"),
-                "Content-type": "application/json; charset=UTF-8"
-            }
-            })
-            .then((resp) => resp.json())
-            .then(json => {
+    //     await fetch('https://no-country-app.herokuapp.com/sudoku/1', {
+    //             method: "GET",
+    //             modo: "cors",
+    //             headers: {
+    //                 "Content-type": "application/json; charset=UTF-8",
+    //                 "Access-Control-Allow-Origin": "*",
+    //             }
+    //         }
+    //     )
+    //         .then((resp) => resp.json())
+    //         .then(json => {
+    //             console.log(json);
+    //             if((json === false || json === undefined) && templates.length === 0){
+    //                 setTemplates([])
+    //             } else {
+    //                 setTemplates(json.templates)
+    //                 setDataGeted(true)
+    //             }
+    //         })
+    //         .catch(err => console.log(err))           
+    // }    
 
-                console.log(json);
-                if((json === false || json === undefined) && templates.length === 0){
-                    setTemplates([])
-                } else {
-                    setTemplates(json.templates)
-                    setDataGeted(true)
-                }
-                console.log(json)
-            })
-            .catch(err => console.log(err))           
-    }
-    
-
-    if(!dataGeted){
-        getData()
-    }
+    // if(!dataGeted){
+    //     getData()
+    // }
     
     let auxMat = [["","","","","","","","",""],
                 ["","","","","","","","",""],
@@ -135,7 +137,6 @@ export const SudokuProvider = ({children}) => {
     }
 
     const resetGame = () => {
-        console.log("reset");
         auxMat = [["","","","","","","","",""],
                     ["","","","","","","","",""],
                     ["","","","","","","","",""],
@@ -185,7 +186,7 @@ export const SudokuProvider = ({children}) => {
                     celda.style.fontWeight = ""
                 }
             }
-        }        
+        }  
 
         time = 0
 
@@ -215,13 +216,19 @@ export const SudokuProvider = ({children}) => {
             choice[i].style.color = "#f7931a"
         }
         
-        console.log(dif);
         const selec = document.getElementById(dif);
-        console.log(selec);
         selec.style.backgroundColor = "#f7931a"
         selec.style.color = "#ffe9d4"
 
         setDificultad(dif)
+
+        console.log(base, templates);
+        if(templates.length === 0){
+            setBase(baseBackup)
+        } else {
+            console.log();
+            setBase(setearBase(templates[Math.floor(Math.random() * templates.length)]))
+        }
     }
 
     const newGToggle = () =>{
@@ -239,17 +246,9 @@ export const SudokuProvider = ({children}) => {
     }
 
     const newGame = () => {
-                
+        console.log(base, matriz);        
         resetGame()
-        let n;
-
-        getData()
-        if(templates.length === 0){
-            base = baseBackup
-        } else {
-            base = setearBase(templates[Math.floor(Math.random() * templates.length)])
-        }
-        
+        let n;        
 
         switch (dificultad) {
             case "facil":
@@ -268,10 +267,11 @@ export const SudokuProvider = ({children}) => {
                 break;
         }
         
-        for(let i = 0; i < n; i++){
+        for(let i = 0; i < 80; i++){
             let r = Math.floor(Math.random() * 9)
             let c = Math.floor(Math.random() * 9)
-                    
+            
+            console.log(r,c,matriz, base);
             if(auxMat[r][c] === ""){
                 ponerNum(r.toString() + c.toString(), base[r][c], true)
                 document.getElementById(r.toString() + c.toString()).style.fontWeight = "bolder"
@@ -279,9 +279,6 @@ export const SudokuProvider = ({children}) => {
                 i--
             }
         }
-        console.log(auxMat);
-        console.log(auxPosNum);
-        console.log(auxVerMat);
 
         setTiempo(new Date())
 
@@ -301,12 +298,9 @@ export const SudokuProvider = ({children}) => {
                 auxPosNum = posiblesNumbers
                 auxVerMat = verifyValues
             }            
-
-            console.log("id: " + id + " - num: " + num);
     
             let r = Math.floor(id / 10)
             let c = id % 10
-            console.log(blockMat[r][c]);
 
             if(blockMat[r][c] === true){
                 console.log("No se puede modificar esa celda");
@@ -381,54 +375,20 @@ export const SudokuProvider = ({children}) => {
         }
         
         console.log("checked");
+        console.log(matriz, base);
         if(JSON.stringify(matriz) === JSON.stringify(base)){
             console.log("Felicitaciones");
             setWinner(true)
             time = new Date() - tiempo
-            // puntajeFinal(time)
+            let puntos = puntajeFinal(time, dificultad)
+            setPuntaje(puntos)
             setTiempo(time)
+            loadScore(usersData.id, usersData.recordSudoku, puntos, "sudoku")
             
         } else {
             console.log("El tablero esta mal.");
         }
     }
-
-    // const puntajeFinal = (t) => {
-    //     let puntos = 0
-    //     console.log(t);
-    //     switch (dificultad) {
-    //         case "facil":
-    //             if((1800 - (t / 1000)) * 1.5 + 500 > 0){
-    //                 puntos = (1800 - (t / 1000)) * 1.5 + 500
-    //             } else {
-    //                 puntos = 500
-    //             }
-                
-    //             break;
-
-    //         case "medio":
-    //             if((1800 - (t / 1000)) * 2.2 + 2000 > 0){
-    //                 puntos = (1800 - (t / 1000)) * 2.2222 + 2000
-    //             } else {
-    //                 puntos = 2000
-    //             }
-    //             break;
-
-    //         case "dificil":
-    //             if((1800 - (t / 1000)) * 3.8 + 3000 > 0){
-    //                 puntos = (1800 - (t / 1000)) * 3.888888 + 3000
-    //             } else {
-    //                 puntos = 3000
-    //             }
-    //             break;
-        
-    //         default:
-    //             break;
-    //     }
-
-    //     setPuntaje(puntos)
-    //     console.log(puntos);
-    // }
 
     const formatTime = (t) => {
         let timeArray = ["","","",""]
@@ -519,7 +479,6 @@ export const SudokuProvider = ({children}) => {
         }
         setIdPrev(id)
         setSelected(id)
-        console.log(idPrev);
     }
 
     const borrar = (id) => {

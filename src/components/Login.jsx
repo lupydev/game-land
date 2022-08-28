@@ -2,11 +2,12 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { GlobalContext } from "../contexts/GlobalContext";
 
+const imagen = require.context("./../img", true);
 
 export const Login = () => {
   let navigate = useNavigate()
 
-  const {singIn, logIn} = useContext(GlobalContext)
+  const {singIn, logIn, loadingUser} = useContext(GlobalContext)
 
   const [userData, setUserData] = useState({username: "", password: ""})
 
@@ -26,15 +27,21 @@ export const Login = () => {
   }
 
   useEffect(() =>{
-    if(logIn){
+    if(logIn && loadingUser === false){
       navigate('/home')
     }
     
   }, [logIn])
 
+  useEffect(() => {
+
+  }, [loadingUser])
+
   return (
     <div className="loginContainer">
       <div className="loginContainer-form">
+        {!loadingUser
+        ?
         <form action="" onSubmit={submitLogin}>
           <label htmlFor="usuario">
             <span>Email</span>
@@ -46,7 +53,12 @@ export const Login = () => {
           </label>
           <button className="login--btn btn">Login</button>
         </form>
+
+        :
+        <img className="loading" src={imagen("./loading.gif")}/>
+        }
       </div>
+      
       <div className="links">
 
       <Link to="/registration">Registrate</Link>

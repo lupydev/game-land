@@ -646,6 +646,10 @@ input[type=checkbox], input[type=radio] {
 .loginContainer .loginContainer-form form .btn:hover {
   text-decoration: none;
 }
+.loginContainer .loginContainer-form .loading {
+  width: 10rem;
+  height: 10rem;
+}
 .loginContainer .links {
   display: flex;
   flex-direction: column;
