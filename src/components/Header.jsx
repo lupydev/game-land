@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { GlobalContext } from "../contexts/GlobalContext";
 import { NavBar } from "./NavBar";
 
 export const Header = () => {
+
+  const {userData, promedio} = useContext(GlobalContext)
+
+  
+
   return (
     <div className="headerContainer">
       <div className="headerContainer-logo">
@@ -10,11 +16,11 @@ export const Header = () => {
       </div>
       <div className="headerContainer-player">
         <div className="headerContainer-player--name">
-          <p>gameland</p>
+          <p>{userData.name}</p>
         </div>
       </div>
       <div className="headerContainer-player--points">
-        <p>1100</p>
+        <p>{promedio}</p>
       </div>
     </div>
   );

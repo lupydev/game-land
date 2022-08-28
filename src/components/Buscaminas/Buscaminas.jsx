@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import Help from "./Help";
 import NewGame from "./NewGame";
 import Dificult from "./Dificult";
@@ -8,9 +8,18 @@ import { BuscaminasProvider } from "../../contexts/BuscaminasContext";
 import { Header } from "../Header";
 import { NavBar } from "../NavBar";
 import Instruction from "./Instruction";
+import { GlobalContext } from "../../contexts/GlobalContext";
 
 function Buscaminas() {
     
+    const {promedio, getRanking} = useContext(GlobalContext)
+
+    getRanking("buscaMinas")
+
+    useEffect (() =>{
+        console.log(promedio);
+    }, [promedio])
+
     return(
         <BuscaminasProvider>
             <div className="buscaminasApp">

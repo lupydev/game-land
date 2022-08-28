@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Header } from "./Header";
 import { NavBar } from "./NavBar";
 import { Footer } from "./Footer";
@@ -7,9 +7,13 @@ import { GlobalContext } from "../contexts/GlobalContext";
 
 export const Home = () => {
 
-  // const {getUserData} = useContext(GlobalContext)
+  const {getRanking, promedio} = useContext(GlobalContext)
   
-  // getUserData()
+  getRanking("global")
+
+  useEffect (() =>{
+    console.log(promedio);
+  }, [promedio])
   
   return (
     <div>

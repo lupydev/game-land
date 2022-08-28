@@ -97,6 +97,8 @@ export const SudokuProvider = ({children}) => {
     
     let time = 0
 
+    let auxBase = []   
+
     const [selected, setSelected] = useState("")
 
     const [posiblesNumbers, setPosNum] = useState(auxPosNum)
@@ -224,14 +226,6 @@ export const SudokuProvider = ({children}) => {
         selec.style.color = "#ffe9d4"
 
         setDificultad(dif)
-
-        console.log(base, templates);
-        if(templates.length === 0){
-            setBase(baseBackup)
-        } else {
-            console.log();
-            setBase(setearBase(templates[Math.floor(Math.random() * templates.length)]))
-        }
     }
 
     const newGToggle = () =>{
@@ -251,7 +245,20 @@ export const SudokuProvider = ({children}) => {
     const newGame = () => {
         console.log(base, matriz);        
         resetGame()
-        let n;        
+        let n;
+        
+        console.log(base, templates);
+        if(templates.length === 0){
+            auxBase = baseBackup
+            setBase(baseBackup)
+        } else {
+            console.log();
+            let m = setearBase(templates[Math.floor(Math.random() * templates.length)])
+            auxBase = m
+            setBase(auxBase)
+        }
+
+        console.log(auxBase);
 
         switch (dificultad) {
             case "facil":
@@ -270,13 +277,13 @@ export const SudokuProvider = ({children}) => {
                 break;
         }
         
-        for(let i = 0; i < n; i++){
+        for(let i = 0; i < 80; i++){
             let r = Math.floor(Math.random() * 9)
             let c = Math.floor(Math.random() * 9)
             
             console.log(r,c,matriz, base);
             if(auxMat[r][c] === ""){
-                ponerNum(r.toString() + c.toString(), base[r][c], true)
+                ponerNum(r.toString() + c.toString(), auxBase[r][c], true)
                 document.getElementById(r.toString() + c.toString()).style.fontWeight = "bolder"
             } else {
                 i--
@@ -369,6 +376,8 @@ export const SudokuProvider = ({children}) => {
     }
 
     const check = () =>{
+
+        console.log(matriz, base);
         for(let i = 0; i < 9; i++){
             for(let j = 0; j < 9; j++){
                 if(verifyValues[i][j] === false){

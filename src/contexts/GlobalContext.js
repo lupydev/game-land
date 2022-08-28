@@ -9,7 +9,9 @@ export const GlobalProvider = ({children}) => {
 
     const [loadingUser, setLoadingUser] = useState(false)
 
-    
+    const [userData, setUserData] = useState({})
+
+    const [promedio, setPromedio] = useState(0)
 
     const singIn = async (u) => {
         console.log("Recibido: ", JSON.stringify(u));
@@ -56,6 +58,7 @@ export const GlobalProvider = ({children}) => {
         for(let i = 0; i < users.length; i++){
             if(user.username === users[i].username && user.password === users[i].password){
                 sessionStorage.setItem("userData", JSON.stringify(users[i]))
+                setUserData(JSON.parse(sessionStorage.getItem("userData")))
                 console.log(JSON.parse(sessionStorage.getItem("userData")));
                 setLogIn(true)
                 setLoadingUser(false)
@@ -117,6 +120,7 @@ export const GlobalProvider = ({children}) => {
 
         for(let i = 0; i < (5  - auxArray.length); i++){
             auxArray.push(0)
+            console.log(auxArray);
         }
 
         console.log(auxArray);
@@ -170,14 +174,75 @@ export const GlobalProvider = ({children}) => {
             .catch(err => console.log(err))
     }
 
+    const getRanking = (game) => {
+        let url = 'https://no-country-app.herokuapp.com/ranking/' + game
+
+        fetch(url, {
+                    method: "GET",
+                    modo: "cors",
+                    headers: {
+                        "Content-type": "application/json; charset=UTF-8",
+                        "Access-Control-Allow-Origin": "*",
+                    }
+                }
+            )
+                .then(resp => resp.json()) 
+                .then(json => {
+                    console.log(json)
+                    setPromedio(ranking(json, userData.id, game))
+                })
+                .catch(err => console.log(err))
+    }
+    
+
+    const ranking = (list, u, g) => {
+
+        let atributo = ""
+
+        switch (g) {
+            case "global":
+                atributo = "averageGlobal"
+                break;
+            
+            case "sudoku":
+                atributo = "averageSudoku"
+                    break;
+
+            case "buscaMinas":
+                atributo = "averageBuscaMinas"
+                break;
+
+            case "wordle":
+                atributo = "averageWordle"
+                break;
+
+            case "memories":
+                atributo = "averageMemories"
+                break;
+        
+            default:
+                break;
+        }
+        for(let i = 0; i < list.length; i++){
+            if(list[i].id === u){
+                console.log(list[i]);
+                console.log(atributo);
+                return list[i][atributo]
+            }
+        }        
+    }
+
     return (
         <GlobalContext.Provider value={{
             logIn,
             loadingUser,
+            userData,
+            promedio,
             singIn,
             singUp,
             puntajeFinal,
-            loadScore
+            loadScore,
+            getRanking
         }}>
             {children}
         </GlobalContext.Provider>                                            
