@@ -15,7 +15,7 @@ export const ContextApp = ({children}) => {
     const [seleccion, setSeleccion] = useState("");
     const [palabra, setPalabra] = useState();
     const [juego, setJuego] = useState(false);
-    const [timer, setTimer] = useState(Date.now());
+    const [timer, setTimer] = useState();
     const [puntaje, setPuntaje] = useState(0);
 
     useEffect(()=>{
@@ -26,7 +26,9 @@ export const ContextApp = ({children}) => {
 
     useEffect(()=>{
         partida();
+        setTimer(Date.now())
     }, [juego])
+
 
     // useEffect(()=>{
     //     let n = 0;
@@ -47,15 +49,15 @@ export const ContextApp = ({children}) => {
     const partida = () => {
         if(juego === true){
             switch (seleccion) {
-                case "FACIL":
+                case "facil":
                     const facil = animales[Math.floor(Math.random() * animales.length)];
                     setPalabraGanadora(facil);
                     break;
-                case "MEDIO":
+                case "medio":
                     const medio = nombres[Math.floor(Math.random() * nombres.length)];
                     setPalabraGanadora(medio);
                     break;
-                case "DIFICIL":
+                case "dificil":
                     const dificil = palabras[Math.floor(Math.random() * palabras.length)];
                     setPalabraGanadora(dificil);
                     break;

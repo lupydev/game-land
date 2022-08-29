@@ -71,6 +71,7 @@ export const GlobalProvider = ({children}) => {
     const puntajeFinal = (t, d) => {
         let puntos = 0
         console.log(t);
+        console.log(d);
         switch (d) {
             case "facil":
                 if((1800 - (t / 1000)) * 1.5 + 500 > 0){
@@ -126,15 +127,15 @@ export const GlobalProvider = ({children}) => {
         
         min = Math.min(...auxArray)
         console.log(min);
-
-        for(let i = 0; i < auxArray.length; i++){
-            if(auxArray[i] === min){
-                auxArray[i] = puntos
-                finalArray = auxArray
-                break
+        if(min < puntos){
+            for(let i = 0; i < auxArray.length; i++){
+                if(auxArray[i] === min){
+                    auxArray[i] = puntos
+                    finalArray = auxArray
+                    break
+                }
             }
-        }
-        
+        }  
         console.log(finalArray);
         strArray = JSON.stringify(finalArray).slice(1,-1)
         console.log(strArray);

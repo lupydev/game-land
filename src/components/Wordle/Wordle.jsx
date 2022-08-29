@@ -1,13 +1,19 @@
-import {useContext, useEffect} from 'react';
+import {useContext, useEffect, useState} from 'react';
 import { Casilla } from "./Casillas";
 import { Teclado } from "./Teclado";
 import { Context } from "../../contexts/WordleContext";
 import { WordleInstructions } from "../WordleInstructions";
 import { Link } from 'react-router-dom';
+import { GlobalContext } from '../../contexts/GlobalContext';
 
 export const Wordle = () => {
 
+  const [puntos, setPuntos] = useState()
+
   const { win, seleccion, setSeleccion, palabraGanadora, setJuego, timer, puntaje, setPuntaje} = useContext(Context);
+  const { puntajeFinal, loadScore} = useContext(GlobalContext);
+
+  const user = JSON.parse(sessionStorage.getItem("userData"));
 
   useEffect(()=>{
     if(win){
@@ -15,19 +21,23 @@ export const Wordle = () => {
       let y =  (x - timer) - 2000;
       console.log(y)
       setPuntaje(y);
+      const z = puntajeFinal(y, seleccion);
+      setPuntos(puntajeFinal(y, seleccion));
+      loadScore(user.id, user.recordWordle, z, "wordle");
     }
   }, [win])
 
+
   const seleccionDificultadFacil = () => {
-    setSeleccion("FACIL");
+    setSeleccion("facil");
     setJuego(true);
   }
   const seleccionDificultadMedio = () => {
-    setSeleccion("MEDIO");
+    setSeleccion("medio");
     setJuego(true);
   }
   const seleccionDificultadDificil = () => {
-    setSeleccion("DIFICIL");
+    setSeleccion("dificil");
     setJuego(true);
   }
   const reset = () => {
@@ -102,7 +112,8 @@ export const Wordle = () => {
           <div className="ganar">
             <h1>¡¡GANASTE!!</h1>
             <h2>La palabra fue <span className="palabraGanadora">{palabraGanadora}</span></h2>
-            <h2>tardaste: {puntaje} milisegundos ahre</h2>
+            <h2>tu puntaje fue de: {puntos}</h2>
+            <h2>tardaste: {puntaje / 1000} segundos</h2>
           </div>
         }
        

@@ -1,13 +1,31 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Header } from "./Header";
 import { NavBar } from "./NavBar";
 import { Footer } from "./Footer";
+import { GlobalContext } from "../contexts/GlobalContext";
 
 export const Ranking = () => {
+
+  const [sudoku, setSudoku] = useState();
+
+  const { getRanking } = useContext(GlobalContext);
+
+  const promise = async () => {
+    const res = await fetch("https://no-country-app.herokuapp.com/ranking/sudoku");
+    const data = await res.json();
+    setSudoku(await data);
+  }
+
+  console.log(sudoku)
+  useEffect(()=>{
+    promise();
+  }, [])
+
   return (
     <div>
       <Header />
       <NavBar />
+
 
       <div className="rankingContainer">
         <div className="rankingContainer-global">
@@ -19,9 +37,12 @@ export const Ranking = () => {
                 <th>Nombre</th>
                 <th>Pts.</th>
               </tr>
+              {sudoku.map((x)=> <>
+                <li>{x.gamers}</li>
+              </>)}
               <tr id="payer1">
                 <td>1</td>
-                <td>GameLander</td>
+                <td></td>
                 <td>1200</td>
               </tr>
               <tr id="player2">
@@ -146,8 +167,8 @@ export const Ranking = () => {
               </tr>
               <tr id="payer1">
                 <td>1</td>
-                <td>GameLander</td>
-                <td>1200</td>
+                <td></td>
+                <td></td>
               </tr>
               <tr id="player2">
                 <td>2</td>
