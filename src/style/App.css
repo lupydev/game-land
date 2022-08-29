@@ -236,8 +236,6 @@ table {
 
 input[type=search] {
   -webkit-appearance: textfield;
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
   box-sizing: content-box;
 }
 input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-search-decoration {
@@ -397,6 +395,7 @@ input[type=checkbox], input[type=radio] {
 }
 
 .headerContainer {
+  position: -webkit-sticky;
   position: sticky;
   display: flex;
   justify-content: space-between;
@@ -489,7 +488,8 @@ input[type=checkbox], input[type=radio] {
   height: 20rem;
   border-radius: 5px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .homeContainer .homeContainer-card--ranking {
   margin-top: 5px;
@@ -523,7 +523,8 @@ input[type=checkbox], input[type=radio] {
   .homeContainer {
     max-width: 102.4rem;
     margin: 10rem auto 0;
-    column-gap: 25rem;
+    -moz-column-gap: 25rem;
+         column-gap: 25rem;
   }
 }
 
@@ -670,6 +671,7 @@ input[type=checkbox], input[type=radio] {
 }
 
 .navBar {
+  position: -webkit-sticky;
   position: sticky;
   display: flex;
   justify-content: space-evenly;
@@ -734,7 +736,8 @@ input[type=checkbox], input[type=radio] {
   padding: 0 9.45rem;
   overflow-x: scroll;
   overscroll-behavior-x: contain;
-  scroll-snap-type: x proximity;
+  -ms-scroll-snap-type: x proximity;
+      scroll-snap-type: x proximity;
 }
 @media screen and (min-width: 768px) {
   .rankingContainer {
@@ -896,6 +899,18 @@ input[type=checkbox], input[type=radio] {
   justify-content: space-around;
   align-items: center;
 }
+.tablero-container .dificultad .dif {
+  font-size: 10px;
+}
+.tablero-container .dificultad #f {
+  color: green;
+}
+.tablero-container .dificultad #m {
+  color: orange;
+}
+.tablero-container .dificultad #d {
+  color: red;
+}
 .tablero-container .dificultad .botonDificultad {
   width: 150px;
   height: 30px;
@@ -906,7 +921,7 @@ input[type=checkbox], input[type=radio] {
   border-radius: 5px;
 }
 .tablero-container .dificultad .botonDificultad:hover {
-  background-color: #d5edff9a;
+  background-color: rgba(213, 237, 255, 0.6039215686);
 }
 .tablero-container .dificultad .botonDificultad:active {
   background-color: #d5edff;
@@ -949,6 +964,37 @@ input[type=checkbox], input[type=radio] {
 }
 .tablero-container .tablero .fila #inexistente {
   background-color: #939393;
+}
+.tablero-container .reset {
+  width: 50px;
+  height: 50px;
+  font-size: 14px;
+  border: 2px solid #ffe9d4;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  background-color: #d5edff;
+  border-radius: 100%;
+}
+.tablero-container .reset:hover {
+  background-color: rgba(213, 237, 255, 0.6039215686);
+}
+.tablero-container .reset:active {
+  background-color: #d5edff;
+  font-size: 20px;
+}
+.tablero-container .ganar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+}
+.tablero-container .ganar .palabraGanadora {
+  color: green;
+}
+.tablero-container .ganar h1 {
+  margin: 5px;
+}
+.tablero-container .ganar h2 {
+  margin: 5px;
 }
 .tablero-container .teclado {
   margin: 2rem;
@@ -1023,7 +1069,7 @@ input[type=checkbox], input[type=radio] {
   display: flex;
   justify-content: center;
   top: 9.7rem;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   max-height: calc(100vh - 10rem);
   z-index: 5;
   scroll-behavior: smooth;
@@ -1161,7 +1207,7 @@ input[type=checkbox], input[type=radio] {
 }
 
 .instruction {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   width: 90%;
   padding: 1rem;
   display: flex;
@@ -1176,6 +1222,7 @@ input[type=checkbox], input[type=radio] {
   text-align: center;
   color: #c03030;
   background-color: #ffe9d4;
+  position: -webkit-sticky;
   position: sticky;
   left: 90%;
   top: 3rem;
@@ -1527,7 +1574,7 @@ input[type=checkbox], input[type=radio] {
   display: flex;
   justify-content: center;
   top: 0px;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   max-height: calc(100vh - 10rem);
   z-index: 5;
   scroll-behavior: smooth;
@@ -1634,6 +1681,4 @@ input[type=checkbox], input[type=radio] {
 }
 .win-buscaminas .time {
   font-size: 14px;
-}
-
-/*# sourceMappingURL=App.css.map */
+}/*# sourceMappingURL=App.css.map */
