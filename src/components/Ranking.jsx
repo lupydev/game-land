@@ -37,9 +37,6 @@ export const Ranking = () => {
                 <th>Nombre</th>
                 <th>Pts.</th>
               </tr>
-              {sudoku.map((x)=> <>
-                <li>{x.gamers}</li>
-              </>)}
               <tr id="payer1">
                 <td>1</td>
                 <td></td>
