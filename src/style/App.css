@@ -884,7 +884,6 @@ input[type=checkbox], input[type=radio] {
 /*--SUDOKU-VARIABLES--*/
 /*--MEMORY-VARIABLES--*/
 .tablero-container {
-  margin-top: 130px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -995,6 +994,7 @@ input[type=checkbox], input[type=radio] {
 }
 .tablero-container .ganar h2 {
   margin: 5px;
+  text-align: center;
 }
 .tablero-container .teclado {
   margin: 2rem;

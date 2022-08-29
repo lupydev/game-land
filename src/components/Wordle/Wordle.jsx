@@ -2,6 +2,8 @@ import {useContext, useEffect} from 'react';
 import { Casilla } from "./Casillas";
 import { Teclado } from "./Teclado";
 import { Context } from "../../contexts/WordleContext";
+import { WordleInstructions } from "../WordleInstructions";
+import { Link } from 'react-router-dom';
 
 export const Wordle = () => {
 
@@ -37,13 +39,14 @@ export const Wordle = () => {
   return (
     <>
       <div className="tablero-container">
-        {seleccion === "" &&
+        {seleccion === "" && <>
+          <Link className="reset" to="/wordleInstructions">info</Link>
           <div className="dificultad">
               <h1>Selecciona la dificultad:</h1>
               <button className="botonDificultad" onClick={seleccionDificultadFacil}>Animales <span className="dif" id="f">fácil</span></button>
               <button className="botonDificultad" onClick={seleccionDificultadMedio}>Nombres <span className="dif" id="m">medio</span></button>
               <button className="botonDificultad" onClick={seleccionDificultadDificil}>Palabras <span className="dif" id="d">difícil</span></button>
-          </div>
+          </div></>
         }
         {seleccion && <>
           <button className="reset" onClick={reset}>reset</button>

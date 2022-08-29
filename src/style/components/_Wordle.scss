@@ -1,7 +1,6 @@
 @import '../base/settings';
 
 .tablero-container { 
-    margin-top: 130px;
     @include flex-column-wordle;
     .dificultad {
         height: 300px;
@@ -104,6 +103,7 @@
         }
         h2{
             margin: 5px;
+            text-align: center;
         }
     }
     .teclado {
