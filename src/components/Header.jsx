@@ -6,8 +6,6 @@ export const Header = () => {
 
   const {userData, promedio} = useContext(GlobalContext)
 
-  
-
   return (
     <div className="headerContainer">
       <div className="headerContainer-logo">
