@@ -13,6 +13,7 @@ import Sudoku from "./components/Sudoku/Sudoku";
 import { HomeWordle} from "./components/Wordle/HomeWordle";
 import Buscaminas from "./components/Buscaminas/Buscaminas";
 import { GlobalProvider } from "./contexts/GlobalContext";
+import Memory from "./components/Memory/Memory";
 
 function App() {
     return (
@@ -33,6 +34,7 @@ function App() {
                     <Route path="/sudoku" element={<Sudoku />} />
                     <Route path="/wordle" element={<HomeWordle />} />
                     <Route path="/buscaMinas" element={<Buscaminas />} />
+                    <Route path="/memory" element={<Memory />} />
                 </Routes>
             </div>
         </BrowserRouter>
