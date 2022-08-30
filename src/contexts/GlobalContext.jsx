@@ -68,6 +68,7 @@ export const GlobalProvider = ({children}) => {
         return false
     }
 
+    // Funcion para calcular el puntaje final, en funcion del tiempo (en milisegundos) y la dificultad. Devuelve el tiempo sin decimales.
     const puntajeFinal = (t, d) => {
         let puntos = 0
         console.log(t);
@@ -107,6 +108,11 @@ export const GlobalProvider = ({children}) => {
         return puntos
     }
 
+    // Funcion que caraga el puntaje en la base de datos. Recibe:
+    //          - El id de usuario, alamacenado en la sessionStorage
+    //          - El arrary de records correspondiente, alamacenado en la sessionStorage.
+    //          - Los puntos obtenidos en la partida.
+    //          - El juego que se esta jugando.
     const loadScore = (userId, userRecords, puntos, game) => {
 
         console.log(userId, userRecords, puntos, game);
@@ -144,6 +150,7 @@ export const GlobalProvider = ({children}) => {
         let url = "https://no-country-app.herokuapp.com/gamers/recordEdit/" + userId.toString()
         console.log(url);
         console.log(strArray);
+
         switch (game) {
             case "sudoku":
                 url = url + "?recordSudoku=" + strArray + "&recordWordle=&recordMemories=&recordBuscaMinas="
@@ -175,6 +182,7 @@ export const GlobalProvider = ({children}) => {
             .catch(err => console.log(err))
     }
 
+    // Funcion que recibe el array completo de los puntajes promedio. Recibe como parametro el juego que se necesita.
     const getRanking = (game) => {
         let url = 'https://no-country-app.herokuapp.com/ranking/' + game
 
@@ -196,7 +204,7 @@ export const GlobalProvider = ({children}) => {
                 .catch(err => console.log(err))
     }
     
-
+    // Funcion que toma como parametro la lista de promedios, y filtra el necesario segun juego y usuario.
     const ranking = (list, u, g) => {
 
         let atributo = ""
