@@ -277,7 +277,7 @@ export const SudokuProvider = ({children}) => {
                 break;
         }
         
-        for(let i = 0; i < 80; i++){
+        for(let i = 0; i < n; i++){
             let r = Math.floor(Math.random() * 9)
             let c = Math.floor(Math.random() * 9)
             

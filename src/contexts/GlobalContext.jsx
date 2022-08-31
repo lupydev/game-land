@@ -5,13 +5,15 @@ export const GlobalContext = createContext();
 
 export const GlobalProvider = ({children}) => {
 
+    sessionStorage.setItem("header", {})
+
     const [logIn, setLogIn] = useState(false)
 
     const [loadingUser, setLoadingUser] = useState(false)
 
-    const [userData, setUserData] = useState({})
+    const [userData, setUserData] = useState(JSON.parse(sessionStorage.getItem("userData")))
 
-    const [promedio, setPromedio] = useState(0)
+    const [promedio, setPromedio] = useState(sessionStorage.getItem("header").promedio)
 
     const singIn = async (u) => {
         console.log("Recibido: ", JSON.stringify(u));
@@ -45,7 +47,6 @@ export const GlobalProvider = ({children}) => {
             headers: {"Content-type": "application/json; charset=UTF-8"}
             })
             .then(response => {
-                response.json();
                 console.log(response);
             })                 
             .then(json => {
@@ -134,11 +135,21 @@ export const GlobalProvider = ({children}) => {
         min = Math.min(...auxArray)
         console.log(min);
 
-        for(let i = 0; i < auxArray.length; i++){
-            if(auxArray[i] === min){
-                auxArray[i] = puntos
-                finalArray = auxArray
-                break
+        if(min < puntos){
+            for(let i = 0; i < auxArray.length; i++){
+                if(auxArray[i] === min){
+                    auxArray[i] = puntos
+                    finalArray = auxArray
+                    break
+                }
+            }
+        }
+
+        console.log(finalArray);
+
+        if(finalArray.length < 5){
+            for(let i = 0; i < (5 - finalArray.length); i++){
+                finalArray.push(0)
             }
         }
         
@@ -198,6 +209,7 @@ export const GlobalProvider = ({children}) => {
                 .then(json => {
                     console.log(json)
                     setPromedio(ranking(json, userData.id, game))
+                    sessionStorage.setItem("header", {user: userData.name, promedio: ranking(json, userData.id, game)})
                 })
                 .catch(err => console.log(err))
     }

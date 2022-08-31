@@ -85,6 +85,7 @@ export const ContextApp = ({ children }) => {
     setTablero(newTablero);
     setIntentoActual({ ...intentoActual, x: intentoActual.x - 1 });
   };
+
   const cerrar = () => {
     document.getElementById("instDiv").classList.add("ocultar");
   };
