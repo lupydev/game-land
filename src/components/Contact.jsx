@@ -52,15 +52,21 @@ export const Contact = () => {
           </div>
           <div className="contactContainer-card">
             <div className="contactContainer-card--img">
-              <img src="" alt="" />
+              <img src="https://i.postimg.cc/C5sr2DHC/Pablo.jpg" alt="Pablo" />
             </div>
             <div className="contactContainer-card--contact">
               <p>Pablo</p>
               <div className="contactContainer-card--socials">
-                <a href="" target="_balnk">
+                <a
+                  href="https://github.com/ThePabloRevengeance"
+                  target="_balnk"
+                >
                   <i className="fa-brands fa-square-github"></i>
                 </a>
-                <a href="" target="_blank">
+                <a
+                  href="https://www.linkedin.com/in/pablo-gonzalez-210810210/"
+                  target="_blank"
+                >
                   <i className="fa-brands fa-linkedin"></i>
                 </a>
               </div>
@@ -68,15 +74,18 @@ export const Contact = () => {
           </div>
           <div className="contactContainer-card">
             <div className="contactContainer-card--img">
-              <img src="" alt="" />
+              <img src="https://i.postimg.cc/vmDNt2gs/bruno.jpg" alt="Bruno" />
             </div>
             <div className="contactContainer-card--contact">
               <p>Bruno</p>
               <div className="contactContainer-card--socials">
-                <a href="" target="_blank">
+                <a href="https://github.com/Bruno-Niello" target="_blank">
                   <i className="fa-brands fa-square-github"></i>
                 </a>
-                <a href="" target="_blank">
+                <a
+                  href="https://www.linkedin.com/in/bruno-niello-7b09051a4/"
+                  target="_blank"
+                >
                   <i className="fa-brands fa-linkedin"></i>
                 </a>
               </div>
@@ -87,15 +96,18 @@ export const Contact = () => {
         <div className="backend">
           <div className="contactContainer-card">
             <div className="contactContainer-card--img">
-              <img src="" alt="" />
+              <img src="https://i.postimg.cc/J0LdKKJ4/Brian.jpg" alt="Brian" />
             </div>
             <div className="contactContainer-card--contact">
               <p>Brian</p>
               <div className="contactContainer-card--socials">
-                <a href="" target="_blank">
+                <a href="https://github.com/Braian-Marquez" target="_blank">
                   <i className="fa-brands fa-square-github"></i>
                 </a>
-                <a href="" target="_blank">
+                <a
+                  href="https://www.linkedin.com/in/braian-marquez-8741071b2/"
+                  target="_blank"
+                >
                   <i className="fa-brands fa-linkedin"></i>
                 </a>
               </div>
