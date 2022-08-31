@@ -274,7 +274,7 @@ input[type=checkbox], input[type=radio] {
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  margin: 11rem 1rem 0rem 1rem;
+  margin-top: 1rem;
   font-size: 1.6rem;
   font-weight: 700;
   color: #27ae60;
@@ -301,6 +301,13 @@ input[type=checkbox], input[type=radio] {
   background-color: #ffe9d4;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
 }
+.contactContainer .frontend .contactContainer-card .contactContainer-card--img img {
+  height: 7rem;
+  width: 7rem;
+  border-radius: 30%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
 .contactContainer .frontend .contactContainer-card .contactContainer-card--contact p {
   margin-top: 0;
 }
@@ -308,6 +315,8 @@ input[type=checkbox], input[type=radio] {
   display: flex;
   gap: 1rem;
   font-size: 2rem;
+}
+.contactContainer .frontend .contactContainer-card .contactContainer-card--contact .contactContainer-card--socials a i {
   color: #191d2b;
 }
 .contactContainer .backend .contactContainer-card {
@@ -324,6 +333,13 @@ input[type=checkbox], input[type=radio] {
   background-color: #ffe9d4;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
 }
+.contactContainer .backend .contactContainer-card .contactContainer-card--img img {
+  height: 7rem;
+  width: 7rem;
+  border-radius: 30%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
 .contactContainer .backend .contactContainer-card .contactContainer-card--contact p {
   margin-top: 0;
 }
@@ -331,6 +347,9 @@ input[type=checkbox], input[type=radio] {
   display: flex;
   gap: 1rem;
   font-size: 2rem;
+  color: #191d2b;
+}
+.contactContainer .backend .contactContainer-card .contactContainer-card--contact .contactContainer-card--socials a i {
   color: #191d2b;
 }
 @media screen and (min-width: 768px) {
@@ -345,27 +364,43 @@ input[type=checkbox], input[type=radio] {
   }
   .contactContainer .frontend {
     grid-template-columns: repeat(2, 1fr);
-    gap: 6rem;
+    -moz-column-gap: 6rem;
+         column-gap: 6rem;
+    row-gap: 3rem;
   }
   .contactContainer .frontend .contactContainer-card {
     gap: 3rem;
   }
   .contactContainer .frontend .contactContainer-card .contactContainer-card--img {
-    width: 10rem;
-    height: 10rem;
+    width: 12rem;
+    height: 12rem;
+  }
+  .contactContainer .frontend .contactContainer-card .contactContainer-card--img img {
+    width: 12rem;
+    height: 12rem;
   }
   .contactContainer .frontend .contactContainer-card .contactContainer-card--contact .contactContainer-card--socials {
     font-size: 3rem;
   }
   .contactContainer .backend .contactContainer-card {
-    gap: 3rem;
+    gap: 2rem;
   }
   .contactContainer .backend .contactContainer-card .contactContainer-card--img {
-    width: 10rem;
-    height: 10rem;
+    width: 12rem;
+    height: 12rem;
+  }
+  .contactContainer .backend .contactContainer-card .contactContainer-card--img img {
+    width: 12rem;
+    height: 12rem;
   }
   .contactContainer .backend .contactContainer-card .contactContainer-card--contact .contactContainer-card--socials {
     font-size: 3rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .contactContainer {
+    margin-top: 4rem;
+    gap: 0;
   }
 }
 
@@ -405,6 +440,7 @@ input[type=checkbox], input[type=radio] {
   font-family: "Inter", sans-serif;
   background-color: #191d2b;
   color: #27ae60;
+  z-index: 10;
 }
 .headerContainer .headerContainer-logo {
   display: flex;
@@ -459,7 +495,7 @@ input[type=checkbox], input[type=radio] {
   justify-content: center;
   align-items: center;
   gap: 1.7rem;
-  margin-top: 11rem;
+  margin-top: 2rem;
   padding-bottom: 5rem;
   text-align: center;
 }
@@ -487,9 +523,8 @@ input[type=checkbox], input[type=radio] {
   width: 20rem;
   height: 20rem;
   border-radius: 5px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .homeContainer .homeContainer-card--ranking {
   margin-top: 5px;
@@ -497,14 +532,17 @@ input[type=checkbox], input[type=radio] {
 }
 @media screen and (min-width: 768px) {
   .homeContainer {
+    position: absolute;
     display: grid;
     grid-template-columns: repeat(2, 35.4rem);
     grid-auto-rows: 38.4rem;
     justify-content: center;
-    align-self: center;
+    align-content: center;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     gap: 0;
-    height: 85vh;
-    margin: 20% auto 0 auto;
     padding: 0;
   }
   .homeContainer .homeContainer-card {
@@ -521,10 +559,8 @@ input[type=checkbox], input[type=radio] {
 }
 @media screen and (min-width: 1024px) {
   .homeContainer {
-    max-width: 102.4rem;
-    margin: 10rem auto 0;
-    -moz-column-gap: 25rem;
-         column-gap: 25rem;
+    position: relative;
+    margin: 0 auto;
   }
 }
 
@@ -539,8 +575,8 @@ input[type=checkbox], input[type=radio] {
 .landingPage .landingPage-title {
   width: 100%;
   margin-top: 13rem;
-  padding: 5rem 0;
-  background: url("https://i.postimg.cc/vZhFwQmJ/bg.png");
+  padding: 7rem 0;
+  background: url("https://i.postimg.cc/wMmDFLHF/bg.png");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -594,11 +630,11 @@ input[type=checkbox], input[type=radio] {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 311.031px;
+  height: 35.103rem;
   width: 100%;
   margin-top: 13rem;
   background-color: #191d2b;
-  background: url("https://i.postimg.cc/vZhFwQmJ/bg.png");
+  background: url("https://i.postimg.cc/wMmDFLHF/bg.png");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -675,10 +711,11 @@ input[type=checkbox], input[type=radio] {
   position: sticky;
   display: flex;
   justify-content: space-evenly;
-  top: 6.5rem;
+  top: 6.4rem;
   width: 100%;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
   background-color: #1d2532;
+  z-index: 10;
 }
 .navBar a {
   padding: 0.6rem 0;
@@ -697,7 +734,7 @@ input[type=checkbox], input[type=radio] {
   flex-direction: column;
   justify-content: center;
   gap: 1.5rem;
-  margin-top: 10rem;
+  margin-top: 2rem;
   text-align: center;
 }
 .rankingContainer .rankingContainer-global h2,
@@ -742,7 +779,6 @@ input[type=checkbox], input[type=radio] {
 @media screen and (min-width: 768px) {
   .rankingContainer {
     gap: 3rem;
-    margin-top: 12rem;
   }
   .rankingContainer .rankingContainer-global table tr:nth-of-type(n) {
     display: table-row;
@@ -750,7 +786,7 @@ input[type=checkbox], input[type=radio] {
   .rankingContainer .rankingContainer-games {
     height: 43rem;
     gap: 7rem;
-    padding: 0 263.344px;
+    padding: 0 26.3344rem;
   }
   .rankingContainer .rankingContainer-games table tr:nth-of-type(n + 7) {
     display: table-row;
@@ -760,24 +796,18 @@ input[type=checkbox], input[type=radio] {
   .rankingContainer {
     flex-direction: row;
     align-items: center;
-    height: 90vh;
+    height: 85vh;
     margin-top: 0;
-    padding-top: 6rem;
-    gap: 10rem;
+    padding: 0 4rem;
+    gap: 3rem;
   }
   .rankingContainer .rankingContainer-global table tr:nth-of-type(n) {
     display: table-row;
   }
   .rankingContainer .rankingContainer-games {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    overflow: unset;
-    height: auto;
-    gap: 3rem;
-    padding: 0;
-  }
-  .rankingContainer .rankingContainer-games table tr:nth-of-type(n + 8) {
-    display: none;
+    padding: 0 2rem 0 2rem;
+    margin-top: 4rem;
+    gap: 4rem;
   }
 }
 
