@@ -5,6 +5,8 @@ export const GlobalContext = createContext();
 
 export const GlobalProvider = ({children}) => {
 
+    sessionStorage.setItem("header", {})
+
     const [logIn, setLogIn] = useState(false)
 
     const [loadingUser, setLoadingUser] = useState(false)
@@ -140,6 +142,14 @@ export const GlobalProvider = ({children}) => {
                     finalArray = auxArray
                     break
                 }
+            }
+        }
+
+        console.log(finalArray);
+
+        if(finalArray.length < 5){
+            for(let i = 0; i < (5 - finalArray.length); i++){
+                finalArray.push(0)
             }
         }
         
