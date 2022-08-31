@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from "react";
 import { GlobalContext } from "../contexts/GlobalContext";
-import { NavBar } from "./NavBar";
 
 export const Header = () => {
 
