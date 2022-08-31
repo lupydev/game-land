@@ -413,10 +413,31 @@ input[type=checkbox], input[type=radio] {
   width: 6rem;
   height: 6rem;
 }
-.headerContainer .headerContainer-logo p {
+.headerContainer .headerContainer-logo .logout {
+  font-size: 1.8rem;
+  text-decoration: none;
+  color: #27ae60;
+}
+.headerContainer .headerContainer-logo .logout:hover {
+  font-size: 2.5rem;
+  color: green;
+}
+.headerContainer .headerContainer-logo .logout:active {
+  color: #27ae60;
+}
+.headerContainer .headerContainer-logo .logo {
+  color: #27ae60;
   font-size: 3.5rem;
   font-weight: 700;
   text-align: center;
+  text-shadow: 0 0 0 0.3px grey;
+}
+.headerContainer .headerContainer-logo .logo:hover {
+  font-size: 4rem;
+  color: green;
+}
+.headerContainer .headerContainer-logo .logo:active {
+  color: #27ae60;
 }
 .headerContainer .headerContainer-player--name {
   display: flex;

@@ -14,10 +14,31 @@
     align-items: center;
     width: 6rem;
     height: 6rem;
-    p {
+    .logout{
+      font-size: 1.8rem;
+      text-decoration: none;
+      color: $secundary-color;
+      &:hover{
+        font-size: 2.5rem;
+        color: green;
+      }
+      &:active{
+        color: $secundary-color;
+      }
+    }
+    .logo{
+      color: $secundary-color;
       font-size: 3.5rem;
       font-weight: 700;
       text-align: center;
+      text-shadow: 0 0 0 0.3px grey;
+      &:hover{
+        font-size: 4rem;
+        color: green;
+      }
+      &:active{
+        color: $secundary-color;
+      }
     }
   }
   .headerContainer-player--name {

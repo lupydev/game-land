@@ -53,6 +53,11 @@ export const GlobalProvider = ({children}) => {
             .catch(err => console.log(err))
     }
 
+    const logOut = () => {
+        sessionStorage.clear();
+        setLogIn(false);
+    }
+
     const getUserData = (user, users) => {
         for(let i = 0; i < users.length; i++){
             if(user.username === users[i].username && user.password === users[i].password){
@@ -242,7 +247,8 @@ export const GlobalProvider = ({children}) => {
             singUp,
             puntajeFinal,
             loadScore,
-            getRanking
+            getRanking,
+            logOut
         }}>
             {children}
         </GlobalContext.Provider>                                            
