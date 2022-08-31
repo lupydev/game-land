@@ -27,11 +27,12 @@
         display: flex;
         justify-content: center;
         top: 0px;
-        background-color: rgba(256,256,256,1);
-        max-height: calc(100vh - 10rem);
+        background-color: $white;
         z-index: 5;
-        scroll-behavior: smooth;    
-        overflow: scroll;   
+        // background-color: rgba(256,256,256,1);
+        // max-height: calc(100vh - 10rem);
+        // scroll-behavior: smooth;    
+        // overflow: scroll;   
     }
 
     @include media-up("tablet"){

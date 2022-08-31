@@ -94,3 +94,85 @@
         }
     }
 }
+.wordle-instruction{
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-color: $white;
+
+    .instruction-wordle{
+        // position: relative;
+        max-width: 76.8rem;
+        margin: 0 auto;
+        padding: 0 2rem;
+        font-size: 1.2rem;
+        line-height: 1.5rem;
+        .instruction-title{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .catro{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            gap: 1rem;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: $white;
+            text-align: center;
+            span{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 3.7rem;
+                height: 3.4rem;
+                border: $wordle-game-border;
+                border-radius: 0.5rem;
+            }
+            .c, .a{
+                background-color: $wordle-correct;
+            }
+            .t, .r{
+                background-color: $wordle-incorrect;
+            }
+            .o{
+                background-color: $wordle-wrong;
+            }
+        }
+        .center{
+            text-align: center;
+        }
+        .letras{
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            grid-template-columns: 30% 70%;
+            column-gap: 1rem;
+            .column-left{
+                display: flex;
+                gap: 1rem;
+                justify-content: end;
+            }
+        }
+        h2, h3{
+            font-size: 2.5rem;
+            text-align: center;
+        }
+        ul{
+            list-style: none;
+            padding-left: 1rem;
+            li{
+                span{
+                    font-weight: 700;
+                };
+            }
+        }
+        
+    }
+}
+.ocultar {
+    display: none;
+}
