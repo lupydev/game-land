@@ -12,7 +12,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // position: absolute;
+  // position: relative;
 
   &-head {
     display: flex;
@@ -28,11 +28,15 @@
     top: 9.7rem;
     background-color: $white;
     z-index: 6;
-  }
-  .instruction {
-    max-width: 76.8rem;
-    margin: 0 auto;
-    padding: 0 2rem;
+    // position: absolute;
+    // display: flex;
+    // justify-content: center;
+    // top: 0px;
+    // background-color: rgba(256, 256, 256, 1);
+    // max-height: calc(100vh - 10rem);
+    // z-index: 5;
+    // scroll-behavior: smooth;
+    // overflow: scroll;
   }
 
   @include media-up("tablet") {
@@ -43,6 +47,35 @@
     width: 50vw;
   }
 }
+
+// &-head {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   height: 8rem;
+//   width: 100%;
+// }
+
+// &-instructionDiv {
+//   position: absolute;
+//   width: 100%;
+//   top: 9.7rem;
+//   background-color: $white;
+//   z-index: 6;
+// }
+.instruction {
+  max-width: 76.8rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+// @include media-up("tablet") {
+//   width: 70vw;
+// }
+
+// @include media-up("desktop") {
+//   width: 50vw;
+// }
 
 .mainBuscaminas {
   display: flex;

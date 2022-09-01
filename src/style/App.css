@@ -1260,6 +1260,18 @@ input[type=checkbox], input[type=radio] {
   border: none;
   border-radius: 1.5rem;
 }
+@media screen and (min-width: 768px) {
+  .dificult {
+    top: 20rem;
+    left: 20rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .dificult {
+    top: 25rem;
+    left: 50rem;
+  }
+}
 
 .choice {
   display: flex;
@@ -1730,11 +1742,6 @@ input[type=checkbox], input[type=radio] {
   background-color: #fff;
   z-index: 6;
 }
-.buscaminas .instruction {
-  max-width: 76.8rem;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
 @media screen and (min-width: 768px) {
   .buscaminas {
     width: 70vw;
@@ -1744,6 +1751,12 @@ input[type=checkbox], input[type=radio] {
   .buscaminas {
     width: 50vw;
   }
+}
+
+.instruction {
+  max-width: 76.8rem;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .mainBuscaminas {
