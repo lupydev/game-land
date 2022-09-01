@@ -1,6 +1,19 @@
 .aboutContainer {
-  margin: 13rem 1.8rem 0 1.8rem;
-  font-size: 1.4rem;
-  line-height: 1.7rem;
-  color: $soft-blue1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 76.8rem;
+  margin: 13rem auto 0 auto;
+  padding: 0 2rem;
+  font-size: 1.8rem;
+  line-height: 2.1rem;
+  h2{
+    margin-bottom: 4rem;
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: $secundary-color;
+    text-align: center;
+  }
 }
