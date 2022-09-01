@@ -36,7 +36,7 @@ export const GlobalProvider = ({children}) => {
 
     const singUp = async (u) => {
         
-        console.log("Recibido: ", JSON.stringify(u),);
+        console.log("Recibido: ", JSON.stringify(u));
 
         await fetch('https://no-country-app.herokuapp.com/auth/singUp', {
             method: "POST",

@@ -27,14 +27,11 @@ $celdaDimTab: 6rem;
 
     &-instructionDiv {
         position: absolute;
-        display: flex;
-        justify-content: center;
+        width: 100%;  
         top: 9.7rem;
-        background-color: rgba(256,256,256,1);
-        max-height: calc(100vh - 10rem);
-        z-index: 5;
-        scroll-behavior: smooth;    
-        overflow: scroll;   
+        background-color: $white;
+        z-index: 6;
+        
     }
 
     @include media-up("desktop"){
@@ -167,26 +164,36 @@ $celdaDimTab: 6rem;
 }
 
 .instruction{  
-    background-color: rgba(256,256,256,1);
-    width: 90%;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    top: 0px;
-    overflow: visible;
+    // background-color: rgba(256,256,256,1);
+    // padding: 1rem;
+    // display: flex;
+    // flex-direction: column;
+    // position: relative;
+    // top: 0px;
+    // overflow: visible;
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: auto;
+    // background-color: $white;
 
     &-closeInst {   
-        font-size: 3rem;
-        padding: 5px;
-        text-align: center;
-        color: $sudoku-wrong-number;     
-        background-color: $soft-orange;
         position: sticky;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 15%;
         left: 90%;
-        top: 3rem;
-        width: calc(3rem + 4px);
-        border-radius: calc((3rem + 10px) / 2);
+        width: 4rem;
+        height: 4rem;
+        margin: 0;
+        border-radius: 50%;
+        font-size: 2rem;
+        font-weight: 700;
+        color: $sudoku-wrong-number;
+        background-color: $soft-orange;
+        cursor: pointer;
+       
 
         &:hover{
             background-color: $sudoku-wrong-number;

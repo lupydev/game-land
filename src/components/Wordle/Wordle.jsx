@@ -50,7 +50,7 @@ export const Wordle = () => {
     <>
       <div className="tablero-container">
         {seleccion === "" && <>
-          <Link className="reset" to="/wordleInstructions">info</Link>
+          {/* <Link className="reset" to="/wordleInstructions">info</Link> */}
           <div className="dificultad">
               <h1>Selecciona la dificultad:</h1>
               <button className="botonDificultad" onClick={seleccionDificultadFacil}>Animales <span className="dif" id="f">fácil</span></button>
