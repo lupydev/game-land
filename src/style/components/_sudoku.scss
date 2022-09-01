@@ -30,7 +30,7 @@ $celdaDimTab: 6rem;
         width: 100%;  
         top: 9.7rem;
         background-color: $white;
-        z-index: 5;
+        z-index: 6;
         
     }
 
@@ -171,9 +171,10 @@ $celdaDimTab: 6rem;
     // position: relative;
     // top: 0px;
     // overflow: visible;
-    max-width: 76.8rem;
+    max-width: 60rem;
     margin: 0 auto;
     padding: 0 2rem;
+    height: auto;
     // background-color: $white;
 
     &-closeInst {   

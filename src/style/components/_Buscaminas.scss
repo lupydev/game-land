@@ -27,7 +27,7 @@
     width: 100%;
     top: 9.7rem;
     background-color: $white;
-    z-index: 5;
+    z-index: 6;
   }
   .instruction {
     max-width: 76.8rem;
@@ -86,12 +86,15 @@
 
 .rowBuscaminas {
   width: auto;
-  height: 25px;
+  height: 35px;
   display: flex;
+  @include media-up("tablet") {
+    height: 45px;
+  }
 }
 
 .celdBuscaminas {
-  width: 25px;
+  width: 35px;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -106,6 +109,9 @@
   border-bottom: 3px solid #999999;
   border-right: 3px solid #999999;
   // box-shadow: inset 2px 2px 8px grey;
+  @include media-up("tablet") {
+    width: 45px;
+  }
 }
 
 .ocultar {
