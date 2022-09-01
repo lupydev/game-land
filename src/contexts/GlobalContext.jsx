@@ -12,6 +12,8 @@ export const GlobalProvider = ({children}) => {
 
     const [promedio, setPromedio] = useState(0)
 
+    const [invitado, setInvitado] = useState(true)
+
     const singIn = async (u) => {
         console.log("Recibido: ", JSON.stringify(u));
 
@@ -30,6 +32,7 @@ export const GlobalProvider = ({children}) => {
                 .then(json => {
                     console.log(json)
                     getUserData(u, json)
+                    setInvitado(false)
                 })
                 .catch(err => console.log(err))
         }
@@ -54,8 +57,10 @@ export const GlobalProvider = ({children}) => {
     }
 
     const logOut = () => {
-        sessionStorage.clear();
+        sessionStorage.clear()
         setLogIn(false);
+        setLoadingUser(false)
+        setInvitado(true)
     }
 
     const getUserData = (user, users) => {
@@ -243,12 +248,14 @@ export const GlobalProvider = ({children}) => {
             loadingUser,
             userData,
             promedio,
+            invitado,
             singIn,
             singUp,
             puntajeFinal,
             loadScore,
             getRanking,
-            logOut
+            logOut,
+            setUserData
         }}>
             {children}
         </GlobalContext.Provider>                                            

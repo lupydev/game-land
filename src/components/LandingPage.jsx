@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { GlobalContext } from "../contexts/GlobalContext";
 
 export const LandingPage = () => {
+
+  const {setUserData} = useContext(GlobalContext)
+
+  setUserData({})
+  
   return (
     <div className="landingPage">
       <div className="landingPage-title">
