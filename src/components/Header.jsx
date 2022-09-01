@@ -1,15 +1,19 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../contexts/GlobalContext";
 
 export const Header = () => {
 
-  const {userData, promedio, logOut} = useContext(GlobalContext)
+  const {userData, promedio, logOut, invitado} = useContext(GlobalContext)
   const [log, setLog] = useState(false);
 
   const handleClick = () => {
     setLog(true);
   }
+
+  useEffect(() => {
+
+  }, [userData])
 
   return (
     <div className="headerContainer">

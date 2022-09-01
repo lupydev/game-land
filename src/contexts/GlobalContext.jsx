@@ -57,9 +57,10 @@ export const GlobalProvider = ({children}) => {
     }
 
     const logOut = () => {
-        sessionStorage.setItem("userData", JSON.stringify({id: "xxx", gamers: 'Invitado'}))
+        sessionStorage.clear()
         setLogIn(false);
         setLoadingUser(false)
+        setInvitado(true)
     }
 
     const getUserData = (user, users) => {
@@ -253,7 +254,8 @@ export const GlobalProvider = ({children}) => {
             puntajeFinal,
             loadScore,
             getRanking,
-            logOut
+            logOut,
+            setUserData
         }}>
             {children}
         </GlobalContext.Provider>                                            
