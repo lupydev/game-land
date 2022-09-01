@@ -262,10 +262,23 @@ input[type=checkbox], input[type=radio] {
 /*--MEMORY-VARIABLES--*/
 /*----COMPONENTS---- */
 .aboutContainer {
-  margin: 13rem 1.8rem 0 1.8rem;
-  font-size: 1.4rem;
-  line-height: 1.7rem;
-  color: #1d2532;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 76.8rem;
+  margin: 13rem auto 0 auto;
+  padding: 0 2rem;
+  font-size: 1.8rem;
+  line-height: 2.1rem;
+}
+.aboutContainer h2 {
+  margin-bottom: 4rem;
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: #27ae60;
+  text-align: center;
 }
 
 .contactContainer {
@@ -506,6 +519,7 @@ input[type=checkbox], input[type=radio] {
   border: 0.2rem solid #d5edff;
   border-radius: 2rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
 }
 .homeContainer .homeContainer-card:hover {
   transform: translateY(-0.5rem);
@@ -914,7 +928,7 @@ input[type=checkbox], input[type=radio] {
 /*--SUDOKU-VARIABLES--*/
 /*--MEMORY-VARIABLES--*/
 .tablero-container {
-  margin-top: 130px;
+  margin-top: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -986,14 +1000,18 @@ input[type=checkbox], input[type=radio] {
 .tablero-container .teclado {
   margin: 2rem;
 }
-.tablero-container .teclado .linea1, .tablero-container .teclado .linea2, .tablero-container .teclado .linea3 {
+.tablero-container .teclado .linea1,
+.tablero-container .teclado .linea2,
+.tablero-container .teclado .linea3 {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   padding: 1px;
 }
-.tablero-container .teclado .linea1 .teclas, .tablero-container .teclado .linea2 .teclas, .tablero-container .teclado .linea3 .teclas {
+.tablero-container .teclado .linea1 .teclas,
+.tablero-container .teclado .linea2 .teclas,
+.tablero-container .teclado .linea3 .teclas {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1005,14 +1023,20 @@ input[type=checkbox], input[type=radio] {
   border-radius: 5px;
   margin: 2px;
 }
-.tablero-container .teclado .linea1 .teclas:hover, .tablero-container .teclado .linea2 .teclas:hover, .tablero-container .teclado .linea3 .teclas:hover {
+.tablero-container .teclado .linea1 .teclas:hover,
+.tablero-container .teclado .linea2 .teclas:hover,
+.tablero-container .teclado .linea3 .teclas:hover {
   background-color: rgba(0, 0, 0, 0.7);
 }
-.tablero-container .teclado .linea1 .teclas:active, .tablero-container .teclado .linea2 .teclas:active, .tablero-container .teclado .linea3 .teclas:active {
+.tablero-container .teclado .linea1 .teclas:active,
+.tablero-container .teclado .linea2 .teclas:active,
+.tablero-container .teclado .linea3 .teclas:active {
   background-color: #000000;
   font-size: 20px;
 }
-.tablero-container .teclado .linea1 #especial, .tablero-container .teclado .linea2 #especial, .tablero-container .teclado .linea3 #especial {
+.tablero-container .teclado .linea1 #especial,
+.tablero-container .teclado .linea2 #especial,
+.tablero-container .teclado .linea3 #especial {
   width: 44px;
 }
 
@@ -1020,19 +1044,21 @@ input[type=checkbox], input[type=radio] {
   position: absolute;
   left: 0;
   right: 0;
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0 2rem;
   background-color: #fff;
 }
 .wordle-instruction .instruction-wordle {
-  max-width: 76.8rem;
+  position: absolute;
+  max-width: 60rem;
   margin: 0 auto;
   padding: 0 2rem;
+  left: 0;
+  right: 0;
   font-size: 1.2rem;
   line-height: 1.5rem;
-}
-.wordle-instruction .instruction-wordle .instruction-title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: #fff;
 }
 .wordle-instruction .instruction-wordle .catro {
   display: flex;
@@ -1054,10 +1080,12 @@ input[type=checkbox], input[type=radio] {
   border: 2px solid #ffe9d4;
   border-radius: 0.5rem;
 }
-.wordle-instruction .instruction-wordle .catro .c, .wordle-instruction .instruction-wordle .catro .a {
+.wordle-instruction .instruction-wordle .catro .c,
+.wordle-instruction .instruction-wordle .catro .a {
   background-color: #03a300;
 }
-.wordle-instruction .instruction-wordle .catro .t, .wordle-instruction .instruction-wordle .catro .r {
+.wordle-instruction .instruction-wordle .catro .t,
+.wordle-instruction .instruction-wordle .catro .r {
   background-color: #fce5aa;
 }
 .wordle-instruction .instruction-wordle .catro .o {
@@ -1077,9 +1105,10 @@ input[type=checkbox], input[type=radio] {
 .wordle-instruction .instruction-wordle .letras .column-left {
   display: flex;
   gap: 1rem;
-  justify-content: end;
+  justify-content: flex-end;
 }
-.wordle-instruction .instruction-wordle h2, .wordle-instruction .instruction-wordle h3 {
+.wordle-instruction .instruction-wordle h2,
+.wordle-instruction .instruction-wordle h3 {
   font-size: 2.5rem;
   text-align: center;
 }
@@ -1135,7 +1164,7 @@ input[type=checkbox], input[type=radio] {
   width: 100%;
   top: 9.7rem;
   background-color: #fff;
-  z-index: 5;
+  z-index: 6;
 }
 @media screen and (min-width: 1024px) {
   .sudoku {
@@ -1269,23 +1298,27 @@ input[type=checkbox], input[type=radio] {
 }
 
 .instruction {
-  max-width: 76.8rem;
+  max-width: 60rem;
   margin: 0 auto;
   padding: 0 2rem;
+  height: auto;
 }
 .instruction-closeInst {
-  font-size: 3rem;
-  padding: 5px;
-  text-align: center;
-  color: #c03030;
-  background-color: #ffe9d4;
   position: -webkit-sticky;
   position: sticky;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 15%;
   left: 90%;
-  top: 3rem;
   width: 4rem;
   height: 4rem;
+  margin: 0;
   border-radius: 50%;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #c03030;
+  background-color: #ffe9d4;
   cursor: pointer;
 }
 .instruction-closeInst:hover {
@@ -1629,11 +1662,15 @@ input[type=checkbox], input[type=radio] {
 }
 .buscaminas-instructionDiv {
   position: absolute;
-  display: flex;
-  justify-content: center;
-  top: 0px;
+  width: 100%;
+  top: 9.7rem;
   background-color: #fff;
-  z-index: 5;
+  z-index: 6;
+}
+.buscaminas .instruction {
+  max-width: 76.8rem;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 @media screen and (min-width: 768px) {
   .buscaminas {
@@ -1674,8 +1711,8 @@ input[type=checkbox], input[type=radio] {
   height: auto;
   border-top: 4px solid #999999;
   border-left: 4px solid #999999;
-  border-bottom: 4px solid #FFFFFF;
-  border-right: 4px solid #FFFFFF;
+  border-bottom: 4px solid #ffffff;
+  border-right: 4px solid #ffffff;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
 }
 @media screen and (min-width: 768px) {
@@ -1692,24 +1729,34 @@ input[type=checkbox], input[type=radio] {
 
 .rowBuscaminas {
   width: auto;
-  height: 25px;
+  height: 35px;
   display: flex;
+}
+@media screen and (min-width: 768px) {
+  .rowBuscaminas {
+    height: 45px;
+  }
 }
 
 .celdBuscaminas {
-  width: 25px;
+  width: 35px;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
   font-weight: bold;
-  background-color: #E5E5E5;
+  background-color: #e5e5e5;
   box-sizing: border-box;
-  border-top: 3px solid #FFFFFF;
-  border-left: 3px solid #FFFFFF;
+  border-top: 3px solid #ffffff;
+  border-left: 3px solid #ffffff;
   border-bottom: 3px solid #999999;
   border-right: 3px solid #999999;
+}
+@media screen and (min-width: 768px) {
+  .celdBuscaminas {
+    width: 45px;
+  }
 }
 
 .ocultar {
@@ -1741,9 +1788,9 @@ input[type=checkbox], input[type=radio] {
 .grid {
   display: grid;
   /*column-gap: 1rem;
-  row-gap: 0.5rem;
-      max-height: 500px;
-  max-width: 500px; */
+    row-gap: 0.5rem;
+        max-height: 500px;
+    max-width: 500px; */
   position: absolute;
   justify-content: center;
   align-items: center;
@@ -1775,6 +1822,9 @@ input[type=checkbox], input[type=radio] {
 }
 
 .card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 0.5rem;
   background-color: #ffe9d4;
   border: 0.3rem solid #d9d9d9;
@@ -1796,7 +1846,8 @@ input[type=checkbox], input[type=radio] {
   opacity: 0;
 }
 
-.card-image, .card-image-back {
+.card-image,
+.card-image-back {
   height: 100%;
   width: 100%;
   -webkit-backface-visibility: hidden;
@@ -1804,18 +1855,25 @@ input[type=checkbox], input[type=radio] {
 }
 
 .ganaste {
-  width: 50rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  margin: 0 auto;
   font-size: 4rem;
   color: #faf8f7;
   text-align: center;
   background-color: #191d2b;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  text-align: center;
 }
 
 .memory-buttons {
   grid-template-columns: repeat(3, 1fr);
   -moz-column-gap: 1rem;
        column-gap: 1rem;
+  max-width: 59rem;
+  margin: 0 auto;
   padding: 1rem;
   font-size: 1.5rem;
   display: grid;
@@ -1825,6 +1883,7 @@ input[type=checkbox], input[type=radio] {
 
 .memory-buttons h2 {
   grid-column: 1/4;
+  margin-top: 12rem;
 }
 
 .buttons-hide {
@@ -1833,4 +1892,15 @@ input[type=checkbox], input[type=radio] {
 
 .button:focus {
   background-color: #f7931a;
+}
+
+.newGame-btn {
+  margin: 4rem auto;
+}
+
+@media screen and (min-width: 768px) {
+  .grid32 {
+    grid-template-columns: repeat(8, 6rem);
+    grid-auto-rows: 6rem;
+  }
 }/*# sourceMappingURL=App.css.map */
