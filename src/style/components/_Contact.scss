@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  margin: 11rem 1rem 0rem 1rem;
+  margin-top: 1rem;
   font-size: 1.6rem;
   font-weight: 700;
   color: $secundary-color;
@@ -28,6 +28,12 @@
         border-radius: 30%;
         background-color: $soft-orange;
         box-shadow: $box-shadow;
+        img {
+          height: 7rem;
+          width: 7rem;
+          border-radius: 30%;
+          object-fit: contain;
+        }
       }
       .contactContainer-card--contact {
         p {
@@ -37,7 +43,11 @@
           display: flex;
           gap: 1rem;
           font-size: 2rem;
-          color: $main-color;
+          a {
+            i {
+              color: $main-color;
+            }
+          }
         }
       }
     }
@@ -55,6 +65,12 @@
         border-radius: 30%;
         background-color: $soft-orange;
         box-shadow: $box-shadow;
+        img {
+          height: 7rem;
+          width: 7rem;
+          border-radius: 30%;
+          object-fit: contain;
+        }
       }
       .contactContainer-card--contact {
         p {
@@ -65,6 +81,11 @@
           gap: 1rem;
           font-size: 2rem;
           color: $main-color;
+          a {
+            i {
+              color: $main-color;
+            }
+          }
         }
       }
     }
@@ -79,15 +100,20 @@
     gap: 3rem;
     .frontend {
       grid-template-columns: repeat(2, 1fr);
-      gap: 6rem;
+      column-gap: 6rem;
+      row-gap: 3rem;
       .contactContainer-card {
         gap: 3rem;
         .contactContainer-card--img {
-          width: 10rem;
-          height: 10rem;
+          width: 12rem;
+          height: 12rem;
+          img {
+            width: 12rem;
+            height: 12rem;
+          }
         }
-        .contactContainer-card--contact{
-          .contactContainer-card--socials{
+        .contactContainer-card--contact {
+          .contactContainer-card--socials {
             font-size: 3rem;
           }
         }
@@ -95,17 +121,38 @@
     }
     .backend {
       .contactContainer-card {
-        gap: 3rem;
+        gap: 2rem;
         .contactContainer-card--img {
-          width: 10rem;
-          height: 10rem;
+          width: 12rem;
+          height: 12rem;
+          img {
+            width: 12rem;
+            height: 12rem;
+          }
         }
-        .contactContainer-card--contact{
-          .contactContainer-card--socials{
+        .contactContainer-card--contact {
+          .contactContainer-card--socials {
             font-size: 3rem;
           }
         }
       }
     }
+  }
+  @include media-up("desktop") {
+    margin-top: 4rem;
+    gap: 0;
+  //   .frontend,
+  //   .backend {
+  //     .contactContainer-card {
+  //       .contactContainer-card--img {
+  //         width: 14rem;
+  //         height: 14rem;
+  //         img {
+  //           width: 14rem;
+  //           height: 14rem;
+  //         }
+  //       }
+  //     }
+  //   }
   }
 }

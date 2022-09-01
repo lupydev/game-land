@@ -1,34 +1,65 @@
-import { useContext } from "react";
+import {useContext, useEffect, useState} from 'react';
 import { Casilla } from "./Casillas";
 import { Teclado } from "./Teclado";
 import { Context } from "../../contexts/WordleContext";
+import { WordleInstructions } from "../WordleInstructions";
+import { Link } from 'react-router-dom';
+import { GlobalContext } from '../../contexts/GlobalContext';
 
 export const Wordle = () => {
 
-  const { win, seleccion, setSeleccion, palabraGanadora, setJuego } = useContext(Context);
+  const [puntos, setPuntos] = useState()
 
-  const seleccionDificultad = () => {
-    setSeleccion("FACIL");
+  const { win, seleccion, setSeleccion, palabraGanadora, setJuego, timer, puntaje, setPuntaje} = useContext(Context);
+  const { puntajeFinal, loadScore} = useContext(GlobalContext);
+
+  const user = JSON.parse(sessionStorage.getItem("userData"));
+
+  useEffect(()=>{
+    if(win){
+      const x = Date.now();
+      let y =  (x - timer) - 2000;
+      console.log(y)
+      setPuntaje(y);
+      const z = puntajeFinal(y, seleccion);
+      setPuntos(puntajeFinal(y, seleccion));
+      loadScore(user.id, user.recordWordle, z, "wordle");
+    }
+  }, [win])
+
+
+  const seleccionDificultadFacil = () => {
+    setSeleccion("facil");
+    setJuego(true);
+  }
+  const seleccionDificultadMedio = () => {
+    setSeleccion("medio");
+    setJuego(true);
+  }
+  const seleccionDificultadDificil = () => {
+    setSeleccion("dificil");
     setJuego(true);
   }
   const reset = () => {
     setSeleccion("");
     setJuego(false);
+    window.location.reload();
   }
 
   return (
     <>
       <div className="tablero-container">
-        {seleccion === "" &&
+        {seleccion === "" && <>
+          <Link className="reset" to="/wordleInstructions">info</Link>
           <div className="dificultad">
               <h1>Selecciona la dificultad:</h1>
-              <button className="botonDificultad"  onClick={seleccionDificultad}>Fácil</button>
-              <button className="botonDificultad">Medio</button>
-              <button className="botonDificultad">Difícil</button>
-          </div>
+              <button className="botonDificultad" onClick={seleccionDificultadFacil}>Animales <span className="dif" id="f">fácil</span></button>
+              <button className="botonDificultad" onClick={seleccionDificultadMedio}>Nombres <span className="dif" id="m">medio</span></button>
+              <button className="botonDificultad" onClick={seleccionDificultadDificil}>Palabras <span className="dif" id="d">difícil</span></button>
+          </div></>
         }
-        {seleccion === "FACIL" && <>
-          <button onClick={reset}>reset</button>
+        {seleccion && <>
+          <button className="reset" onClick={reset}>reset</button>
           <div className="tablero">
             <div className="fila">
               <Casilla x={0} y={0}/>
@@ -79,8 +110,10 @@ export const Wordle = () => {
         }
         {win && 
           <div className="ganar">
-            <h1>GANASTE!!!</h1>
-            <h2>La palabra fue {palabraGanadora}</h2>
+            <h1>¡¡GANASTE!!</h1>
+            <h2>La palabra fue <span className="palabraGanadora">{palabraGanadora}</span></h2>
+            <h2>tu puntaje fue de: {puntos}</h2>
+            <h2>tardaste: {puntaje / 1000} segundos</h2>
           </div>
         }
        

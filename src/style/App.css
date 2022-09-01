@@ -415,10 +415,31 @@ input[type=checkbox], input[type=radio] {
   width: 6rem;
   height: 6rem;
 }
-.headerContainer .headerContainer-logo p {
+.headerContainer .headerContainer-logo .logout {
+  font-size: 1.8rem;
+  text-decoration: none;
+  color: #27ae60;
+}
+.headerContainer .headerContainer-logo .logout:hover {
+  font-size: 2.5rem;
+  color: green;
+}
+.headerContainer .headerContainer-logo .logout:active {
+  color: #27ae60;
+}
+.headerContainer .headerContainer-logo .logo {
+  color: #27ae60;
   font-size: 3.5rem;
   font-weight: 700;
   text-align: center;
+  text-shadow: 0 0 0 0.3px grey;
+}
+.headerContainer .headerContainer-logo .logo:hover {
+  font-size: 4rem;
+  color: green;
+}
+.headerContainer .headerContainer-logo .logo:active {
+  color: #27ae60;
 }
 .headerContainer .headerContainer-player--name {
   display: flex;
@@ -883,7 +904,6 @@ input[type=checkbox], input[type=radio] {
 /*--SUDOKU-VARIABLES--*/
 /*--MEMORY-VARIABLES--*/
 .tablero-container {
-  margin-top: 130px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -897,6 +917,18 @@ input[type=checkbox], input[type=radio] {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+.tablero-container .dificultad .dif {
+  font-size: 10px;
+}
+.tablero-container .dificultad #f {
+  color: green;
+}
+.tablero-container .dificultad #m {
+  color: orange;
+}
+.tablero-container .dificultad #d {
+  color: red;
 }
 .tablero-container .dificultad .botonDificultad {
   width: 150px;
@@ -951,6 +983,38 @@ input[type=checkbox], input[type=radio] {
 }
 .tablero-container .tablero .fila #inexistente {
   background-color: #939393;
+}
+.tablero-container .reset {
+  width: 50px;
+  height: 50px;
+  font-size: 14px;
+  border: 2px solid #ffe9d4;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  background-color: #d5edff;
+  border-radius: 100%;
+}
+.tablero-container .reset:hover {
+  background-color: rgba(213, 237, 255, 0.6039215686);
+}
+.tablero-container .reset:active {
+  background-color: #d5edff;
+  font-size: 20px;
+}
+.tablero-container .ganar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+}
+.tablero-container .ganar .palabraGanadora {
+  color: green;
+}
+.tablero-container .ganar h1 {
+  margin: 5px;
+}
+.tablero-container .ganar h2 {
+  margin: 5px;
+  text-align: center;
 }
 .tablero-container .teclado {
   margin: 2rem;
@@ -1635,102 +1699,4 @@ input[type=checkbox], input[type=radio] {
 }
 .win-buscaminas .time {
   font-size: 14px;
-}
-
-.grid {
-  display: grid;
-  /*column-gap: 1rem;
-  row-gap: 0.5rem;
-      max-height: 500px;
-  max-width: 500px; */
-  position: absolute;
-  justify-content: center;
-  align-items: center;
-  gap: 0.3rem;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-}
-
-.grid12 {
-  grid-template-columns: repeat(6, 5.95rem);
-  grid-auto-rows: 5.95rem;
-  height: 25rem;
-}
-
-.grid18 {
-  grid-template-columns: repeat(6, 5.95rem);
-  grid-auto-rows: 5.95rem;
-  height: 37.5rem;
-}
-
-.grid32 {
-  /*grid-template-columns: 13% 13% 13% 13% 13% 13% 13% 13%*/
-  grid-template-columns: repeat(8, 3.6rem);
-  grid-auto-rows: 3.6rem;
-  height: 32.2rem;
-}
-
-.card {
-  border-radius: 0.5rem;
-  background-color: #ffe9d4;
-  border: 0.3rem solid #d9d9d9;
-  cursor: pointer;
-  aspect-ratio: 1/1;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-}
-
-.card-wrong {
-  background-color: #c03030;
-}
-
-.card-correct {
-  background-color: #27ae60;
-}
-
-.card-image-back {
-  opacity: 0;
-}
-
-.card-image, .card-image-back {
-  height: 100%;
-  width: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.ganaste {
-  width: 50rem;
-  font-size: 4rem;
-  color: #faf8f7;
-  text-align: center;
-  background-color: #191d2b;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-}
-
-.memory-buttons {
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 1rem;
-  padding: 1rem;
-  font-size: 1.5rem;
-  display: grid;
-  height: auto;
-  text-align: center;
-}
-
-.memory-buttons h2 {
-  grid-column: 1/4;
-}
-
-.buttons-hide {
-  display: none;
-}
-
-.button:focus {
-  background-color: #f7931a;
-}
-
-/*# sourceMappingURL=App.css.map */
+}/*# sourceMappingURL=App.css.map */

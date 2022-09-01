@@ -1,19 +1,16 @@
 import {createContext, useState} from "react";
 
-
 export const GlobalContext = createContext();
 
 export const GlobalProvider = ({children}) => {
-
-    sessionStorage.setItem("header", {})
 
     const [logIn, setLogIn] = useState(false)
 
     const [loadingUser, setLoadingUser] = useState(false)
 
-    const [userData, setUserData] = useState(JSON.parse(sessionStorage.getItem("userData")))
+    const [userData, setUserData] = useState({})
 
-    const [promedio, setPromedio] = useState(sessionStorage.getItem("header").promedio)
+    const [promedio, setPromedio] = useState(0)
 
     const [invitado, setInvitado] = useState(true)
 
@@ -50,12 +47,19 @@ export const GlobalProvider = ({children}) => {
             headers: {"Content-type": "application/json; charset=UTF-8"}
             })
             .then(response => {
+                response.json();
                 console.log(response);
             })                 
             .then(json => {
                 console.log(json)
             })
             .catch(err => console.log(err))
+    }
+
+    const logOut = () => {
+        sessionStorage.setItem("userData", JSON.stringify({id: "xxx", gamers: 'Invitado'}))
+        setLogIn(false);
+        setLoadingUser(false)
     }
 
     const getUserData = (user, users) => {
@@ -73,10 +77,10 @@ export const GlobalProvider = ({children}) => {
         return false
     }
 
-    // Funcion para calcular el puntaje final, en funcion del tiempo (en milisegundos) y la dificultad. Devuelve el tiempo sin decimales.
     const puntajeFinal = (t, d) => {
         let puntos = 0
         console.log(t);
+        console.log(d);
         switch (d) {
             case "facil":
                 if((1800 - (t / 1000)) * 1.5 + 500 > 0){
@@ -113,11 +117,6 @@ export const GlobalProvider = ({children}) => {
         return puntos
     }
 
-    // Funcion que caraga el puntaje en la base de datos. Recibe:
-    //          - El id de usuario, alamacenado en la sessionStorage
-    //          - El arrary de records correspondiente, alamacenado en la sessionStorage.
-    //          - Los puntos obtenidos en la partida.
-    //          - El juego que se esta jugando.
     const loadScore = (userId, userRecords, puntos, game) => {
 
         console.log(userId, userRecords, puntos, game);
@@ -137,7 +136,6 @@ export const GlobalProvider = ({children}) => {
         
         min = Math.min(...auxArray)
         console.log(min);
-
         if(min < puntos){
             for(let i = 0; i < auxArray.length; i++){
                 if(auxArray[i] === min){
@@ -146,16 +144,7 @@ export const GlobalProvider = ({children}) => {
                     break
                 }
             }
-        }
-
-        console.log(finalArray);
-
-        if(finalArray.length < 5){
-            for(let i = 0; i < (5 - finalArray.length); i++){
-                finalArray.push(0)
-            }
-        }
-        
+        }  
         console.log(finalArray);
         strArray = JSON.stringify(finalArray).slice(1,-1)
         console.log(strArray);
@@ -163,7 +152,6 @@ export const GlobalProvider = ({children}) => {
         let url = "https://no-country-app.herokuapp.com/gamers/recordEdit/" + userId.toString()
         console.log(url);
         console.log(strArray);
-
         switch (game) {
             case "sudoku":
                 url = url + "?recordSudoku=" + strArray + "&recordWordle=&recordMemories=&recordBuscaMinas="
@@ -195,7 +183,6 @@ export const GlobalProvider = ({children}) => {
             .catch(err => console.log(err))
     }
 
-    // Funcion que recibe el array completo de los puntajes promedio. Recibe como parametro el juego que se necesita.
     const getRanking = (game) => {
         let url = 'https://no-country-app.herokuapp.com/ranking/' + game
 
@@ -212,12 +199,11 @@ export const GlobalProvider = ({children}) => {
                 .then(json => {
                     console.log(json)
                     setPromedio(ranking(json, userData.id, game))
-                    sessionStorage.setItem("header", {user: userData.name, promedio: ranking(json, userData.id, game)})
                 })
                 .catch(err => console.log(err))
     }
     
-    // Funcion que toma como parametro la lista de promedios, y filtra el necesario segun juego y usuario.
+
     const ranking = (list, u, g) => {
 
         let atributo = ""
@@ -267,6 +253,7 @@ export const GlobalProvider = ({children}) => {
             puntajeFinal,
             loadScore,
             getRanking,
+            logOut
         }}>
             {children}
         </GlobalContext.Provider>                                            

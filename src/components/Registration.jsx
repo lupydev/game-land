@@ -59,6 +59,7 @@ export const Registration = () => {
             type="password" 
             id="password" 
             name="password" 
+            minLength="8"
             required 
             onChange={changeInput}
           />

@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   gap: 1.7rem;
-  margin-top: 11rem;
+  margin-top: 2rem;
   padding-bottom: 5rem;
   text-align: center;
   .homeContainer-card {
@@ -14,7 +14,7 @@
     border: 0.2rem solid $soft-blue;
     border-radius: 2rem;
     box-shadow: $box-shadow;
-    &:hover{
+    &:hover {
       transform: translateY(-0.5rem);
     }
     a {
@@ -29,28 +29,29 @@
         width: 20rem;
         height: 20rem;
         border-radius: 5px;
-        box-shadow: $box-shadow;
-        object-fit: cover;
+        // box-shadow: $box-shadow;
+        object-fit: contain;
       }
     }
-    
   }
   .homeContainer-card--ranking {
     margin-top: 5px;
     font-size: 1.6rem;
   }
   @include media-up("tablet") {
+    position: absolute;
     display: grid;
     grid-template-columns: repeat(2, 35.4rem);
     grid-auto-rows: 38.4rem;
     justify-content: center;
-    align-self: center;
+    align-content: center;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     gap: 0;
-    height: 85vh;
-    margin: 20% auto 0 auto;
-    // margin-top: 15vh;
     padding: 0;
-        
+
     .homeContainer-card {
       justify-self: center;
       width: 32rem;
@@ -64,9 +65,7 @@
     }
   }
   @include media-up("desktop") {
-    max-width: 102.4rem;
-    margin: 10rem auto 0;
-    // padding-bottom: 0;
-    column-gap: 25rem;
+    position: relative;
+    margin: 0 auto;
   }
 }
