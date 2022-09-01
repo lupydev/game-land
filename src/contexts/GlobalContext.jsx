@@ -54,8 +54,9 @@ export const GlobalProvider = ({children}) => {
     }
 
     const logOut = () => {
-        sessionStorage.clear();
+        sessionStorage.setItem("userData", JSON.stringify({id: "xxx", gamers: 'Invitado'}))
         setLogIn(false);
+        setLoadingUser(false)
     }
 
     const getUserData = (user, users) => {
