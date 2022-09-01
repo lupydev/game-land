@@ -1,138 +1,137 @@
 @import "../base/settings";
 
 .buscaminasApp {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
 }
 
-.buscaminas{
+.buscaminas {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // position: absolute;
+
+  &-head {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    // position: relative;
+    height: 8rem;
+    width: 100%;
+  }
 
-    &-head {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 8rem;
-        width: 100%;
-    }
+  &-instructionDiv {
+    position: absolute;
+    width: 100%;
+    top: 9.7rem;
+    background-color: $white;
+    z-index: 5;
+  }
+  .instruction {
+    max-width: 76.8rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
 
-    &-instructionDiv {
-        position: absolute;
-        display: flex;
-        justify-content: center;
-        top: 0px;
-        background-color: $white;
-        z-index: 5;
-        // background-color: rgba(256,256,256,1);
-        // max-height: calc(100vh - 10rem);
-        // scroll-behavior: smooth;    
-        // overflow: scroll;   
-    }
+  @include media-up("tablet") {
+    width: 70vw;
+  }
 
-    @include media-up("tablet"){
-        width: 70vw;
-    }
-
-    @include media-up("desktop"){
-        width: 50vw;
-    }
+  @include media-up("desktop") {
+    width: 50vw;
+  }
 }
 
 .mainBuscaminas {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 
-    @include media-up("tablet"){
-        max-width: 70vw;
-    }
-    
-    @include media-up("desktop"){
-        width: 50vw;
-        flex-direction: row;
-    }
+  @include media-up("tablet") {
+    max-width: 70vw;
+  }
+
+  @include media-up("desktop") {
+    width: 50vw;
+    flex-direction: row;
+  }
 }
 
 .boardBuscaminas {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: auto;
-    height: auto;
-    border-top: 4px solid #999999;
-    border-left: 4px solid #999999;
-    border-bottom: 4px solid #FFFFFF;
-    border-right: 4px solid #FFFFFF;
-    box-shadow: $box-shadow;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  border-top: 4px solid #999999;
+  border-left: 4px solid #999999;
+  border-bottom: 4px solid #ffffff;
+  border-right: 4px solid #ffffff;
+  box-shadow: $box-shadow;
 
-    @include media-up("tablet"){
-        margin: 6rem 0 3rem 0;
-    }
+  @include media-up("tablet") {
+    margin: 6rem 0 3rem 0;
+  }
 
-    @include media-up("desktop"){
-        max-width: 80vw;
-        margin-right: 8rem;
-    }
+  @include media-up("desktop") {
+    max-width: 80vw;
+    margin-right: 8rem;
+  }
 }
 
 .rowBuscaminas {
-    width: auto;
-    height: 25px;
-    display: flex;
+  width: auto;
+  height: 25px;
+  display: flex;
 }
 
 .celdBuscaminas {
-    width: 25px;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    background-color: #E5E5E5;
-    box-sizing: border-box;
-    // border-radius: 4px;
-    border-top: 3px solid #FFFFFF;
-    border-left: 3px solid #FFFFFF;
-    border-bottom: 3px solid #999999;
-    border-right: 3px solid #999999;
-    // box-shadow: inset 2px 2px 8px grey;
+  width: 25px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: #e5e5e5;
+  box-sizing: border-box;
+  // border-radius: 4px;
+  border-top: 3px solid #ffffff;
+  border-left: 3px solid #ffffff;
+  border-bottom: 3px solid #999999;
+  border-right: 3px solid #999999;
+  // box-shadow: inset 2px 2px 8px grey;
 }
 
 .ocultar {
-    display: none;
+  display: none;
 }
 
 .mostrar {
-    display: flex;
+  display: flex;
 }
 
 .win-buscaminas {
-    width: 337px;
-    height: 339px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid #191d2b;
-    
-    .congrats{
-        text-align: center;
-        font-size: 28px;
-        font-weight: bold;
-    }
+  width: 337px;
+  height: 339px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #191d2b;
 
-    .time{
-        font-size: 14px;
-    }
+  .congrats {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .time {
+    font-size: 14px;
+  }
 }
-

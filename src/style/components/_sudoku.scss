@@ -31,11 +31,7 @@ $celdaDimTab: 6rem;
         top: 9.7rem;
         background-color: $white;
         z-index: 5;
-        // scroll-behavior: smooth;    
-        // overflow: scroll; 
-        // display: flex;
-        // justify-content: center;
-        // max-height: calc(100vh - 10rem);
+        
     }
 
     @include media-up("desktop"){
@@ -181,20 +177,22 @@ $celdaDimTab: 6rem;
     // background-color: $white;
 
     &-closeInst {   
-        font-size: 3rem;
-        padding: 5px;
-        text-align: center;
-        color: $sudoku-wrong-number;     
-        background-color: $soft-orange;
         position: sticky;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 15%;
         left: 90%;
-        top: 3rem;
-        // width: calc(3rem + 4px);
         width: 4rem;
         height: 4rem;
-        // border-radius: calc((3rem + 10px) / 2);
+        margin: 0;
         border-radius: 50%;
+        font-size: 2rem;
+        font-weight: 700;
+        color: $sudoku-wrong-number;
+        background-color: $soft-orange;
         cursor: pointer;
+       
 
         &:hover{
             background-color: $sudoku-wrong-number;
