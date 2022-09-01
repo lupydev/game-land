@@ -7,12 +7,10 @@ function Instruction() {
 
   return (
     <div className="instruction-wordle">
-      <div className="instruction-title">
-        <h2>¿Cómo se Juega?</h2>
-        <h2 className="instruction-closeInst" onClick={() => cerrar()}>
-          X
-        </h2>
-      </div>
+      <h2 className="instruction-closeInst" onClick={() => cerrar()}>
+        X
+      </h2>
+      <h3>¿Cómo se Juega?</h3>
 
       <p>
         Tienes que adivinar la palabra oculta en 5 intentos, el color de las
