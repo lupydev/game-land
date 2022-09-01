@@ -7,7 +7,7 @@ const imagen = require.context("./../img", true);
 export const Login = () => {
   let navigate = useNavigate()
 
-  const {singIn, logIn, loadingUser} = useContext(GlobalContext)
+  const {singIn, logIn, loadingUser, invitado, invitadoIn} = useContext(GlobalContext)
 
   const [userData, setUserData] = useState({username: "", password: ""})
 
@@ -37,6 +37,7 @@ export const Login = () => {
 
   }, [loadingUser])
 
+
   return (
     <div className="loginContainer">
       <div className="loginContainer-form">
@@ -62,7 +63,7 @@ export const Login = () => {
       <div className="links">
 
       <Link to="/registration">Registrate</Link>
-      <Link to="/home">Invitado</Link>
+      <Link to="/home" onClick={invitadoIn}>Invitado</Link>
       </div>
     </div>
   );
