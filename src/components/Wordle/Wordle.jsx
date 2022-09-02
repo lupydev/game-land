@@ -2,8 +2,6 @@ import {useContext, useEffect, useState} from 'react';
 import { Casilla } from "./Casillas";
 import { Teclado } from "./Teclado";
 import { Context } from "../../contexts/WordleContext";
-import { WordleInstructions } from "../WordleInstructions";
-import { Link } from 'react-router-dom';
 import { GlobalContext } from '../../contexts/GlobalContext';
 
 export const Wordle = () => {
