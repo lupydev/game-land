@@ -70,14 +70,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: auto;
+  width: 337px;;
   margin: 0 auto;
   font-size: 4rem;
   color: #faf8f7;
   text-align: center;
   background-color: #191d2b;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-  text-align: center;
+  flex-direction: column;
+  border: 2px solid #191d2b;
+  .puntaje {
+    font-size: 15px;
+  }
 }
 
 .memory-buttons {

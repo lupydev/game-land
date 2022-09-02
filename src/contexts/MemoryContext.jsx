@@ -12,7 +12,7 @@ export const MemoryProvider = ({ children }) => {
   const [unflippedCards, setUnflippedCards] = useState([]);
   const [disabledCards, setDisabledCards] = useState([]);
   const [pairCollected, setPairCollected] = useState(0);
-
+  const [timer, setTimer] = useState();
   const resetGame = () => {
     setReady(false);
     setDificultad(0);
@@ -25,6 +25,7 @@ export const MemoryProvider = ({ children }) => {
   };
 
   const setupGame = (dificultad) => {
+    setTimer(Date.now())
     const imagesCopy = images.filter((item) => item.id < dificultad + 1);
     const shuffleArray = (a) => {
       for (let i = a.length - 1; i > 0; i--) {
@@ -91,6 +92,7 @@ export const MemoryProvider = ({ children }) => {
     ready,
     disabledCards,
     pairCollected,
+    timer,
     setDificultad,
     setCards,
     checkForMatch,
@@ -102,6 +104,7 @@ export const MemoryProvider = ({ children }) => {
     flipCard,
     cerrar,
     mostrar,
+    setTimer,
   };
   return (
     <MemoryContext.Provider value={data}>{children}</MemoryContext.Provider>

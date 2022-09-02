@@ -1004,6 +1004,76 @@ input[type=checkbox], input[type=radio] {
   background-color: #d5edff;
   font-size: 20px;
 }
+.tablero-container .tablero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 300px;
+  width: 300px;
+  margin: 20px;
+}
+.tablero-container .tablero .fila {
+  display: flex;
+  flex-direction: row;
+  padding: 0px;
+  margin: 1px;
+}
+.tablero-container .tablero .fila .casilla {
+  width: 37px;
+  height: 32px;
+  margin: 3px;
+  border-radius: 5px;
+  background-color: #d5edff;
+  border: 2px solid #ffe9d4;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bolder;
+}
+.tablero-container .tablero .fila #exacto {
+  background-color: #03a300;
+}
+.tablero-container .tablero .fila #existe {
+  background-color: #fce5aa;
+}
+.tablero-container .tablero .fila #inexistente {
+  background-color: #939393;
+}
+.tablero-container .reset {
+  width: 50px;
+  height: 50px;
+  font-size: 14px;
+  border: 2px solid #ffe9d4;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  background-color: #d5edff;
+  border-radius: 100%;
+}
+.tablero-container .reset:hover {
+  background-color: rgba(213, 237, 255, 0.6039215686);
+}
+.tablero-container .reset:active {
+  background-color: #d5edff;
+  font-size: 20px;
+}
+.tablero-container .ganar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+}
+.tablero-container .ganar .palabraGanadora {
+  color: green;
+}
+.tablero-container .ganar h1 {
+  margin: 5px;
+}
+.tablero-container .ganar h2 {
+  margin: 5px;
+  text-align: center;
+}
 .tablero-container .teclado {
   margin: 2rem;
 }
@@ -1153,14 +1223,18 @@ input[type=checkbox], input[type=radio] {
 .wordle-instruction .instruction-wordle .teclado {
   margin: 2rem;
 }
-.wordle-instruction .instruction-wordle .teclado .linea1, .wordle-instruction .instruction-wordle .teclado .linea2, .wordle-instruction .instruction-wordle .teclado .linea3 {
+.wordle-instruction .instruction-wordle .teclado .linea1,
+.wordle-instruction .instruction-wordle .teclado .linea2,
+.wordle-instruction .instruction-wordle .teclado .linea3 {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   padding: 1px;
 }
-.wordle-instruction .instruction-wordle .teclado .linea1 .teclas, .wordle-instruction .instruction-wordle .teclado .linea2 .teclas, .wordle-instruction .instruction-wordle .teclado .linea3 .teclas {
+.wordle-instruction .instruction-wordle .teclado .linea1 .teclas,
+.wordle-instruction .instruction-wordle .teclado .linea2 .teclas,
+.wordle-instruction .instruction-wordle .teclado .linea3 .teclas {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1172,14 +1246,20 @@ input[type=checkbox], input[type=radio] {
   border-radius: 5px;
   margin: 2px;
 }
-.wordle-instruction .instruction-wordle .teclado .linea1 .teclas:hover, .wordle-instruction .instruction-wordle .teclado .linea2 .teclas:hover, .wordle-instruction .instruction-wordle .teclado .linea3 .teclas:hover {
+.wordle-instruction .instruction-wordle .teclado .linea1 .teclas:hover,
+.wordle-instruction .instruction-wordle .teclado .linea2 .teclas:hover,
+.wordle-instruction .instruction-wordle .teclado .linea3 .teclas:hover {
   background-color: rgba(0, 0, 0, 0.7);
 }
-.wordle-instruction .instruction-wordle .teclado .linea1 .teclas:active, .wordle-instruction .instruction-wordle .teclado .linea2 .teclas:active, .wordle-instruction .instruction-wordle .teclado .linea3 .teclas:active {
+.wordle-instruction .instruction-wordle .teclado .linea1 .teclas:active,
+.wordle-instruction .instruction-wordle .teclado .linea2 .teclas:active,
+.wordle-instruction .instruction-wordle .teclado .linea3 .teclas:active {
   background-color: #000000;
   font-size: 20px;
 }
-.wordle-instruction .instruction-wordle .teclado .linea1 #especial, .wordle-instruction .instruction-wordle .teclado .linea2 #especial, .wordle-instruction .instruction-wordle .teclado .linea3 #especial {
+.wordle-instruction .instruction-wordle .teclado .linea1 #especial,
+.wordle-instruction .instruction-wordle .teclado .linea2 #especial,
+.wordle-instruction .instruction-wordle .teclado .linea3 #especial {
   width: 44px;
 }
 
@@ -1934,14 +2014,18 @@ input[type=checkbox], input[type=radio] {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: auto;
+  width: 337px;
   margin: 0 auto;
   font-size: 4rem;
   color: #faf8f7;
   text-align: center;
   background-color: #191d2b;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-  text-align: center;
+  flex-direction: column;
+  border: 2px solid #191d2b;
+}
+.ganaste .puntaje {
+  font-size: 15px;
 }
 
 .memory-buttons {
