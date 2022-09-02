@@ -69,7 +69,7 @@ export const RankingProvider = ({children}) => {
         setBuscaMinas(busc)
 
         let memo = JSON.parse(sessionStorage.getItem("memories"))
-        memo.sort((a,b) =>{return b.averageMomories - a.averageMomories})
+        memo.sort((a,b) =>{return b.averageMemories - a.averageMemories})
         setMemories(memo)
 
         setearPuestos()
