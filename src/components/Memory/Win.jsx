@@ -17,7 +17,7 @@ export const Win = () => {
     }else if(dificultad === 32){
         puntos = puntajeFinal(time,"dificil");
     }
-    //loadScore(usersData.id, usersData.recordMemories, puntos, "memories")
+    loadScore(usersData.id, usersData.recordMemories, puntos, "memories")
     return(
         <div className='ganaste'>
             <p >GANASTE</p>
