@@ -1979,6 +1979,7 @@ input[type=checkbox], input[type=radio] {
   grid-template-columns: repeat(6, 5.95rem);
   grid-auto-rows: 5.95rem;
   height: 37.5rem;
+  margin-top: 18rem;
 }
 
 .grid32 {
@@ -2070,7 +2071,7 @@ input[type=checkbox], input[type=radio] {
 }
 
 .newGame-btn {
-  margin: 4rem auto;
+  margin: 3rem auto;
 }
 
 @media screen and (min-width: 768px) {
