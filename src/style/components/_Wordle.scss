@@ -1,10 +1,62 @@
 @import "../base/settings";
 
-.tablero-container { 
+.tablero-container {
+  @include flex-column-wordle;
+  height: 300px;
+  width: 300px;
+  margin: 12rem auto;
+  .fila {
+    display: flex;
+    flex-direction: row;
+    padding: 0px;
+    margin: 1px;
+    .casilla {
+      width: 37px;
+      height: 32px;
+      margin: 3px;
+      border-radius: 5px;
+      background-color: $wordle-game-background;
+      border: $wordle-game-border;
+      box-shadow: $box-shadow;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      .dif {
+        font-size: 10px;
+      }
+      #f {
+        color: green;
+      }
+      #m {
+        color: orange;
+      }
+      #d {
+        color: red;
+      }
+      .botonDificultad {
+        width: 150px;
+        height: 30px;
+        font-size: 14px;
+        border: $wordle-game-border;
+        box-shadow: $box-shadow;
+        background-color: $wordle-game-background;
+        border-radius: 5px;
+        &:hover {
+          background-color: #d5edff9a;
+        }
+        &:active {
+          background-color: $wordle-game-background;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+  .tablero {
     @include flex-column-wordle;
     height: 300px;
     width: 300px;
-    margin: 12rem auto;
+    margin: 20px;
     .fila {
       display: flex;
       flex-direction: row;
@@ -19,37 +71,51 @@
         border: $wordle-game-border;
         box-shadow: $box-shadow;
         display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        .dif{
-            font-size: 10px;
-        }
-        #f{
-            color: green;
-        }
-        #m{
-            color: orange;
-        }
-        #d{
-            color: red;
-        }
-        .botonDificultad {
-            width: 150px;
-            height: 30px;
-            font-size: 14px;
-            border: $wordle-game-border;
-            box-shadow: $box-shadow;
-            background-color: $wordle-game-background;
-            border-radius: 5px;
-            &:hover {
-                background-color: #d5edff9a;
-            }
-            &:active {
-                background-color: $wordle-game-background;
-                font-size: 20px;
-            }
-        }
+        @include center;
+        font-size: 14px;
+        font-weight: bolder;
+      }
+      #exacto {
+        background-color: $wordle-correct;
+      }
+      #existe {
+        background-color: $wordle-incorrect;
+      }
+      #inexistente {
+        background-color: $wordle-wrong;
+      }
+    }
+  }
+  .reset {
+    width: 50px;
+    height: 50px;
+    font-size: 14px;
+    border: $wordle-game-border;
+    box-shadow: $box-shadow;
+    background-color: $wordle-game-background;
+    border-radius: 100%;
+    &:hover {
+      background-color: #d5edff9a;
+    }
+    &:active {
+      background-color: $wordle-game-background;
+      font-size: 20px;
+    }
+  }
+  .ganar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+    .palabraGanadora {
+      color: green;
+    }
+    h1 {
+      margin: 5px;
+    }
+    h2 {
+      margin: 5px;
+      text-align: center;
     }
   }
   .teclado {
@@ -156,70 +222,72 @@
       font-size: 2.5rem;
       text-align: center;
     }
-    .reset{
-        width: 50px;
-        height: 50px;
-        font-size: 14px;
-        border: $wordle-game-border;
-        box-shadow: $box-shadow;
+    .reset {
+      width: 50px;
+      height: 50px;
+      font-size: 14px;
+      border: $wordle-game-border;
+      box-shadow: $box-shadow;
+      background-color: $wordle-game-background;
+      // border-radius: 100%;
+      &:hover {
+        background-color: #d5edff9a;
+      }
+      &:active {
         background-color: $wordle-game-background;
-        // border-radius: 100%;
-        &:hover {
-            background-color: #d5edff9a;
-        }
-        &:active {
-            background-color: $wordle-game-background;
-            font-size: 20px;
-        }
+        font-size: 20px;
+      }
     }
-    .ganar{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-size: 14px;
-        .palabraGanadora{
-            color: green;
-        }
-        h1{
-            margin: 5px;
-        }
-        h2{
-            margin: 5px;
-            text-align: center;
-        }
+    .ganar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 14px;
+      .palabraGanadora {
+        color: green;
+      }
+      h1 {
+        margin: 5px;
+      }
+      h2 {
+        margin: 5px;
+        text-align: center;
+      }
     }
     .teclado {
-        margin: 2rem;
-        .linea1, .linea2, .linea3 {
-            display: flex;
-            flex-direction: row;
-            @include center;
-            padding: 1px;
-            .teclas {
-                display: flex;
-                @include center;
-                font-size: 14px;
-                width: 27.5px;
-                height: 32px;
-                color: white;
-                background: #000000;
-                border-radius: 5px;
-                margin: 2px;
-                &:hover {
-                    background-color: rgba(0, 0, 0, 0.7);
-                }
-                &:active {
-                    background-color: #000000;
-                    font-size: 20px;
-                }
-            }
-            #especial {
-                width: 44px;
-            }
+      margin: 2rem;
+      .linea1,
+      .linea2,
+      .linea3 {
+        display: flex;
+        flex-direction: row;
+        @include center;
+        padding: 1px;
+        .teclas {
+          display: flex;
+          @include center;
+          font-size: 14px;
+          width: 27.5px;
+          height: 32px;
+          color: white;
+          background: #000000;
+          border-radius: 5px;
+          margin: 2px;
+          &:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+          }
+          &:active {
+            background-color: #000000;
+            font-size: 20px;
+          }
+        }
+        #especial {
+          width: 44px;
         }
       }
     }
   }
+}
 
 .ocultar {
   display: none;
