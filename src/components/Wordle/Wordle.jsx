@@ -11,9 +11,11 @@ export const Wordle = () => {
   const [puntos, setPuntos] = useState()
 
   const { win, seleccion, setSeleccion, palabraGanadora, setJuego, timer, puntaje, setPuntaje} = useContext(Context);
-  const { puntajeFinal, loadScore} = useContext(GlobalContext);
+  const { puntajeFinal, loadScore, getRanking} = useContext(GlobalContext);
 
   const user = JSON.parse(sessionStorage.getItem("userData"));
+
+  getRanking("wordle")
 
   useEffect(()=>{
     if(win){

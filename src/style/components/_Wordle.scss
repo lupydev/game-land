@@ -34,21 +34,43 @@
       #d {
         color: red;
       }
-      .botonDificultad {
-        width: 150px;
-        height: 30px;
-        font-size: 14px;
-        border: $wordle-game-border;
-        box-shadow: $box-shadow;
-        background-color: $wordle-game-background;
-        border-radius: 5px;
-        &:hover {
+    }
+  }
+  .dificultad {
+    height: 300px;
+    width: 300px;
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    .dif{
+        font-size: 10px;
+    }
+    #f{
+        color: green;
+    }
+    #m{
+        color: orange;
+    }
+    #d{
+        color: red;
+    }
+    .botonDificultad {
+      margin: 20px;
+      width: 150px;
+      height: 30px;
+      font-size: 14px;
+      border: $wordle-game-border;
+      box-shadow: $box-shadow;
+      background-color: $wordle-game-background;
+      border-radius: 5px;
+      &:hover {
           background-color: #d5edff9a;
-        }
-        &:active {
+      }
+      &:active {
           background-color: $wordle-game-background;
           font-size: 20px;
-        }
       }
     }
   }

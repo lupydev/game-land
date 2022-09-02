@@ -988,7 +988,29 @@ input[type=checkbox], input[type=radio] {
 .tablero-container .fila .casilla #d {
   color: red;
 }
-.tablero-container .fila .casilla .botonDificultad {
+.tablero-container .dificultad {
+  height: 300px;
+  width: 300px;
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.tablero-container .dificultad .dif {
+  font-size: 10px;
+}
+.tablero-container .dificultad #f {
+  color: green;
+}
+.tablero-container .dificultad #m {
+  color: orange;
+}
+.tablero-container .dificultad #d {
+  color: red;
+}
+.tablero-container .dificultad .botonDificultad {
+  margin: 20px;
   width: 150px;
   height: 30px;
   font-size: 14px;
@@ -997,10 +1019,10 @@ input[type=checkbox], input[type=radio] {
   background-color: #d5edff;
   border-radius: 5px;
 }
-.tablero-container .fila .casilla .botonDificultad:hover {
+.tablero-container .dificultad .botonDificultad:hover {
   background-color: rgba(213, 237, 255, 0.6039215686);
 }
-.tablero-container .fila .casilla .botonDificultad:active {
+.tablero-container .dificultad .botonDificultad:active {
   background-color: #d5edff;
   font-size: 20px;
 }
