@@ -1,9 +1,10 @@
-import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { GlobalContext } from "../contexts/GlobalContext";
 
 export const Registration = () => {
-
+  let navigate = useNavigate()
+  
   const {singUp} = useContext(GlobalContext)
 
   const [userData, setUserData] = useState({username: "", name: "", password: ""})
@@ -12,8 +13,10 @@ export const Registration = () => {
     e.preventDefault();
     console.log("Enviado: ", userData);
     singUp(userData)
-  }
+    navigate('/login')
 
+
+  }
   const changeInput = (e) =>{
         
     setUserData({
@@ -21,6 +24,12 @@ export const Registration = () => {
         [e.target.name]: e.target.value
     });
   }
+
+  // useEffect(() =>{
+  //   if(Response.redirected === false){
+  //     navigate('/login')
+  //   }
+  //   },Response.redirected)
 
   return (
     <div className="registrationContainer">
