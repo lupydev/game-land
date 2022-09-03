@@ -4,7 +4,7 @@ import { GlobalContext } from "../contexts/GlobalContext";
 
 export const Header = () => {
 
-  const {userData, promedio, logOut, invitado} = useContext(GlobalContext)
+  const {userData, promedio, logOut, invitado, logIn} = useContext(GlobalContext)
   const [log, setLog] = useState(false);
 
   const handleClick = () => {
@@ -28,7 +28,7 @@ export const Header = () => {
       }
       <div className="headerContainer-player">
         <div className="headerContainer-player--name">
-          <p>{invitado
+          <p>{invitado && logIn
               ?
                 "Invitado"
               :
@@ -37,7 +37,7 @@ export const Header = () => {
         </div>
       </div>
       <div className="headerContainer-player--points">
-        <p>{invitado
+        <p>{invitado && logIn
             ?
               0
             :

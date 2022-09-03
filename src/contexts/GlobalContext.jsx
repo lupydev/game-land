@@ -4,11 +4,15 @@ export const GlobalContext = createContext();
 
 export const GlobalProvider = ({children}) => {
 
+    if(sessionStorage.getItem("userData") === undefined){
+        sessionStorage.setItem("userData",{})
+    }
+
     const [logIn, setLogIn] = useState(false)
 
     const [loadingUser, setLoadingUser] = useState(false)
 
-    const [userData, setUserData] = useState({})
+    const [userData, setUserData] = useState(JSON.parse(sessionStorage.getItem("userData")))
 
     const [promedio, setPromedio] = useState(0)
 
