@@ -53,8 +53,9 @@ Después de seguir estos pasos alguien revisará tu código, si hay cambios se n
 
 - [@lumiguz](https://github.com/lumiguz) - Frontend Developer
 - [@Leonardo-JK](https://github.com/Leonardo-JK) - Frontend Developer
-- []() - 
-- []() - 
+- [@Bruno-Niello](https://github.com/Bruno-Niello) - Frontend Developer
+- [@ThePabloRevengeance](https://github.com/ThePabloRevengeance) - Frontend Developer
+- [@Braian-Marquez](https://github.com/Braian-Marquez) - Backend Developer
 
 ## Cursos que te pueden ayudar
 
