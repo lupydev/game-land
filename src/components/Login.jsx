@@ -12,7 +12,6 @@ export const Login = () => {
   const [userData, setUserData] = useState({username: "", password: ""})
 
   const submitLogin = (e) => {
-    console.log("Enviado: ", userData);
     e.preventDefault();
 
     singIn(userData)

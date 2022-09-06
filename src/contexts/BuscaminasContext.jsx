@@ -62,7 +62,6 @@ export const BuscaminasProvider = ({children}) => {
     const [puntaje, setPuntaje] = useState(0)
 
     const putBombs = (b) => {
-        console.log("put");
         let bombs = 0
         while (bombs < b) {
             let row  = Math.floor(Math.random() * dimensiones[0])
@@ -92,7 +91,6 @@ export const BuscaminasProvider = ({children}) => {
     }
 
     const resetGame = () => {
-        console.log(dimensiones);
         auxMat = generarMatriz(dimensiones[0], dimensiones[1], "")
 
         auxShow = generarMatriz(dimensiones[0], dimensiones[1], false)
@@ -136,7 +134,6 @@ export const BuscaminasProvider = ({children}) => {
             choice[i].style.color = "#f7931a"
         }
         
-        console.log(dif);
         const selec = document.getElementById(dif);
         selec.style.backgroundColor = "#f7931a"
         selec.style.color = "#ffe9d4"
@@ -168,7 +165,6 @@ export const BuscaminasProvider = ({children}) => {
 
     const startGame = (dif) => {
 
-        console.log(dif);
 
         if(dif !== preDif){
             setPreDif(dif)
@@ -185,7 +181,6 @@ export const BuscaminasProvider = ({children}) => {
     }
     
     const newGame = () => {
-        console.log("new");
         setWinner(false)
         resetGame()
         putBombs(bombsNum)
@@ -215,7 +210,6 @@ export const BuscaminasProvider = ({children}) => {
                 }
             }
         }
-        console.log(free);
         update()
     }
 
@@ -234,7 +228,6 @@ export const BuscaminasProvider = ({children}) => {
             auxBlock[row][col] = true
 
             if(auxMat[row][col] === "💣"){
-                console.log("bomb");
                 for(let i = 0; i < dimensiones[0]; i++){
                     for(let j = 0; j < dimensiones[1]; j++){
     
@@ -245,8 +238,6 @@ export const BuscaminasProvider = ({children}) => {
                         }
                     }
                 }
-                console.log(auxBlock);
-                console.log(auxShow);
                 update()
             }
     
@@ -264,7 +255,6 @@ export const BuscaminasProvider = ({children}) => {
             }
     
             if(free === 0){
-                console.log("ganaste!");
                 setWinner(true)
                 setGameOn(false)
                 for(let i = 0; i < dimensiones[0]; i++){
@@ -277,9 +267,7 @@ export const BuscaminasProvider = ({children}) => {
                         }
                     }
                 }
-                console.log(time);
                 time = new Date() - tiempo
-                console.log(time);
                 setTiempo(time)
                 let puntos = puntajeFinal(time, dificultad)
                 setPuntaje(puntos)
@@ -382,28 +370,24 @@ export const BuscaminasProvider = ({children}) => {
 
         switch (m) {
             case "buscar":
-                console.log("buscar");
                 document.getElementById("buscar").style.border = "3px solid #27ae60";
                 document.getElementById("bandera").style.border = "1px solid #D9D9D9";
                 document.getElementById("duda").style.border = "1px solid #D9D9D9";
                 break;
 
             case "bandera":
-                console.log("bandera");
                 document.getElementById("buscar").style.border = "1px solid #D9D9D9";
                 document.getElementById("bandera").style.border = "3px solid #27ae60";
                 document.getElementById("duda").style.border = "1px solid #D9D9D9";
                 break;
 
             case "duda":
-                console.log("duda");
                 document.getElementById("buscar").style.border = "1px solid #D9D9D9";
                 document.getElementById("bandera").style.border = "1px solid #D9D9D9";
                 document.getElementById("duda").style.border = "3px solid #27ae60";
                 break;
         
             default:
-                console.log("defaulModo");
                 document.getElementById("buscar").style.border = "1px solid #D9D9D9";
                 document.getElementById("bandera").style.border = "1px solid #D9D9D9";
                 document.getElementById("duda").style.border = "1px solid #D9D9D9";
@@ -423,7 +407,6 @@ export const BuscaminasProvider = ({children}) => {
 
     const formatTime = (t) => {
 
-        console.log(t)
         let timeArray = ["","","",""]
 
         timeArray[3] = (t % 1000).toString().padStart(3, "0")

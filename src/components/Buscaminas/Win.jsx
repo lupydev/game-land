@@ -5,7 +5,6 @@ function Win(){
 
     const {tiempo,formatTime,puntaje} = useContext(BuscaminasContext)
 
-    console.log(tiempo);
     const time = formatTime(tiempo)
 
     return(

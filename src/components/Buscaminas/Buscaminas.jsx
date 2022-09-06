@@ -16,10 +16,6 @@ function Buscaminas() {
 
     getRanking("buscaMinas")
 
-    useEffect (() =>{
-        console.log(promedio);
-    }, [promedio])
-
     return(
         <BuscaminasProvider>
             <div className="buscaminasApp">

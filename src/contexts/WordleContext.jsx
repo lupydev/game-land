@@ -28,22 +28,6 @@ export const ContextApp = ({ children }) => {
     setTimer(Date.now());
   }, [juego]);
 
-  // useEffect(()=>{
-  //     let n = 0;
-  //     if(juego === true){
-
-  //         setInterval(()=>{
-  //             n++
-  //         }, 1000)
-
-  //     }
-  //     console.log(n);
-  //     if(win === true){
-  //         setTimer(n)
-  //         console.log(timer)
-  //     }
-  // }, [])
-
   const partida = () => {
     if (juego === true) {
       switch (seleccion) {

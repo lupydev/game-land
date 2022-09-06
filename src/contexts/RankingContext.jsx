@@ -23,8 +23,6 @@ export const RankingProvider = ({children}) => {
 
             let url = urlBase + rankings[i]
 
-            console.log(url);
-
             await fetch(url, {
                     method: "GET",
                     modo: "cors",
@@ -90,8 +88,6 @@ export const RankingProvider = ({children}) => {
             p.push(cont)
             cont++
         }
-
-        console.log(p);
         setPuestos(p)
     }
     

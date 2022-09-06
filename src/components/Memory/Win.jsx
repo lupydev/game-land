@@ -7,7 +7,6 @@ export const Win = () => {
     const {puntajeFinal, loadScore} = useContext(GlobalContext);
     const [usersData, setUsersData] = useState(JSON.parse(sessionStorage.getItem("userData")))
     
-    console.log(dificultad)
     let time = new Date() - timer;
     let puntos = 0
     if(dificultad === 12){

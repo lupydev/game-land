@@ -7,9 +7,6 @@ export const Memory = () => {
    const {promedio, getRanking} = useContext(GlobalContext)
    getRanking("memories")
 
-   useEffect (() =>{
-      console.log(promedio);
-   }, [promedio])
    return(
     <div>
        <MemoryProvider>

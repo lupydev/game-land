@@ -9,8 +9,6 @@ export const SudokuProvider = ({children}) => {
 
     const [usersData, setUsersData] = useState(JSON.parse(sessionStorage.getItem("userData")))
 
-    console.log(JSON.parse(sessionStorage.getItem("userData")));
-
     const [dataGeted, setDataGeted] = useState(false)
 
     const [baseBackup, setBaseBackup] = useState([[5,6,3,7,8,1,4,9,2],
@@ -40,7 +38,6 @@ export const SudokuProvider = ({children}) => {
         )
             .then((resp) => resp.json())
             .then(json => {
-                console.log(json);
                 if((json === false || json === undefined) && templates.length === 0){
                     setTemplates([])
                 } else {
@@ -242,23 +239,19 @@ export const SudokuProvider = ({children}) => {
 
     }
 
-    const newGame = () => {
-        console.log(base, matriz);        
+    const newGame = () => {      
         resetGame()
         let n;
         
-        console.log(base, templates);
         if(templates.length === 0){
             auxBase = baseBackup
             setBase(baseBackup)
         } else {
-            console.log();
             let m = setearBase(templates[Math.floor(Math.random() * templates.length)])
             auxBase = m
             setBase(auxBase)
         }
 
-        console.log(auxBase);
 
         switch (dificultad) {
             case "facil":
@@ -281,7 +274,6 @@ export const SudokuProvider = ({children}) => {
             let r = Math.floor(Math.random() * 9)
             let c = Math.floor(Math.random() * 9)
             
-            console.log(r,c,matriz, base);
             if(auxMat[r][c] === ""){
                 ponerNum(r.toString() + c.toString(), auxBase[r][c], true)
                 document.getElementById(r.toString() + c.toString()).style.fontWeight = "bolder"
@@ -376,8 +368,6 @@ export const SudokuProvider = ({children}) => {
     }
 
     const check = () =>{
-
-        console.log(matriz, base);
         for(let i = 0; i < 9; i++){
             for(let j = 0; j < 9; j++){
                 if(verifyValues[i][j] === false){
@@ -387,7 +377,6 @@ export const SudokuProvider = ({children}) => {
         }
         
         console.log("checked");
-        console.log(matriz, base);
         if(JSON.stringify(matriz) === JSON.stringify(base)){
             console.log("Felicitaciones");
             setWinner(true)
@@ -407,7 +396,6 @@ export const SudokuProvider = ({children}) => {
         let timeArray = ["","","",""]
 
         timeArray[3] = (t % 1000).toString().padStart(3, "0")
-        console.log(time)
 
         let s = t/1000
 

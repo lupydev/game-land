@@ -16,10 +16,6 @@ function Sudoku(){
 
     getRanking("sudoku")
 
-    useEffect (() =>{
-        console.log(promedio);
-    }, [promedio])
-
     return(
         <SudokuProvider>
             <div className="sudokuApp">

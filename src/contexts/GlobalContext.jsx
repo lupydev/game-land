@@ -19,7 +19,6 @@ export const GlobalProvider = ({children}) => {
     const [invitado, setInvitado] = useState(true)
 
     const singIn = async (u) => {
-        console.log("Recibido: ", JSON.stringify(u));
 
         setLoadingUser(true)
 
@@ -34,7 +33,6 @@ export const GlobalProvider = ({children}) => {
             )
                 .then(resp => resp.json()) 
                 .then(json => {
-                    console.log(json)
                     getUserData(u, json)
                     setInvitado(false)
                 })
@@ -42,8 +40,6 @@ export const GlobalProvider = ({children}) => {
         }
 
     const singUp = async (u) => {
-        
-        console.log("Recibido: ", JSON.stringify(u));
 
         await fetch('https://no-country-app.herokuapp.com/auth/singUp', {
             method: "POST",
@@ -52,11 +48,7 @@ export const GlobalProvider = ({children}) => {
             })
             .then(response => {
                 response.json();
-                console.log(response);
             })                 
-            .then(json => {
-                console.log(json)
-            })
             .catch(err => console.log(err))
     }
 
@@ -72,7 +64,6 @@ export const GlobalProvider = ({children}) => {
             if(user.username === users[i].username && user.password === users[i].password){
                 sessionStorage.setItem("userData", JSON.stringify(users[i]))
                 setUserData(JSON.parse(sessionStorage.getItem("userData")))
-                console.log(JSON.parse(sessionStorage.getItem("userData")));
                 setLogIn(true)
                 setLoadingUser(false)
                 return true
@@ -84,8 +75,6 @@ export const GlobalProvider = ({children}) => {
 
     const puntajeFinal = (t, d) => {
         let puntos = 0
-        console.log(t);
-        console.log(d);
         switch (d) {
             case "facil":
                 if((1800 - (t / 1000)) * 1.5 + 500 > 0){
@@ -115,32 +104,22 @@ export const GlobalProvider = ({children}) => {
             default:
                 break;
         }
-
-        console.log(puntos);
         Math.trunc(puntos)
-        console.log(puntos);
         return puntos
     }
 
     const loadScore = (userId, userRecords, puntos, game) => {
 
-        console.log(userId, userRecords, puntos, game);
         let min
         let auxArray = userRecords
         let finalArray = []
         let strArray = ""
-        
-        console.log(auxArray);
 
         for(let i = 0; i < (5  - auxArray.length); i++){
             auxArray.push(0)
-            console.log(auxArray);
         }
 
-        console.log(auxArray);
-        
         min = Math.min(...auxArray)
-        console.log(min);
         if(min < puntos){
             for(let i = 0; i < auxArray.length; i++){
                 if(auxArray[i] === min){
@@ -150,13 +129,9 @@ export const GlobalProvider = ({children}) => {
                 }
             }
         }  
-        console.log(finalArray);
         strArray = JSON.stringify(finalArray).slice(1,-1)
-        console.log(strArray);
 
         let url = "https://no-country-app.herokuapp.com/gamers/recordEdit/" + userId.toString()
-        console.log(url);
-        console.log(strArray);
         switch (game) {
             case "sudoku":
                 url = url + "?recordSudoku=" + strArray + "&recordWordle=&recordMemories=&recordBuscaMinas="
@@ -178,13 +153,11 @@ export const GlobalProvider = ({children}) => {
                 break;
         }
 
-        console.log(url);
         fetch(url, {
             method: "POST",
             headers: {"Content-type": "application/json; charset=UTF-8"}
             })
             .then(response => response.json())            
-            .then(json => console.log(json))
             .catch(err => console.log(err))
     }
 
@@ -202,7 +175,6 @@ export const GlobalProvider = ({children}) => {
             )
                 .then(resp => resp.json()) 
                 .then(json => {
-                    console.log(json)
                     setPromedio(ranking(json, userData.id, game))
                 })
                 .catch(err => console.log(err))
@@ -239,8 +211,6 @@ export const GlobalProvider = ({children}) => {
         }
         for(let i = 0; i < list.length; i++){
             if(list[i].id === u){
-                console.log(list[i]);
-                console.log(atributo);
                 return list[i][atributo]
             }
         }        

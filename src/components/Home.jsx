@@ -10,10 +10,6 @@ export const Home = () => {
   const {getRanking, promedio} = useContext(GlobalContext)
   
   getRanking("global")
-
-  useEffect (() =>{
-    console.log(promedio);
-  }, [promedio])
   
   return (
     <div>
