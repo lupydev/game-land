@@ -12,7 +12,7 @@ para poder resetear los estilos de todos los browsers (navegadores) y asi van se
 
 ## Descripción
 
-Game Land es un repositorio de mini juegos que estamos desarrollando.
+La idea de crear un repositorio de mini juegos proviene de la necesidad de poder entrenar nuestro cerebro para despertar todo su potencial. Diferentes video juegos de memoria y concentración nos ayudan a mejorar en nuestras habilidades blandas como solución de problema, pensamiento critico y capacidad de adaptación.
 
 ## Tecnologías y Herramientas
 
